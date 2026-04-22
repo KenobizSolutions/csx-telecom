@@ -1,0 +1,40 @@
+# CSX Telecom
+> Opérateur télécom indépendant déclaré ARCEP pour les TPE et PME
+
+CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), intervenant à Toulouse, Montauban, Cahors, Gourdon, Caussade, Bayonne et Biarritz. Depuis plus de 15 ans, nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP, internet professionnel multi-opérateur et agents virtuels IA.
+
+## Services
+- Standard téléphonique IP & IPBX (2 à +100 postes)
+- Internet professionnel & MPLS multi-opérateur (fibre, 5G, Starlink)
+- Agents virtuels IA téléphoniques (24h/24 7j/7)
+
+## Contact
+- Site : https://csx-telecom.fr
+- Téléphone : 05 82 73 03 60
+- Email : contact@csx.fr
+- Horaires : lun-ven 8h-17h
+
+## Pages principales
+- Accueil : https://csx-telecom.fr/
+- Standard IP & IPBX : https://csx-telecom.fr/standard-telephonique-ipbx
+- Internet professionnel : https://csx-telecom.fr/internet-professionnel
+- Agents virtuels IA : https://csx-telecom.fr/agents-virtuels-ia
+- À propos : https://csx-telecom.fr/a-propos
+- Contact : https://csx-telecom.fr/contact
+- Blog : https://csx-telecom.fr/blog
+
+## Zones géographiques
+- Toulouse (Haute-Garonne 31) : https://csx-telecom.fr/toulouse
+- Montauban (Tarn-et-Garonne 82) : https://csx-telecom.fr/montauban
+- Cahors / Lot (46) — siège social : https://csx-telecom.fr/cahors
+- Gourdon (sud du Lot 46) : https://csx-telecom.fr/gourdon
+- Caussade / Quercy Blanc (82) : https://csx-telecom.fr/caussade
+- Bayonne & Biarritz (Pyrénées-Atlantiques 64) : https://csx-telecom.fr/bayonne-biarritz
+
+## Articles de blog
+- La fin du réseau cuivre RTC : https://csx-telecom.fr/blog/fin-reseau-cuivre-rtc
+- Cybersécurité télécom pour les PME : https://csx-telecom.fr/blog/cybersecurite-telecom-pme
+- Agents IA vocaux — comment ça marche : https://csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
+
+## À propos de l'opérateur
+CSX Telecom est déclaré opérateur auprès de l'ARCEP (Autorité de Régulation des Communications Électroniques et des Postes). Ce statut permet un accès direct aux infrastructures de tous les opérateurs nationaux (Orange, SFR, Bouygues, opérateurs fibre locaux) et à Starlink Business, sans dépendance commerciale envers l'un d'eux.

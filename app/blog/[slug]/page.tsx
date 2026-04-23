@@ -20,13 +20,13 @@ export async function generateMetadata(props: {
   const article = getArticleBySlug(slug);
   if (!article) return {};
   return {
-    title: `${article.title} | CSX Telecom`,
+    title: article.title,
     description: article.description,
-    alternates: { canonical: `https://csx-telecom.fr/blog/${article.slug}` },
+    alternates: { canonical: `https://www.csx-telecom.fr/blog/${article.slug}` },
     openGraph: {
       title: article.title,
       description: article.description,
-      url: `https://csx-telecom.fr/blog/${article.slug}`,
+      url: `https://www.csx-telecom.fr/blog/${article.slug}`,
       type: "article",
       publishedTime: article.date,
       authors: ["CSX Telecom"],
@@ -54,17 +54,17 @@ export default async function ArticlePage(props: {
     author: {
       "@type": "Organization",
       name: "CSX Telecom",
-      url: "https://csx-telecom.fr",
+      url: "https://www.csx-telecom.fr",
     },
     publisher: {
       "@type": "Organization",
       name: "CSX Telecom",
-      url: "https://csx-telecom.fr",
+      url: "https://www.csx-telecom.fr",
     },
-    url: `https://csx-telecom.fr/blog/${article.slug}`,
+    url: `https://www.csx-telecom.fr/blog/${article.slug}`,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://csx-telecom.fr/blog/${article.slug}`,
+      "@id": `https://www.csx-telecom.fr/blog/${article.slug}`,
     },
   };
 

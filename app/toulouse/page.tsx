@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Téléphonie IP et internet professionnel à Toulouse — CSX Telecom",
+  title: "Opérateur télécom à Toulouse — Standard IP & Internet pro (31)",
   description:
     "Opérateur télécom à Toulouse et en Haute-Garonne (31). Standard IP, IPBX, internet multi-opérateur, agents IA. Équipe locale, audit gratuit, intervention rapide sur toute la métropole.",
-  alternates: { canonical: "https://csx-telecom.fr/toulouse" },
+  alternates: { canonical: "https://www.csx-telecom.fr/toulouse" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Toulouse",
   description:
     "Opérateur télécom indépendant déclaré ARCEP à Toulouse. Standard IP, IPBX, internet professionnel multi-opérateur et agents IA pour les entreprises de la métropole toulousaine.",
-  url: "https://csx-telecom.fr/toulouse",
+  url: "https://www.csx-telecom.fr/toulouse",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

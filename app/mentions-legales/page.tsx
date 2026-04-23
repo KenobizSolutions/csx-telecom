@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Mentions légales | CSX Telecom",
+  title: "Mentions légales",
   description: "Mentions légales de CSX Telecom — éditeur, hébergeur, déclaration ARCEP, propriété intellectuelle et données personnelles.",
-  alternates: { canonical: "https://csx-telecom.fr/mentions-legales" },
+  alternates: { canonical: "https://www.csx-telecom.fr/mentions-legales" },
 };
 
 const sections = [
@@ -12,13 +12,13 @@ const sections = [
     title: "Éditeur du site",
     content: [
       { label: "Raison sociale", value: "CSX Telecom" },
-      { label: "Forme juridique", value: "Société à préciser" },
+      { label: "Forme juridique", value: "SARL" },
       { label: "Siège social", value: "1 Place Emilien Imbert, 46000 Cahors, France" },
       { label: "Téléphone", value: "05 82 73 03 60" },
       { label: "Email", value: "contact@csx.fr" },
       { label: "Directeur de la publication", value: "CSX Telecom" },
       { label: "SIRET", value: "800 317 570 00011" },
-      { label: "TVA intracommunautaire", value: "À compléter" },
+      { label: "TVA intracommunautaire", value: "FR89800317570" },
     ],
   },
   {
@@ -29,7 +29,6 @@ const sections = [
         value:
           "Opérateur de communications électroniques déclaré auprès de l'Autorité de Régulation des Communications Électroniques et des Postes (ARCEP) conformément à l'article L. 33-1 du Code des postes et des communications électroniques.",
       },
-      { label: "Numéro de déclaration ARCEP", value: "À compléter" },
     ],
   },
   {

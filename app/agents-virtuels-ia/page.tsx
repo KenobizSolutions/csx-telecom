@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Agents virtuels IA vocaux — Standard téléphonique 24h/24 | CSX Telecom",
+  title: "Agents virtuels IA — Répondeur téléphonique intelligent 24h/24",
   description:
     "Agents IA vocaux qui répondent à vos appels 24h/24. Accueil standard, prise de RDV, FAQ, qualification de leads. Intégration native avec votre standard IP.",
-  alternates: { canonical: "https://csx-telecom.fr/agents-virtuels-ia" },
+  alternates: { canonical: "https://www.csx-telecom.fr/agents-virtuels-ia" },
 };
 
 const jsonLd = {
@@ -15,11 +15,11 @@ const jsonLd = {
   provider: {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
-    url: "https://csx-telecom.fr",
+    url: "https://www.csx-telecom.fr",
   },
   description:
     "Agents IA vocaux qui répondent aux appels téléphoniques 24h/24, 7j/7. Accueil standard, prise de rendez-vous, FAQ, qualification de leads.",
-  url: "https://csx-telecom.fr/agents-virtuels-ia",
+  url: "https://www.csx-telecom.fr/agents-virtuels-ia",
 } as const;
 
 const useCases = [

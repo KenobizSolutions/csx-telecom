@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Cahors et dans le Lot — CSX Telecom",
+  title: "Opérateur télécom à Cahors — Standard IP & Internet pro (46)",
   description:
     "CSX Telecom, siège social à Cahors. Opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA. Expertise locale depuis 15 ans.",
-  alternates: { canonical: "https://csx-telecom.fr/cahors" },
+  alternates: { canonical: "https://www.csx-telecom.fr/cahors" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Cahors (siège social)",
   description:
     "Siège social de CSX Telecom à Cahors. Opérateur télécom indépendant déclaré ARCEP. Standard IP, IPBX, internet professionnel et agents IA pour les entreprises du Lot.",
-  url: "https://csx-telecom.fr/cahors",
+  url: "https://www.csx-telecom.fr/cahors",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

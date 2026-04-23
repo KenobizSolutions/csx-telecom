@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Contact — Audit télécom gratuit sous 24h | CSX Telecom",
+  title: "Contact — Demandez votre audit gratuit",
   description:
     "Contactez CSX Telecom : 05 82 73 03 60 · contact@csx.fr. Siège à Cahors (Lot 46). Lun–Ven 8h–17h, pause 12h–13h30. Assistante virtuelle disponible 24h/24.",
-  alternates: { canonical: "https://csx-telecom.fr/contact" },
+  alternates: { canonical: "https://www.csx-telecom.fr/contact" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   name: "Contact CSX Telecom",
-  url: "https://csx-telecom.fr/contact",
+  url: "https://www.csx-telecom.fr/contact",
   mainEntity: {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
     telephone: "+33582730360",
     email: "contact@csx.fr",
-    url: "https://csx-telecom.fr",
+    url: "https://www.csx-telecom.fr",
     address: {
       "@type": "PostalAddress",
       streetAddress: "1 Place Emilien Imbert",

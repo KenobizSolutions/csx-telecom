@@ -17,8 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.csx-telecom.fr"),
   title: {
-    default: "CSX Telecom",
+    default: "CSX Telecom — Opérateur télécom indépendant pour les entreprises",
     template: "%s | CSX Telecom",
   },
   description:

@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://csx-telecom.fr/sitemap.xml",
+    sitemap: "https://www.csx-telecom.fr/sitemap.xml",
   };
 }

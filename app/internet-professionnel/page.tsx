@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Internet professionnel multi-opérateur — Fibre, MPLS, 5G | CSX Telecom",
+  title: "Internet professionnel fibre & MPLS multi-opérateur",
   description:
     "Accès internet professionnel avec vraie redondance multi-opérateur. Fibre dédiée, SDSL, 5G, Starlink, MPLS, pare-feu NGFW. Opérateur ARCEP indépendant.",
-  alternates: { canonical: "https://csx-telecom.fr/internet-professionnel" },
+  alternates: { canonical: "https://www.csx-telecom.fr/internet-professionnel" },
 };
 
 const jsonLd = {
@@ -15,12 +15,12 @@ const jsonLd = {
   provider: {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
-    url: "https://csx-telecom.fr",
+    url: "https://www.csx-telecom.fr",
   },
   description:
     "Accès internet professionnel fibre, SDSL, 5G, Starlink, MPLS avec redondance multi-opérateur et pare-feu NGFW pour les entreprises.",
   areaServed: ["Toulouse", "Montauban", "Cahors", "Bayonne"],
-  url: "https://csx-telecom.fr/internet-professionnel",
+  url: "https://www.csx-telecom.fr/internet-professionnel",
 } as const;
 
 const technologies = [

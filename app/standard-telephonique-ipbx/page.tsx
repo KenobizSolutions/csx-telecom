@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IP & IPBX pour entreprises | CSX Telecom",
+  title: "Standard téléphonique IP & IPBX pour les entreprises",
   description:
     "Installation et maintenance de standard IP ou IPBX, de 2 à +100 postes. Fin du réseau cuivre RTC, migration sans coupure, cloud ou sur site. Opérateur ARCEP.",
-  alternates: { canonical: "https://csx-telecom.fr/standard-telephonique-ipbx" },
+  alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },
 };
 
 const jsonLd = {
@@ -15,12 +15,12 @@ const jsonLd = {
   provider: {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
-    url: "https://csx-telecom.fr",
+    url: "https://www.csx-telecom.fr",
   },
   description:
     "Installation, configuration et maintenance de standard téléphonique IP ou IPBX pour entreprises. De 2 à plus de 100 postes. Portage de numéros sans coupure.",
   areaServed: ["Toulouse", "Montauban", "Cahors", "Bayonne"],
-  url: "https://csx-telecom.fr/standard-telephonique-ipbx",
+  url: "https://www.csx-telecom.fr/standard-telephonique-ipbx",
 } as const;
 
 const steps = [

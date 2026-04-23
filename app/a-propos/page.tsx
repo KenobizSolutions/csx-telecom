@@ -2,17 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "À propos — 15 ans d'expertise télécom pour les entreprises | CSX Telecom",
+  title: "À propos — 15 ans d'expertise télécom pour les PME",
   description:
     "CSX Telecom, opérateur ARCEP indépendant depuis 15 ans. +200 clients PME. Équipes à Toulouse, Montauban, Cahors et Bayonne. Proximité, multi-opérateur, IA.",
-  alternates: { canonical: "https://csx-telecom.fr/a-propos" },
+  alternates: { canonical: "https://www.csx-telecom.fr/a-propos" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
   name: "À propos de CSX Telecom",
-  url: "https://csx-telecom.fr/a-propos",
+  url: "https://www.csx-telecom.fr/a-propos",
   mainEntity: {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
@@ -20,7 +20,7 @@ const jsonLd = {
       "Opérateur télécom indépendant déclaré ARCEP. 15 ans d'expérience. Plus de 200 clients PME. Téléphonie IP, internet professionnel, agents IA.",
     foundingDate: "2009",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 20 },
-    url: "https://csx-telecom.fr",
+    url: "https://www.csx-telecom.fr",
     telephone: "+33582730360",
     email: "contact@csx.fr",
     address: {

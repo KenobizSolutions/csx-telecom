@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Solutions télécom pour entreprises à Caussade — CSX Telecom",
+  title: "Opérateur télécom à Caussade — Standard IP & Internet pro (82)",
   description:
     "Opérateur télécom à Caussade et dans le Quercy Blanc (Tarn-et-Garonne 82). Standard IP, internet professionnel, agents IA. Intervention locale depuis Montauban et Cahors.",
-  alternates: { canonical: "https://csx-telecom.fr/caussade" },
+  alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Caussade",
   description:
     "Opérateur télécom indépendant déclaré ARCEP à Caussade et dans le Quercy Blanc. Standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
-  url: "https://csx-telecom.fr/caussade",
+  url: "https://www.csx-telecom.fr/caussade",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

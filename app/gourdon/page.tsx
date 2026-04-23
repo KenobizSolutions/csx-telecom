@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Téléphonie professionnelle à Gourdon — CSX Telecom",
+  title: "Opérateur télécom à Gourdon — Standard IP & Internet pro (46)",
   description:
     "Opérateur télécom à Gourdon et dans le sud du Lot (46). Standard IP, internet fibre, 5G et Starlink pour zones rurales. Audit gratuit, intervention locale depuis Cahors.",
-  alternates: { canonical: "https://csx-telecom.fr/gourdon" },
+  alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Gourdon",
   description:
     "Opérateur télécom indépendant déclaré ARCEP. Standard IP, internet fibre, 5G et Starlink pour les entreprises de Gourdon et du sud du Lot. Spécialiste des zones rurales.",
-  url: "https://csx-telecom.fr/gourdon",
+  url: "https://www.csx-telecom.fr/gourdon",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Téléphonie IP et internet pro à Bayonne et Biarritz — CSX Telecom",
+  title: "Opérateur télécom Bayonne Biarritz — Standard IP & Internet pro (64)",
   description:
     "Opérateur télécom au Pays Basque (64). Standard IP, IPBX, internet multi-opérateur, agents IA. Antenne locale à Bayonne. Audit gratuit pour les entreprises de Bayonne, Biarritz, Anglet.",
-  alternates: { canonical: "https://csx-telecom.fr/bayonne-biarritz" },
+  alternates: { canonical: "https://www.csx-telecom.fr/bayonne-biarritz" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Bayonne & Biarritz",
   description:
     "Opérateur télécom indépendant déclaré ARCEP au Pays Basque. Standard IP, internet professionnel multi-opérateur et agents IA pour les entreprises de Bayonne, Biarritz et Anglet.",
-  url: "https://csx-telecom.fr/bayonne-biarritz",
+  url: "https://www.csx-telecom.fr/bayonne-biarritz",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

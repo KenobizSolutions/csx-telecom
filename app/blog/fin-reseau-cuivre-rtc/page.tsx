@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "La fin du réseau cuivre RTC : ce que les entreprises doivent savoir | CSX Telecom",
+  title: "Fin du réseau cuivre RTC : que faire pour votre entreprise ?",
   description:
     "Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire. Délais, impacts sur votre entreprise, solutions de migration IP : tout ce qu'il faut anticiper.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc" },

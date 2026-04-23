@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Internet professionnel vs box grand public : les vraies différences | CSX Telecom",
+  title: "Internet professionnel vs box particulier : les différences clés",
   description:
     "Pourquoi une box grand public ne suffit pas pour une entreprise ? Comparatif complet entre internet professionnel et offre grand public : GTR, QoS, redondance, support.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier" },

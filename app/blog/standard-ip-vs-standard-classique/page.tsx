@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Standard IP vs standard classique : pourquoi migrer en 2026 ? | CSX Telecom",
+  title: "Standard IP vs standard classique : quel choix pour votre entreprise ?",
   description:
     "Comparatif complet entre standard téléphonique IP et standard analogique classique. Fonctionnalités, coûts, contraintes techniques et avantages concrets pour les entreprises.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique" },

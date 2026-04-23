@@ -2,18 +2,21 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom multi-opérateur | PME | CSX Telecom",
+  title: {
+    absolute: "CSX Telecom — Opérateur télécom indépendant pour les entreprises",
+  },
   description:
     "CSX Telecom, opérateur ARCEP indépendant. Standard IP, IPBX, internet professionnel, agents IA. Un seul interlocuteur. Plus de 200 clients. Audit gratuit.",
-  alternates: { canonical: "https://csx-telecom.fr/" },
+  alternates: { canonical: "https://www.csx-telecom.fr/" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
+  "@id": "https://www.csx-telecom.fr/#organization",
   name: "CSX Telecom",
   description: "Opérateur télécom indépendant déclaré ARCEP.",
-  url: "https://csx-telecom.fr",
+  url: "https://www.csx-telecom.fr",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

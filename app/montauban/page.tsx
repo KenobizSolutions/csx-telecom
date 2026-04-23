@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IP et internet pro à Montauban — CSX Telecom",
+  title: "Opérateur télécom à Montauban — Standard IP & Internet pro (82)",
   description:
     "Opérateur télécom à Montauban et dans le Tarn-et-Garonne (82). Standard IP, IPBX, internet professionnel multi-opérateur pour TPE et PME. Audit gratuit, intervention locale.",
-  alternates: { canonical: "https://csx-telecom.fr/montauban" },
+  alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
 };
 
 const jsonLd = {
@@ -14,7 +14,7 @@ const jsonLd = {
   name: "CSX Telecom — Montauban",
   description:
     "Opérateur télécom indépendant déclaré ARCEP à Montauban. Standard IP, IPBX, internet professionnel et agents IA pour les TPE et PME du Tarn-et-Garonne.",
-  url: "https://csx-telecom.fr/montauban",
+  url: "https://www.csx-telecom.fr/montauban",
   telephone: "+33582730360",
   email: "contact@csx.fr",
   address: {

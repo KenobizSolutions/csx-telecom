@@ -3,10 +3,10 @@ import Link from "next/link";
 import { articles } from "./data";
 
 export const metadata: Metadata = {
-  title: "Blog télécom entreprises — Conseils & actualités | CSX Telecom",
+  title: "Blog télécom entreprise — Guides et conseils | CSX Telecom",
   description:
     "Articles de fond sur la téléphonie IP, la cybersécurité télécom et les agents IA vocaux pour les PME. Conseils d'un opérateur ARCEP indépendant.",
-  alternates: { canonical: "https://csx-telecom.fr/blog" },
+  alternates: { canonical: "https://www.csx-telecom.fr/blog" },
 };
 
 const categoryColors: Record<string, string> = {

@@ -94,12 +94,44 @@ const zones = [
   "Luzech & Douelle",
 ];
 
+const faqItems = [
+  {
+    question: "Mon entreprise dans le Lot est-elle concernée par la fin du réseau cuivre ?",
+    answer:
+      "Très probablement oui. Le département du Lot est particulièrement touché par l'extinction du réseau RTC d'Orange. Plusieurs communes du 46 sont déjà dans le calendrier de fermeture. Si votre entreprise fonctionne encore avec des lignes analogiques, des installations d'alarme sur cuivre ou des terminaux de paiement filaires, la migration vers l'IP est inévitable — parfois sous moins de 12 mois. CSX Telecom réalise un audit gratuit pour identifier votre date de bascule et préparer la transition.",
+  },
+  {
+    question: "CSX Telecom peut-il intervenir dans les zones rurales du Lot ?",
+    answer:
+      "C'est précisément notre cœur de métier dans le 46. Notre siège est à Cahors et nos techniciens se déplacent dans tout le département : Figeac, Saint-Céré, Souillac, Gourdon, Bretenoux, la vallée du Lot. Nous connaissons les contraintes des zones rurales et semi-rurales du Lot mieux que tout autre opérateur. Pas de frais kilométriques excessifs sur la zone Lot.",
+  },
+  {
+    question: "Quelles solutions pour une entreprise dans une zone blanche ou mal couverte du Lot ?",
+    answer:
+      "Nous proposons Starlink Business pour les sites où aucune solution filaire n'est disponible. Couplé à un lien 4G/5G de secours automatique, c'est aujourd'hui la solution la plus fiable pour les exploitations agricoles, hôtels en campagne, châteaux viticoles et gîtes professionnels du Cahorsien. L'installation Starlink se fait en quelques heures et ne nécessite pas de travaux de génie civil.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function CahorsPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -259,6 +291,35 @@ export default function CahorsPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Télécom dans le Lot
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Les questions les plus fréquentes des entreprises du département 46.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

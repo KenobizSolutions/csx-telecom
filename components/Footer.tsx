@@ -86,7 +86,7 @@ export function Footer() {
             <span className="text-white/30" aria-hidden="true">
               |
             </span>
-            <span>SIRET</span>
+            <span>SIRET : 800 317 570 00011</span>
           </div>
         </div>
       </div>

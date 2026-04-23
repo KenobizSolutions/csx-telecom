@@ -100,12 +100,49 @@ const features = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "Combien de temps prend une migration vers le standard IP ?",
+    answer:
+      "Une migration standard prend entre 2 et 6 semaines selon la taille de l'installation. Cela inclut l'audit initial, la commande des équipements, le portage des numéros auprès des opérateurs (délai réglementaire de 5 à 10 jours ouvrés) et la formation des utilisateurs. Dans tous les cas, le service n'est jamais interrompu : la bascule se fait en parallèle de l'ancien système.",
+  },
+  {
+    question: "Puis-je conserver mes numéros de téléphone existants ?",
+    answer:
+      "Oui, absolument. Le portage de numéros est une obligation réglementaire. CSX Telecom, en tant qu'opérateur déclaré ARCEP, gère directement le portage de vos numéros fixes et mobiles professionnels. Vos clients continuent d'appeler les mêmes numéros — sans aucune coupure, sans aucune modification côté appelant.",
+  },
+  {
+    question: "Quelle est la différence entre un standard cloud et un IPBX sur site ?",
+    answer:
+      "Le standard cloud est hébergé sur nos serveurs : aucun matériel à installer dans vos locaux, accès depuis n'importe où, évolutivité immédiate. L'IPBX sur site est un équipement installé physiquement dans votre entreprise : idéal si vous souhaitez une indépendance totale vis-à-vis d'internet, ou si vous avez des exigences de sécurité très strictes. Les deux solutions se valent techniquement — le choix dépend de votre organisation et de vos contraintes.",
+  },
+  {
+    question: "Le standard IP fonctionne-t-il en cas de coupure internet ?",
+    answer:
+      "C'est la question que tout le monde devrait poser. Un standard cloud basique tombe si internet tombe. Chez CSX Telecom, nous concevons les installations avec redondance : lien 4G/5G de secours automatique, IPBX sur site avec basculement, ou renvoi d'appels d'urgence sur mobiles. Nous vous expliquons clairement les risques de chaque configuration et vous proposons le niveau de résilience adapté à votre activité.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function StandardIPBXPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -249,6 +286,35 @@ export default function StandardIPBXPage() {
                   <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Standard téléphonique IP
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Tout ce que vous devez savoir avant de migrer vers la téléphonie IP.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 group open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>

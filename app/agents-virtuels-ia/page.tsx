@@ -83,12 +83,49 @@ const availability = [
   { stat: "∞", label: "appels simultanés sans file d'attente" },
 ];
 
+const faqItems = [
+  {
+    question: "Les appelants savent-ils qu'ils parlent à un agent IA ?",
+    answer:
+      "C'est à vous de décider. Certains clients préfèrent une transparence totale — l'agent se présente comme un assistant automatique. D'autres préfèrent que l'agent parle au nom de l'entreprise sans préciser sa nature. Dans les deux cas, la qualité vocale et la compréhension contextuelle sont telles que l'expérience reste fluide et professionnelle. Nous vous conseillons sur la meilleure approche selon votre secteur et votre clientèle.",
+  },
+  {
+    question: "Comment l'agent IA s'intègre-t-il à mon agenda ou mon CRM ?",
+    answer:
+      "L'intégration se fait via des connecteurs standards : Google Calendar, Microsoft Outlook, Zoho Calendar pour les agendas ; Zoho CRM, HubSpot, Salesforce pour les CRM. L'agent peut consulter les disponibilités en temps réel, créer des événements, enregistrer des leads et déclencher des workflows. La configuration est réalisée par nos équipes lors du déploiement — vous n'avez pas besoin de compétences techniques.",
+  },
+  {
+    question: "Que se passe-t-il si l'agent IA ne comprend pas la demande de l'appelant ?",
+    answer:
+      "L'agent IA est conçu pour détecter les situations où il ne peut pas répondre correctement. Dans ce cas, il propose plusieurs options selon votre configuration : transférer l'appel vers un collaborateur disponible, prendre un message structuré, ou rappeler l'appelant sur une plage horaire convenue. Il n'y a jamais de situation bloquante : l'appelant est toujours pris en charge.",
+  },
+  {
+    question: "Combien de temps faut-il pour mettre en place un agent IA ?",
+    answer:
+      "La mise en place d'un agent IA basique — accueil, prise de message, renvoi d'appel — prend entre 3 et 7 jours ouvrés. Les configurations plus avancées avec intégration CRM, prise de rendez-vous et base de connaissance prennent 2 à 3 semaines. L'agent s'intègre directement dans votre standard IP CSX Telecom existant ou dans une nouvelle installation — sans changement de numéro ni interruption de service.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function AgentsVirtuelIAPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -217,6 +254,35 @@ export default function AgentsVirtuelIAPage() {
               L'agent IA ne remplace pas vos équipes : il les décharge des appels répétitifs et
               s'assure qu'aucune opportunité n'est perdue en dehors des heures de bureau.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Agents virtuels IA
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Tout ce que vous voulez savoir sur nos agents vocaux IA avant de démarrer.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 group open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

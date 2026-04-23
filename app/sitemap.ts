@@ -26,12 +26,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/bayonne-biarritz`,             lastModified: TODAY, changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  const blogPages: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${BASE}/blog/${article.slug}`,
-    lastModified: new Date(article.date),
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const standaloneArticles: MetadataRoute.Sitemap = [
+    { url: `${BASE}/blog/fin-reseau-cuivre-rtc`,                    lastModified: new Date("2026-04-22"), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/blog/standard-ip-vs-standard-classique`,         lastModified: new Date("2026-04-22"), changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE}/blog/internet-professionnel-vs-box-particulier`, lastModified: new Date("2026-04-22"), changeFrequency: "monthly", priority: 0.7 },
+  ];
 
-  return [...staticPages, ...blogPages];
+  const blogPages: MetadataRoute.Sitemap = articles
+    .filter((a) => !["fin-reseau-cuivre-rtc", "standard-ip-vs-standard-classique", "internet-professionnel-vs-box-particulier"].includes(a.slug))
+    .map((article) => ({
+      url: `${BASE}/blog/${article.slug}`,
+      lastModified: new Date(article.date),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
+
+  return [...staticPages, ...standaloneArticles, ...blogPages];
 }

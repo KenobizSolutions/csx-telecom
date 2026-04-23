@@ -13,11 +13,11 @@ const sections = [
     content: [
       { label: "Raison sociale", value: "CSX Telecom" },
       { label: "Forme juridique", value: "Société à préciser" },
-      { label: "Siège social", value: "Cahors, Lot (46000), France" },
+      { label: "Siège social", value: "1 Place Emilien Imbert, 46000 Cahors, France" },
       { label: "Téléphone", value: "05 82 73 03 60" },
       { label: "Email", value: "contact@csx.fr" },
       { label: "Directeur de la publication", value: "CSX Telecom" },
-      { label: "SIRET", value: "À compléter" },
+      { label: "SIRET", value: "800 317 570 00011" },
       { label: "TVA intracommunautaire", value: "À compléter" },
     ],
   },

@@ -80,12 +80,44 @@ const reasons = [
   },
 ];
 
+const faqItems = [
+  {
+    question: "Caussade et le Quercy Blanc sont-ils bien couverts en fibre professionnelle ?",
+    answer:
+      "La couverture fibre de Caussade et du Quercy Blanc s'améliore grâce au réseau THD 82. La commune de Caussade est en bonne partie éligible, mais les zones industrielles et artisanales périphériques restent parfois en attente. CSX Telecom effectue une vérification d'éligibilité gratuite à l'adresse exacte et propose une solution de transition SDSL ou 5G si la fibre n'est pas encore disponible.",
+  },
+  {
+    question: "Quel opérateur choisir pour une PME dans le Quercy Blanc ?",
+    answer:
+      "La question n'est pas tant de choisir un opérateur, que de choisir le bon intermédiaire. En tant qu'opérateur déclaré ARCEP, CSX Telecom accède directement à Orange, SFR, Bouygues et aux opérateurs fibre locaux du 82. Nous comparons les offres disponibles à votre adresse et vous recommandons la solution la plus résiliente sans aucun lien commercial avec un opérateur en particulier. Objectivité garantie.",
+  },
+  {
+    question: "La fin du réseau cuivre concerne-t-elle aussi les entreprises de Caussade ?",
+    answer:
+      "Oui. Le Tarn-et-Garonne est dans le périmètre des fermetures progressives du réseau RTC d'Orange. Si votre entreprise dispose encore de lignes téléphoniques analogiques classiques, d'un fax filaire ou d'un terminal de paiement sur ligne cuivre, la migration vers l'IP est inévitable. CSX Telecom gère la transition complète : audit, choix de la solution, portage des numéros et formation de vos équipes — sans coupure de service.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function CaussadePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -216,6 +248,35 @@ export default function CaussadePage() {
               vers l'IP est inévitable — et souvent plus rapide que prévu. CSX Telecom anticipe
               avec vous et réalise la transition sans coupure ni perte de numéro.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Télécom à Caussade
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Les questions des entreprises du Quercy Blanc et du sud du 82.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

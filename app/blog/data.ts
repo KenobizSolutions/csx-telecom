@@ -109,6 +109,40 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "standard-ip-vs-standard-classique",
+    title: "Standard IP vs standard classique : pourquoi migrer en 2026 ?",
+    description:
+      "Comparatif complet entre standard téléphonique IP et standard analogique classique. Fonctionnalités, coûts, contraintes techniques et avantages concrets pour les PME.",
+    date: "2026-02-10",
+    category: "Téléphonie IP",
+    readingTime: "6 min",
+    content:
+      "La migration vers le standard IP n'est plus une option pour la plupart des entreprises : le réseau cuivre RTC est en extinction progressive. Mais au-delà de la contrainte réglementaire, la téléphonie IP offre des fonctionnalités concrètes qui transforment le quotidien des équipes.",
+    sections: [
+      {
+        heading: "Fonctionnalités comparées",
+        body: "Le standard classique est fiable mais limité : pas de télétravail natif, ajout de ligne coûteux, aucune intégration CRM. Le standard IP offre mobilité totale, évolutivité immédiate, intégration avec les outils métier et possibilité d'ajouter des agents vocaux IA.",
+      },
+    ],
+  },
+  {
+    slug: "internet-professionnel-vs-box-particulier",
+    title: "Internet professionnel vs box grand public : les vraies différences",
+    description:
+      "Pourquoi une box grand public ne suffit pas pour une entreprise ? GTR, débit garanti, QoS, redondance, support dédié : les vraies différences expliquées clairement.",
+    date: "2026-01-20",
+    category: "Internet professionnel",
+    readingTime: "7 min",
+    content:
+      "Une box grand public et un accès internet professionnel n'ont de commun que le câble qui rentre dans votre bureau. GTR, débit garanti, QoS, redondance, adresse IP fixe, support dédié : voici pourquoi votre activité ne peut pas reposer sur une offre conçue pour des particuliers.",
+    sections: [
+      {
+        heading: "Ce que garantit l'internet professionnel",
+        body: "La GTR (Garantie de Temps de Rétablissement) est l'engagement contractuel de rétablissement sous 4h ou 8h. Le débit garanti et symétrique assure la même bande passante en montant et en descendant, sans mutualisation. La QoS priorise les flux voix pour éviter les dégradations lors des appels IP.",
+      },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

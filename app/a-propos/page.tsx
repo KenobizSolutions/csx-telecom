@@ -25,10 +25,12 @@ const jsonLd = {
     email: "contact@csx.fr",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "1 Place Emilien Imbert",
       addressLocality: "Cahors",
       postalCode: "46000",
       addressCountry: "FR",
     },
+    taxID: "800 317 570 00011",
     areaServed: ["Toulouse", "Montauban", "Cahors", "Bayonne", "Gourdon", "Caussade"],
   },
 } as const;
@@ -84,7 +86,7 @@ const offices = [
     city: "Cahors",
     dept: "Lot (46)",
     role: "Siège social — Opérations & direction",
-    description: "Notre base principale. Toutes les décisions stratégiques et opérationnelles partent de Cahors.",
+    description: "Notre base principale. 1 Place Emilien Imbert, 46000 Cahors. SIRET : 800 317 570 00011. Toutes les décisions stratégiques et opérationnelles partent d'ici.",
   },
   {
     city: "Toulouse",

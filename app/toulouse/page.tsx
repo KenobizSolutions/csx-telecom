@@ -91,12 +91,44 @@ const zones = [
   "L'Union & Castelmaurou",
 ];
 
+const faqItems = [
+  {
+    question: "CSX Telecom est-il vraiment présent physiquement à Toulouse ?",
+    answer:
+      "Oui. Nous ne sommes pas un opérateur national qui déclare « couvrir » Toulouse depuis Paris. Notre équipe technique et commerciale est basée sur la métropole. Nos techniciens se déplacent directement chez vous — Toulouse intra-muros, Labège, Colomiers, Blagnac, Tournefeuille — sans sous-traitance et sans délai imposé par un prestataire extérieur.",
+  },
+  {
+    question: "Quel est le délai d'intervention à Toulouse en cas de panne ?",
+    answer:
+      "Pour les incidents critiques, notre objectif est d'intervenir sous 4h sur Toulouse Métropole. Nous proposons des GTR (Garantie de Temps de Rétablissement) contractuelles selon votre offre. Pour les petites structures sans GTR, la prise en charge téléphonique est immédiate et l'intervention sur site est planifiée dans la journée ou le lendemain selon la disponibilité.",
+  },
+  {
+    question: "La métropole toulousaine est-elle bien couverte en fibre professionnelle ?",
+    answer:
+      "Toulouse est l'une des métropoles les mieux fibrées de France. La fibre professionnelle FTTO est disponible dans les principales zones d'activité : Labège-Innopole, Colomiers, Blagnac, Toulouse centre, Quint-Fonsegrives. En dehors de ces zones, nous combinons fibre mutualisée, SDSL et 5G. Nous réalisons gratuitement une étude d'éligibilité pour chaque adresse avant tout engagement.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function ToulousePage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -236,6 +268,35 @@ export default function ToulousePage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Télécom à Toulouse
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Les questions les plus courantes des entreprises de la métropole toulousaine.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

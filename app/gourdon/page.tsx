@@ -87,12 +87,44 @@ const techs = [
   { label: "Starlink Business pour sites isolés", icon: "🛰️" },
 ];
 
+const faqItems = [
+  {
+    question: "La fibre optique est-elle disponible à Gourdon et dans le Gourdonais ?",
+    answer:
+      "Le déploiement fibre dans le Gourdonais est en cours grâce au réseau THD Lot porté par le Département. La commune de Gourdon et certaines zones proches sont éligibles, mais la couverture reste incomplète en périphérie et dans les hameaux. CSX Telecom vérifie gratuitement l'éligibilité de votre adresse exacte et vous propose la meilleure solution disponible : fibre quand elle est là, SDSL, 5G ou Starlink sinon.",
+  },
+  {
+    question: "Quelle solution internet professionnel pour une entreprise rurale dans le sud du Lot ?",
+    answer:
+      "Pour les entreprises sans fibre, nous recommandons Starlink Business couplé à un lien 5G de backup automatique. Starlink offre aujourd'hui des débits de 50 à 200 Mb/s avec une faible latence — largement suffisant pour la téléphonie IP, les applications cloud et la visioconférence. L'installation se fait en quelques heures, sans travaux. Le basculement automatique sur 5G garantit une continuité de service même en cas d'incident Starlink.",
+  },
+  {
+    question: "CSX Telecom intervient-il aussi dans les communes autour de Gourdon ?",
+    answer:
+      "Oui. Nos techniciens couvrent tout le bassin gourdonais depuis notre siège de Cahors (moins de 30 km). Salviac, Payrac, Souillac, Carlucet, Cénac-et-Saint-Julien, Groléjac : nous intervenons sans sous-traitance dans toute la zone. Pas de surcoût kilométrique sur les communes du Gourdonais. Un seul interlocuteur pour l'audit, l'installation et la maintenance.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function GourdonPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -228,6 +260,35 @@ export default function GourdonPage() {
                 </h3>
                 <p className="text-gray-600 leading-relaxed">{reason.description}</p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Télécom à Gourdon
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Les questions des entreprises du Gourdonais et du sud du Lot.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>

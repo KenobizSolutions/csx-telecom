@@ -102,12 +102,49 @@ const comparison = [
   { critere: "Supervision", classic: "Sur demande", csx: "24h/24 proactive" },
 ];
 
+const faqItems = [
+  {
+    question: "Quelle est la vraie différence entre une box grand public et l'internet professionnel ?",
+    answer:
+      "La différence est fondamentale : une box grand public est partagée avec des milliers d'abonnés, sans garantie de débit ni engagement de rétablissement. L'internet professionnel comprend une bande passante garantie symétrique, une GTR (Garantie de Temps de Rétablissement) contractuelle de 4h ou 8h, une adresse IP fixe, un accès prioritaire au support et une supervision 24h/24. Une panne sur une box pro est traitée comme une urgence ; sur une box grand public, vous prenez votre ticket.",
+  },
+  {
+    question: "Qu'est-ce que la redondance multi-opérateur et pourquoi en ai-je besoin ?",
+    answer:
+      "La redondance multi-opérateur consiste à avoir deux connexions internet qui empruntent des infrastructures physiques totalement différentes — deux opérateurs sans point de défaillance commun. Si l'une tombe (coupure, panne, travaux), l'autre prend le relais automatiquement en quelques secondes. Vous en avez besoin dès que votre activité dépend d'internet : paiement en ligne, téléphonie IP, accès à vos applications métier, fichiers partagés. Une seule heure d'interruption peut coûter plus cher qu'un an d'abonnement redondant.",
+  },
+  {
+    question: "Le MPLS continue-t-il de fonctionner si mon lien principal tombe ?",
+    answer:
+      "Oui, c'est l'un des points différenciants de CSX Telecom. Chez la plupart des opérateurs, le basculement sur un lien de secours 4G/5G entraîne la perte du réseau privé MPLS — vos sites ne se voient plus. CSX Telecom maintient le tunnel MPLS actif même sur le lien 5G de backup, grâce à notre architecture de routage. Vos applications métier, vos postes téléphoniques inter-sites et vos imprimantes partagées continuent de fonctionner normalement.",
+  },
+  {
+    question: "Combien de temps faut-il pour installer une ligne internet professionnelle ?",
+    answer:
+      "Les délais varient selon la technologie : pour une fibre mutualisée (FTTH Pro), comptez 2 à 4 semaines. Pour une fibre dédiée (FTTO), 6 à 12 semaines selon les travaux nécessaires. Pour un lien 5G/4G de backup, l'installation peut se faire en quelques jours. Nous vous proposons systématiquement une solution provisoire pendant la période d'attente pour que vous ne soyez jamais sans connexion professionnelle.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function InternetProfessionnelPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -227,6 +264,35 @@ export default function InternetProfessionnelPage() {
                   {row.csx}
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Internet professionnel
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Tout ce que vous devez savoir sur l'internet d'entreprise avant de décider.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 group open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
             ))}
           </div>
         </div>

@@ -18,16 +18,24 @@ const jsonLd = {
   email: "contact@csx.fr",
   address: {
     "@type": "PostalAddress",
+    streetAddress: "1 Place Emilien Imbert",
     addressLocality: "Cahors",
     postalCode: "46000",
     addressCountry: "FR",
   },
+  taxID: "800 317 570 00011",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      opens: "08:30",
+      closes: "12:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      opens: "13:30",
+      closes: "17:30",
     },
   ],
 } as const;

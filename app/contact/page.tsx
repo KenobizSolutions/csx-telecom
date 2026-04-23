@@ -21,6 +21,7 @@ const jsonLd = {
     url: "https://csx-telecom.fr",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "1 Place Emilien Imbert",
       addressLocality: "Cahors",
       postalCode: "46000",
       addressCountry: "FR",
@@ -60,7 +61,7 @@ const coordonnees = [
   {
     icon: "📍",
     label: "Siège social",
-    value: "Cahors — Lot (46000)",
+    value: "1 Place Emilien Imbert — 46000 Cahors",
     detail: "Interventions dans toute la région Occitanie et Pays Basque",
     href: null,
   },

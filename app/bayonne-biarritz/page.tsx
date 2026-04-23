@@ -95,12 +95,44 @@ const zones = [
   "Espelette & Pays Basque intérieur",
 ];
 
+const faqItems = [
+  {
+    question: "L'agent IA peut-il répondre en plusieurs langues à Bayonne et Biarritz ?",
+    answer:
+      "Oui. Nos agents vocaux IA sont configurables en plusieurs langues : français, anglais, espagnol. Pour les hôtels, thalassos, agences et professions de santé du Pays Basque qui reçoivent des clientèles étrangères, c'est un avantage concret. L'agent détecte automatiquement la langue de l'appelant ou suit le script multilingue que vous définissez. Aucun surcoût pour une configuration bilingue ou trilingue.",
+  },
+  {
+    question: "Quelle infrastructure fibre est disponible au Pays Basque pour les entreprises ?",
+    answer:
+      "Le Pays Basque bénéficie d'une infrastructure fibre développée, portée notamment par HEGOA (réseau public fibre 64) et les principaux opérateurs nationaux. Bayonne, Anglet et Biarritz sont très bien couverts en fibre dédiée FTTO et en fibre mutualisée FTTH Pro. CSX Telecom accède directement à l'ensemble des opérateurs présents sur le territoire basque pour vous proposer la solution la plus adaptée à votre adresse et votre activité.",
+  },
+  {
+    question: "CSX Telecom couvre-t-il aussi Saint-Jean-de-Luz, Hendaye et l'arrière-pays basque ?",
+    answer:
+      "Oui. Notre équipe locale couvre tout le bassin BAB et s'étend jusqu'à Saint-Jean-de-Luz, Hendaye, Hasparren, Cambo-les-Bains et le Pays Basque intérieur. Pour les entreprises situées en zone rurale basque ou dans des bâtisses patrimoniales, nous proposons des solutions adaptées : Starlink Business, 5G backup, ou SDSL selon la disponibilité à votre adresse exacte.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
 export default function BayonneBiarritzPage() {
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
       {/* HERO */}
@@ -240,6 +272,35 @@ export default function BayonneBiarritzPage() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
+            Questions fréquentes — Télécom au Pays Basque
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Les questions des entreprises de Bayonne, Biarritz et du Pays Basque.
+          </p>
+          <div className="space-y-4">
+            {faqItems.map((item, i) => (
+              <details
+                key={i}
+                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
+              >
+                <summary
+                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
+                  style={{ color: "#111827" }}
+                >
+                  <span>{item.question}</span>
+                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
+                </summary>
+                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { articles } from "./blog/data";
 
-const BASE = "https://csx-telecom.fr";
+const BASE = "https://www.csx-telecom.fr";
 const TODAY = new Date("2026-04-22");
 
 export default function sitemap(): MetadataRoute.Sitemap {

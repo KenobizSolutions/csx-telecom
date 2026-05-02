@@ -27,6 +27,11 @@ const jsonLd = {
     addressCountry: "FR",
   },
   taxID: "800 317 570 00011",
+  creator: {
+    "@type": "Organization",
+    name: "Kenobiz Sites",
+    url: "https://kenobiz-sites.fr",
+  },
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",

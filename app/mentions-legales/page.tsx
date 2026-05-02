@@ -40,6 +40,12 @@ const sections = [
     ],
   },
   {
+    title: "Crédits techniques",
+    content: [
+      { label: "Conception et réalisation", value: "Kenobiz Sites — kenobiz-sites.fr" },
+    ],
+  },
+  {
     title: "Propriété intellectuelle",
     content: [
       {

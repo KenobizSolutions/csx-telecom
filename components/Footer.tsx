@@ -78,7 +78,24 @@ export function Footer() {
 
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-sm text-white/80 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-          <div>© 2026 CSX Telecom</div>
+          <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+            <span>© 2026 CSX Telecom</span>
+            <span className="hidden text-white/30 sm:inline" aria-hidden="true">
+              ·
+            </span>
+            <span className="text-xs text-white/60">
+              Site conçu par{" "}
+              <a
+                href="https://kenobiz-sites.fr"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Agence web IA-first Sud-Ouest"
+                className="font-semibold text-white/80 hover:text-white hover:underline"
+              >
+                Kenobiz Sites
+              </a>
+            </span>
+          </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <Link className="hover:text-white" href="/mentions-legales">
               Mentions légales

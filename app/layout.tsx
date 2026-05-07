@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
@@ -43,6 +44,13 @@ export default function RootLayout({
         <Footer />
 
         {/* Kenobot script placeholder */}
+
+        {/* Widget vocal Steeve — Standard IA CSX Telecom (ElevenLabs ConvAI) */}
+        <elevenlabs-convai agent-id="agent_1401kp3fxhyde0g92s7zgaa2qewp"></elevenlabs-convai>
+        <Script
+          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+          strategy="afterInteractive"
+        />
 
         <Analytics />
         <SpeedInsights />

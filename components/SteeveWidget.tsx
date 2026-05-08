@@ -154,61 +154,96 @@ function SteeveButton() {
           </div>
         )}
 
-        <div className="relative">
-          {/* Anneaux d'animation derrière le bouton (listening / speaking) */}
-          {isListening && (
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-0 animate-ping rounded-full opacity-60"
-              style={{ backgroundColor: "var(--csx-secondary)" }}
-            />
-          )}
-          {isSpeakingNow && (
-            <>
+        {/* Bouton + bulle d'aide au survol + libellé permanent en dessous */}
+        <div className="group relative flex flex-col items-center gap-2">
+          {/* Bulle d'invite (visible au hover/focus, masquée pendant l'appel) */}
+          {!isActive && (
+            <div
+              role="tooltip"
+              className={[
+                "pointer-events-none absolute right-0 bottom-full mb-3",
+                "max-w-[260px] rounded-xl bg-white px-4 py-2.5",
+                "text-xs leading-snug text-gray-800 shadow-lg ring-1 ring-black/5",
+                "opacity-0 translate-y-1 transition-all duration-200",
+                "group-hover:opacity-100 group-hover:translate-y-0",
+                "group-focus-within:opacity-100 group-focus-within:translate-y-0",
+              ].join(" ")}
+            >
+              Passez nous un appel direct, que ce soit pour un renseignement ou un problème technique
+              {/* Petit triangle pointant vers le bouton */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 animate-ping rounded-full opacity-70"
-                style={{ backgroundColor: "var(--csx-secondary)" }}
+                className="absolute -bottom-1 right-7 h-2 w-2 rotate-45 bg-white ring-1 ring-black/5"
               />
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-1 animate-pulse rounded-full opacity-50"
-                style={{
-                  background:
-                    "linear-gradient(135deg, var(--csx-primary), var(--csx-secondary))",
-                }}
-              />
-            </>
+            </div>
           )}
 
-          <button
-            type="button"
-            onClick={handleClick}
-            aria-label={ariaLabel}
-            aria-pressed={isActive}
-            className={[
-              "relative flex h-16 w-16 items-center justify-center rounded-full",
-              "text-white shadow-lg transition-all duration-200",
-              "hover:scale-105 hover:shadow-xl active:scale-95",
-              "focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40",
-              isConnecting ? "animate-pulse" : "",
-            ].join(" ")}
-            style={{
-              background: isSpeakingNow
-                ? "linear-gradient(135deg, var(--csx-primary), var(--csx-secondary))"
-                : "var(--csx-primary)",
-            }}
-          >
-            {isActive ? (
-              isSpeakingNow ? (
-                <WaveIcon className="h-7 w-7" />
-              ) : (
-                <CloseIcon className="h-6 w-6" />
-              )
-            ) : (
-              <MicIcon className="h-7 w-7" />
+          <div className="relative">
+            {/* Anneaux d'animation derrière le bouton (listening / speaking) */}
+            {isListening && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 animate-ping rounded-full opacity-60"
+                style={{ backgroundColor: "var(--csx-secondary)" }}
+              />
             )}
-          </button>
+            {isSpeakingNow && (
+              <>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 animate-ping rounded-full opacity-70"
+                  style={{ backgroundColor: "var(--csx-secondary)" }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-1 animate-pulse rounded-full opacity-50"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, var(--csx-primary), var(--csx-secondary))",
+                  }}
+                />
+              </>
+            )}
+
+            <button
+              type="button"
+              onClick={handleClick}
+              aria-label={ariaLabel}
+              aria-pressed={isActive}
+              className={[
+                "relative flex h-16 w-16 items-center justify-center rounded-full",
+                "text-white shadow-lg transition-all duration-200",
+                "hover:scale-105 hover:shadow-xl active:scale-95",
+                "focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40",
+                isConnecting ? "animate-pulse" : "",
+              ].join(" ")}
+              style={{
+                background: isSpeakingNow
+                  ? "linear-gradient(135deg, var(--csx-primary), var(--csx-secondary))"
+                  : "var(--csx-primary)",
+              }}
+            >
+              {isActive ? (
+                isSpeakingNow ? (
+                  <WaveIcon className="h-7 w-7" />
+                ) : (
+                  <CloseIcon className="h-6 w-6" />
+                )
+              ) : (
+                <MicIcon className="h-7 w-7" />
+              )}
+            </button>
+          </div>
+
+          {/* Libellé permanent sous le bouton (caché pendant l'appel) */}
+          {!isActive && (
+            <span
+              className="select-none rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-gray-700 shadow-sm ring-1 ring-black/5 backdrop-blur"
+              aria-hidden="true"
+            >
+              Testez notre assistant virtuel
+            </span>
+          )}
         </div>
       </div>
     </>

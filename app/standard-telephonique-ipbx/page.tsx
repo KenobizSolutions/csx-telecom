@@ -136,210 +136,251 @@ const faqJsonLd = {
 export default function StandardIPBXPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}
-      <section
-        className="relative py-20 md:py-32 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-medium bg-white/20">
-            Standard IP · IPBX · Opérateur ARCEP
-          </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Standard téléphonique IP & IPBX —{" "}
-            <span style={{ color: "#29ABE2" }}>de 2 à +100 postes</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-4 font-semibold opacity-90">
-            Cloud ou sur site, portage sans coupure, un seul interlocuteur.
-          </p>
-          <p className="text-base md:text-lg mb-10 max-w-3xl mx-auto opacity-80 leading-relaxed">
-            Le réseau cuivre RTC est en cours d'extinction sur l'ensemble du territoire français. CSX
-            Telecom vous accompagne dans la migration vers la téléphonie IP avec zéro interruption de
-            service et un accompagnement de A à Z.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-              style={{ background: "#29ABE2" }}
-            >
-              Demander un audit gratuit
-            </Link>
-            <a
-              href="#methode"
-              className="inline-block px-8 py-4 rounded-lg font-bold text-white text-lg border-2 border-white/60 hover:bg-white/10 transition-all"
-            >
-              Notre méthode en 4 étapes
-            </a>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-28 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+            <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
+              <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
+                Standard IP · IPBX · Opérateur ARCEP
+              </div>
+              <h1 className="h1 mb-6 text-white">
+                Standard téléphonique IP & IPBX —{" "}
+                <span style={{ color: "var(--csx-secondary)" }}>de 2 à +100 postes</span>
+              </h1>
+              <p className="mb-4 text-lg font-[550] text-white/90 md:text-xl">
+                Cloud ou sur site, portage sans coupure, un seul interlocuteur.
+              </p>
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+                Le réseau cuivre RTC est en cours d'extinction sur l'ensemble du territoire français. CSX
+                Telecom vous accompagne dans la migration vers la téléphonie IP avec zéro interruption de
+                service et un accompagnement de A à Z.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Demander un audit gratuit
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+                <a href="#methode" className="btn border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20">
+                  Notre méthode en 4 étapes
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ALERTE FIN DU CUIVRE */}
-      <section className="py-12 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="rounded-2xl p-8 text-white" style={{ background: "linear-gradient(135deg, #1515DC, #0D0DA8)" }}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              ⚠️ Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
-            </h2>
-            <p className="mb-4 opacity-90 leading-relaxed">
-              Orange arrête progressivement le réseau téléphonique classique (RTC) depuis 2023. Si votre
-              standard, votre fax ou vos lignes analogiques reposent encore sur le cuivre, vous serez
-              impacté dans les prochains mois — parfois sans préavis suffisant.
-            </p>
-            <p className="opacity-90 leading-relaxed">
-              La bonne nouvelle : migrer vers la téléphonie IP est aujourd'hui simple, économique, et
-              souvent synonyme de nouvelles fonctionnalités. CSX Telecom gère l'intégralité de la
-              transition, du portage de vos numéros à la formation de vos équipes.
-            </p>
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="py-16">
+            <div
+              className="rounded-3xl p-8 text-white md:p-12"
+              style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
+            >
+              <h2 className="h3 mb-4 text-white">
+                ⚠️ Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
+              </h2>
+              <p className="mb-4 leading-relaxed text-white/85">
+                Orange arrête progressivement le réseau téléphonique classique (RTC) depuis 2023. Si votre
+                standard, votre fax ou vos lignes analogiques reposent encore sur le cuivre, vous serez
+                impacté dans les prochains mois — parfois sans préavis suffisant.
+              </p>
+              <p className="leading-relaxed text-white/85">
+                La bonne nouvelle : migrer vers la téléphonie IP est aujourd'hui simple, économique, et
+                souvent synonyme de nouvelles fonctionnalités. CSX Telecom gère l'intégralité de la
+                transition, du portage de vos numéros à la formation de vos équipes.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* FONCTIONNALITÉS */}
-      <section className="py-16 md:py-24" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Ce que comprend notre offre standard IP
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Une solution complète, de l'audit initial à la maintenance quotidienne, pour que votre
-            téléphonie ne soit plus jamais un souci.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {features.map((f) => (
-              <div key={f.title} className="bg-white p-6 rounded-2xl border-l-4" style={{ borderColor: "#1515DC" }}>
-                <div className="text-3xl mb-3">{f.icon}</div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#1515DC" }}>{f.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{f.description}</p>
-              </div>
-            ))}
+      <section style={{ background: "var(--csx-light)" }}>
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4">Ce que comprend notre offre standard IP</h2>
+              <p className="text-lg text-slate-600">
+                Une solution complète, de l'audit initial à la maintenance quotidienne, pour que votre
+                téléphonie ne soit plus jamais un souci.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {features.map((f) => (
+                <div
+                  key={f.title}
+                  className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
+                >
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                    {f.icon}
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
+                    {f.title}
+                  </h3>
+                  <p className="leading-relaxed text-slate-600">{f.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CLOUD VS SUR SITE */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Cloud hébergé ou IPBX sur site ?
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Chaque entreprise a ses contraintes. Nous vous conseillons la solution la plus adaptée à
-            votre taille, votre secteur et votre organisation.
-          </p>
-          <div className="grid md:grid-cols-2 gap-8">
-            {cloudVsSite.map((option) => (
-              <div key={option.label} className="rounded-2xl border-2 p-8" style={{ borderColor: "#1515DC" }}>
-                <h3 className="text-xl font-bold mb-6" style={{ color: "#1515DC" }}>
-                  {option.label}
-                </h3>
-                <ul className="space-y-3">
-                  {option.points.map((point) => (
-                    <li key={point} className="flex items-start gap-3 text-gray-700">
-                      <span className="mt-1 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center text-white text-xs font-bold" style={{ background: "#29ABE2" }}>
-                        ✓
-                      </span>
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4">Cloud hébergé ou IPBX sur site ?</h2>
+              <p className="text-lg text-slate-600">
+                Chaque entreprise a ses contraintes. Nous vous conseillons la solution la plus adaptée à
+                votre taille, votre secteur et votre organisation.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              {cloudVsSite.map((option) => (
+                <div
+                  key={option.label}
+                  className="rounded-3xl border-2 p-8 transition-all hover:-translate-y-0.5 hover:shadow-lg"
+                  style={{ borderColor: "var(--csx-primary)" }}
+                >
+                  <h3 className="mb-6 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
+                    {option.label}
+                  </h3>
+                  <ul className="space-y-3">
+                    {option.points.map((point) => (
+                      <li key={point} className="flex items-start gap-3 text-slate-700">
+                        <span
+                          className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full text-xs font-bold text-white"
+                          style={{ background: "var(--csx-secondary)" }}
+                        >
+                          ✓
+                        </span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <p className="mt-8 text-center text-sm text-slate-500">
+              Vous hésitez ? Nos consultants analysent votre situation et vous recommandent la solution
+              optimale — sans parti pris commercial.
+            </p>
           </div>
-          <p className="text-center text-gray-500 mt-8 text-sm">
-            Vous hésitez ? Nos consultants analysent votre situation et vous recommandent la solution
-            optimale — sans parti pris commercial.
-          </p>
         </div>
       </section>
 
-      {/* MÉTHODE EN 4 ÉTAPES */}
-      <section id="methode" className="py-16 md:py-24" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Notre méthode en 4 étapes
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Un processus rodé pour que votre migration soit transparente, sans stress ni surprise.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {steps.map((step) => (
-              <div key={step.num} className="bg-white p-8 rounded-2xl flex gap-6 items-start">
+      {/* MÉTHODE EN 4 ÉTAPES — section sombre rounded-tr */}
+      <section id="methode" className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-24 rounded-tr-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-text) 0%, var(--csx-darker) 70%, var(--csx-dark) 100%)" }}
+        />
+        <div className="container-page text-white">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4 text-white">Notre méthode en 4 étapes</h2>
+              <p className="text-lg text-white/70">
+                Un processus rodé pour que votre migration soit transparente, sans stress ni surprise.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {steps.map((step) => (
                 <div
-                  className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center text-white text-xl font-bold"
-                  style={{ background: "linear-gradient(135deg, #1515DC, #29ABE2)" }}
+                  key={step.num}
+                  className="flex items-start gap-5 rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10"
                 >
-                  {step.num}
+                  <div
+                    className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl text-lg font-bold text-white"
+                    style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-secondary))" }}
+                  >
+                    {step.num}
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-lg font-bold tracking-tight text-white">{step.title}</h3>
+                    <p className="leading-relaxed text-white/80">{step.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-bold mb-2" style={{ color: "#111827" }}>{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Questions fréquentes — Standard téléphonique IP
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Tout ce que vous devez savoir avant de migrer vers la téléphonie IP.
-          </p>
-          <div className="space-y-4">
-            {faqItems.map((item, i) => (
-              <details
-                key={i}
-                className="border border-gray-100 rounded-2xl p-6 group open:border-[#1515DC]"
-              >
-                <summary
-                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
-                  style={{ color: "#111827" }}
-                >
-                  <span>{item.question}</span>
-                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
-                </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
-              </details>
-            ))}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-12 text-center">
+                <h2 className="h2 mb-4">Questions fréquentes — Standard téléphonique IP</h2>
+                <p className="text-lg text-slate-600">
+                  Tout ce que vous devez savoir avant de migrer vers la téléphonie IP.
+                </p>
+              </div>
+              <div className="space-y-4">
+                {faqItems.map((item, i) => (
+                  <details
+                    key={i}
+                    className="group rounded-2xl border border-slate-200 bg-white p-6 open:border-[var(--csx-primary)] open:shadow-sm"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold tracking-tight">
+                      <span>{item.question}</span>
+                      <span
+                        className="shrink-0 text-xl font-light transition-transform group-open:rotate-45"
+                        style={{ color: "var(--csx-primary)" }}
+                      >
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 leading-relaxed text-slate-600">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-20 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Prêt à moderniser votre téléphonie ?
-          </h2>
-          <p className="text-lg mb-4 opacity-80">
-            Audit gratuit de votre installation actuelle. Devis clair sous 48 h. Zéro coupure pendant
-            la migration.
-          </p>
-          <p className="text-base mb-8 opacity-70">
-            Nous intervenons à Toulouse, Montauban, Cahors, Bayonne et dans toute la région.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Demander mon audit gratuit — Réponse sous 24h
-          </Link>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>
+                  Prêt à moderniser votre téléphonie ?
+                </p>
+                <h2 className="h2 text-white">Audit gratuit, devis clair sous 48 h</h2>
+                <p className="mt-4 text-lg text-white/75">
+                  Audit gratuit de votre installation actuelle. Devis clair sous 48 h. Zéro coupure pendant
+                  la migration. Nous intervenons à Toulouse, Montauban, Cahors, Bayonne et dans toute la région.
+                </p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Demander mon audit gratuit — Réponse sous 24h
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

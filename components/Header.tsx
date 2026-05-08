@@ -45,10 +45,8 @@ export function Header() {
   return (
     <header
       className={[
-        "sticky top-0 z-50 w-full transition-all duration-300",
-        scrolled
-          ? "bg-white/85 backdrop-blur-md shadow-sm"
-          : "bg-white/0 backdrop-blur-0",
+        "sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md transition-shadow duration-300",
+        scrolled ? "shadow-sm" : "shadow-none",
       ].join(" ")}
     >
       <div className="container-page">

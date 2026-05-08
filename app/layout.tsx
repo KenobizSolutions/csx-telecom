@@ -38,10 +38,12 @@ export default function RootLayout({
       lang="fr"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+      <body className="bg-white text-[var(--csx-text)] font-[400] antialiased">
+        <div className="flex min-h-screen flex-col overflow-hidden">
+          <Header />
+          <main className="grow">{children}</main>
+          <Footer />
+        </div>
 
         {/* Kenobot script placeholder */}
 

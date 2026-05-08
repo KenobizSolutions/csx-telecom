@@ -4,6 +4,50 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ------------------------------------------------------------------ */
+/*  Typography scale & tracking — repris du template fintech-next      */
+/* ------------------------------------------------------------------ */
+@theme {
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.5715;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5;
+  --text-base--letter-spacing: -0.01em;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.5;
+  --text-lg--letter-spacing: -0.01em;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5;
+  --text-xl--letter-spacing: -0.01em;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.415;
+  --text-2xl--letter-spacing: -0.01em;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 1.333;
+  --text-3xl--letter-spacing: -0.01em;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.1;
+  --text-4xl--letter-spacing: -0.01em;
+  --text-5xl: 2.75rem;
+  --text-5xl--line-height: 1;
+  --text-5xl--letter-spacing: -0.01em;
+  --text-6xl: 3.25rem;
+  --text-6xl--line-height: 1;
+  --text-6xl--letter-spacing: -0.01em;
+
+  --tracking-tighter: -0.02em;
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.01em;
+  --tracking-wider: 0.02em;
+  --tracking-widest: 0.4em;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Tokens shadcn (conservés)                                          */
+/* ------------------------------------------------------------------ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -48,13 +92,21 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* ------------------------------------------------------------------ */
+/*  Variables couleurs — palette CSX Telecom                           */
+/* ------------------------------------------------------------------ */
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+  /* Palette de marque CSX (à utiliser via var(--csx-*)) */
   --csx-primary: #1515dc;
   --csx-secondary: #29abe2;
   --csx-dark: #0d0da8;
+  --csx-darker: #07076a;
   --csx-light: #f0f4ff;
+  --csx-text: #1a1a2e;
+
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -127,8 +179,114 @@
   }
   body {
     @apply bg-background text-foreground;
+    color: var(--csx-text);
   }
   html {
     @apply font-sans;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Utility patterns — typographie & boutons (style fintech-next)      */
+/*  Couleurs CSX uniquement (pas de blue-* du template)                */
+/* ------------------------------------------------------------------ */
+@layer components {
+  /* Headings */
+  .h1 {
+    @apply text-5xl font-bold tracking-tight;
+  }
+  .h2 {
+    @apply text-4xl font-bold tracking-tight;
+  }
+  .h3 {
+    @apply text-3xl font-bold tracking-tight;
+  }
+  .h4 {
+    @apply text-2xl font-bold tracking-tight;
+  }
+  @media (width >= 48rem) {
+    .h1 {
+      @apply text-6xl;
+    }
+    .h2 {
+      @apply text-5xl;
+    }
+    .h3 {
+      @apply text-4xl;
+    }
+  }
+
+  /* Buttons — pilule rounded-full façon fintech-next, couleurs CSX */
+  .btn,
+  .btn-sm {
+    @apply text-[15px] font-[550] inline-flex items-center justify-center
+           rounded-full leading-5 whitespace-nowrap transition
+           duration-150 ease-in-out;
+  }
+  .btn {
+    @apply px-5 py-2.5;
+  }
+  .btn-sm {
+    @apply px-4 py-2;
+  }
+  .btn-primary {
+    color: #fff;
+    background-color: var(--csx-primary);
+  }
+  .btn-primary:hover {
+    background-color: var(--csx-dark);
+  }
+  .btn-dark {
+    color: #fff;
+    background-color: var(--csx-text);
+  }
+  .btn-dark:hover {
+    background-color: var(--csx-darker);
+  }
+  .btn-ghost {
+    color: var(--csx-primary);
+    background-color: var(--csx-light);
+  }
+  .btn-ghost:hover {
+    background-color: #e0e7ff;
+  }
+
+  /* Conteneur de section type fintech-next */
+  .container-page {
+    @apply max-w-6xl mx-auto px-4 sm:px-6;
+  }
+
+  /* Section paddings */
+  .section-pad {
+    @apply py-12 md:py-20;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Animations légères (CSS pur, pas d'AOS)                            */
+/* ------------------------------------------------------------------ */
+@keyframes csx-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@layer utilities {
+  .anim-fade-up {
+    animation: csx-fade-up 0.7s ease-out both;
+  }
+  .anim-delay-100 {
+    animation-delay: 100ms;
+  }
+  .anim-delay-200 {
+    animation-delay: 200ms;
+  }
+  .anim-delay-300 {
+    animation-delay: 300ms;
   }
 }

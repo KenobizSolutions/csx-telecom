@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Template de référence — non compilé, non versionné
+fintech-next-template/
+fintech-next.zip

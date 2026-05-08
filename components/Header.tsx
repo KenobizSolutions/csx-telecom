@@ -88,9 +88,12 @@ export function Header() {
             <Image
               src="/logo-csx.png"
               alt="CSX Telecom"
-              width={300}
-              height={100}
+              width={240}
+              height={150}
               priority
+              fetchPriority="high"
+              quality={85}
+              sizes="(max-width: 768px) 100px, 130px"
               className="h-14 w-auto md:h-20"
               style={{ objectFit: "contain" }}
             />

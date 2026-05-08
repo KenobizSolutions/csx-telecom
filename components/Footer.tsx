@@ -49,7 +49,9 @@ export function Footer() {
                 src="/logo-csx.png"
                 alt="CSX Telecom"
                 width={140}
-                height={50}
+                height={88}
+                quality={80}
+                sizes="140px"
                 style={{ objectFit: "contain" }}
                 className="h-10 w-auto brightness-0 invert"
               />

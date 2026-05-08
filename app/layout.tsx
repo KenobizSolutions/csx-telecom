@@ -7,7 +7,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { SteeveWidget } from "@/components/SteeveWidget";
+import { SteeveWidgetLazy } from "@/components/SteeveWidgetLazy";
 
 // Aspekta — police principale (reprise du template fintech-next)
 const aspekta = localFont({
@@ -48,6 +48,11 @@ export default function RootLayout({
       lang="fr"
       className={`${aspekta.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Pré-connexion vers l'API ElevenLabs (utilisée par le widget vocal) */}
+        <link rel="preconnect" href="https://api.elevenlabs.io" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://api.elevenlabs.io" />
+      </head>
       <body className="overflow-x-clip bg-white font-sans text-[var(--csx-text)] font-[400] antialiased">
         <div className="flex min-h-screen flex-col">
           <Header />
@@ -57,8 +62,8 @@ export default function RootLayout({
 
         {/* Kenobot script placeholder */}
 
-        {/* Widget vocal Steeve — standard IA CSX Telecom */}
-        <SteeveWidget />
+        {/* Widget vocal Steeve — chargé après idle pour ne pas pénaliser le LCP */}
+        <SteeveWidgetLazy />
 
         <Analytics />
         <SpeedInsights />

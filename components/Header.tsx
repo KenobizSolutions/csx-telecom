@@ -50,14 +50,31 @@ export function Header() {
   }, [isOpen]);
 
   return (
-    <header
-      className={[
-        "sticky top-0 z-50 w-full transition-colors duration-300",
-        scrolled
-          ? "bg-white/70 backdrop-blur-md border-b border-slate-200/50"
-          : "bg-transparent backdrop-blur-0 border-b border-transparent",
-      ].join(" ")}
-    >
+    <header className="sticky top-0 z-50 w-full">
+      {/*
+        Bandeau translucide qui apparaît au scroll.
+        - Couche absolue placée derrière le contenu du header (-z-10)
+        - bg blanc semi-transparent + backdrop-blur
+        - mask-image en gradient vertical : opaque en haut, transparent en bas
+          → effet "la page glisse sous le bandeau translucide"
+      */}
+      <div
+        aria-hidden="true"
+        className={[
+          "pointer-events-none absolute inset-x-0 top-0 -z-10 h-full transition-opacity duration-300",
+          scrolled ? "opacity-100" : "opacity-0",
+        ].join(" ")}
+        style={{
+          backgroundColor: "rgba(255, 255, 255, 0.55)",
+          backdropFilter: "blur(10px) saturate(140%)",
+          WebkitBackdropFilter: "blur(10px) saturate(140%)",
+          WebkitMaskImage:
+            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+          maskImage:
+            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+        }}
+      />
+
       <div className="container-page">
         {/* Layout : grille 3 colonnes pour centrer parfaitement la bulle nav */}
         <div className="grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-24">

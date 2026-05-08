@@ -69,9 +69,9 @@ export function Header() {
           backdropFilter: "blur(10px) saturate(140%)",
           WebkitBackdropFilter: "blur(10px) saturate(140%)",
           WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 15%, transparent 100%)",
           maskImage:
-            "linear-gradient(to bottom, black 0%, black 55%, transparent 100%)",
+            "linear-gradient(to bottom, black 0%, black 15%, transparent 100%)",
         }}
       />
 

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { SteeveWidget } from "@/components/SteeveWidget";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,12 +45,8 @@ export default function RootLayout({
 
         {/* Kenobot script placeholder */}
 
-        {/* Widget vocal Steeve — Standard IA CSX Telecom (ElevenLabs ConvAI) */}
-        <elevenlabs-convai agent-id="agent_1401kp3fxhyde0g92s7zgaa2qewp"></elevenlabs-convai>
-        <Script
-          src="https://unpkg.com/@elevenlabs/convai-widget-embed"
-          strategy="afterInteractive"
-        />
+        {/* Widget vocal Steeve — standard IA CSX Telecom */}
+        <SteeveWidget />
 
         <Analytics />
         <SpeedInsights />

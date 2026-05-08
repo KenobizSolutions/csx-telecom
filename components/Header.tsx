@@ -1,16 +1,16 @@
 "use client";
 
 /**
- * Header CSX Telecom — version "floating pill" moderne.
+ * Header CSX Telecom — version "floating pill" très visible.
  *
  * Design :
- *  - Header sticky avec un fond toujours transparent
- *  - La navigation desktop est rassemblée dans une bulle blanche
- *    arrondie (rounded-full) avec un léger flou — comme le bouton CTA
- *  - Le logo prend quasi toute la hauteur du header (h-14 / md:h-16)
- *  - Effet de transparence : la bulle a un fond blanc/85 + backdrop-blur
- *    qui laisse deviner le contenu en dessous
- *  - Visible en permanence pendant le scroll
+ *  - Header sticky, fond entièrement transparent (laisse passer le hero)
+ *  - Logo grande taille à gauche
+ *  - Une SEULE bulle blanche centrale qui contient tous les liens nav
+ *    + le bouton "Audit gratuit" (effet plus prononcé)
+ *  - La bulle a une ombre marquée, une bordure subtile et du backdrop-blur
+ *    pour un vrai effet "flotte au-dessus du contenu"
+ *  - Toujours visible pendant le scroll (sticky top: 0)
  */
 
 import * as React from "react";
@@ -28,14 +28,6 @@ const navItems = [
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
-  const [scrolled, setScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   React.useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -46,15 +38,10 @@ export function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full">
+    <header className="sticky top-0 z-50 w-full pt-3 md:pt-4">
       <div className="container-page">
-        <div
-          className={[
-            "flex h-20 items-center justify-between gap-3 md:h-24",
-            "transition-all duration-300",
-          ].join(" ")}
-        >
-          {/* Logo — prend presque toute la hauteur du header */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo — prend toute la hauteur disponible */}
           <Link
             href="/"
             className="shrink-0"
@@ -67,18 +54,18 @@ export function Header() {
               width={300}
               height={100}
               priority
-              className="h-14 w-auto md:h-16"
+              className="h-14 w-auto md:h-20"
               style={{ objectFit: "contain" }}
             />
           </Link>
 
-          {/* Bulle de navigation flottante (desktop only) */}
+          {/* Bulle nav + CTA — flotte au-dessus du contenu */}
           <nav
             aria-label="Navigation principale"
             className={[
-              "hidden lg:flex items-center gap-1 rounded-full border border-white/40 bg-white/80 px-2 py-1.5 backdrop-blur-md",
-              "transition-shadow duration-300",
-              scrolled ? "shadow-md" : "shadow-sm",
+              "hidden lg:flex items-center gap-1 pl-2 pr-1.5 py-1.5",
+              "rounded-full border border-slate-200/70 bg-white/85 backdrop-blur-xl",
+              "shadow-[0_8px_30px_rgba(13,13,168,0.12)]",
             ].join(" ")}
           >
             {navItems.map((item) => (
@@ -90,17 +77,10 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-          </nav>
-
-          {/* CTA + burger mobile */}
-          <div className="flex items-center gap-2">
+            {/* CTA dans la même bulle */}
             <Link
               href="/contact"
-              className={[
-                "btn-sm group hidden sm:inline-flex bg-[var(--csx-primary)] text-white shadow-sm",
-                "hover:bg-[var(--csx-dark)] transition-shadow duration-300",
-                scrolled ? "shadow-md" : "shadow-sm",
-              ].join(" ")}
+              className="ml-1 inline-flex items-center rounded-full bg-[var(--csx-primary)] px-4 py-2 text-[14px] font-[550] text-white shadow-sm transition-all hover:bg-[var(--csx-dark)] group"
             >
               Audit gratuit
               <span className="ml-2 text-white/80 transition-transform duration-150 group-hover:translate-x-0.5">
@@ -109,11 +89,19 @@ export function Header() {
                 </svg>
               </span>
             </Link>
+          </nav>
 
-            {/* Burger mobile — bulle blanche assortie */}
+          {/* Mobile : CTA + burger dans des bulles assorties */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <Link
+              href="/contact"
+              className="hidden sm:inline-flex h-11 items-center rounded-full border border-slate-200/70 bg-white/85 px-4 text-[14px] font-[550] text-[var(--csx-primary)] shadow-[0_4px_20px_rgba(13,13,168,0.1)] backdrop-blur-xl transition hover:bg-white"
+            >
+              Audit gratuit
+            </Link>
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/40 bg-white/80 text-slate-700 backdrop-blur-md transition hover:bg-white lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/70 bg-white/85 text-slate-700 shadow-[0_4px_20px_rgba(13,13,168,0.1)] backdrop-blur-xl transition hover:bg-white"
               aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={isOpen}
               onClick={() => setIsOpen((v) => !v)}
@@ -140,7 +128,7 @@ export function Header() {
         <div className="container-page lg:hidden">
           <nav
             aria-label="Navigation mobile"
-            className="mt-2 rounded-3xl border border-white/40 bg-white/95 p-3 shadow-lg backdrop-blur-md"
+            className="mt-3 rounded-3xl border border-slate-200/70 bg-white/95 p-3 shadow-[0_8px_30px_rgba(13,13,168,0.15)] backdrop-blur-xl"
           >
             <ul className="grid gap-1">
               {navItems.map((item) => (
@@ -158,7 +146,7 @@ export function Header() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="btn-sm w-full justify-center bg-[var(--csx-primary)] text-white shadow-sm hover:bg-[var(--csx-dark)]"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-[var(--csx-primary)] px-4 py-3 text-[14px] font-[550] text-white shadow-sm hover:bg-[var(--csx-dark)]"
                 >
                   Audit gratuit
                 </Link>

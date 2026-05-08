@@ -118,89 +118,51 @@ const faqJsonLd = {
 export default function GourdonPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
-      {/* HERO */}
-      <section
-        className="relative py-20 md:py-32 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-medium bg-white/20">
-            Sud du Lot (46) · Fibre · 5G · Starlink · Opérateur ARCEP
-          </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            Téléphonie professionnelle à Gourdon —{" "}
-            <span style={{ color: "#29ABE2" }}>CSX Telecom</span>
-          </h1>
-          <p className="text-lg md:text-xl mb-4 font-semibold opacity-90">
-            Des solutions télécom qui fonctionnent dans les zones rurales du sud du Lot.
-          </p>
-          <p className="text-base md:text-lg mb-10 max-w-3xl mx-auto opacity-80 leading-relaxed">
-            Dans le Gourdonais, la fibre n'est pas encore partout et le réseau cuivre RTC s'arrête.
-            CSX Telecom propose des solutions adaptées : fibre quand elle est disponible, 5G ou
-            Starlink Business là où elle ne l'est pas encore, et un standard IP sans coupure.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-block px-8 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-              style={{ background: "#29ABE2" }}
-            >
-              Demander un audit gratuit à Gourdon
-            </Link>
-            <a
-              href="#services"
-              className="inline-block px-8 py-4 rounded-lg font-bold text-white text-lg border-2 border-white/60 hover:bg-white/10 transition-all"
-            >
-              Nos solutions
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* STATS */}
-      <section className="py-12" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.value} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: "#1515DC" }}>
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+      <section className="relative">
+        <div className="absolute inset-0 -z-10 mb-28 rounded-bl-[100px] md:mb-0" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }} />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+            <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
+              <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
+                Sud du Lot (46) · Fibre · 5G · Starlink · Opérateur ARCEP
               </div>
-            ))}
+              <h1 className="h1 mb-6 text-white">
+                Téléphonie professionnelle à Gourdon —{" "}
+                <span style={{ color: "var(--csx-secondary)" }}>CSX Telecom</span>
+              </h1>
+              <p className="mb-4 text-lg font-[550] text-white/90 md:text-xl">
+                Des solutions télécom qui fonctionnent dans les zones rurales du sud du Lot.
+              </p>
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+                Dans le Gourdonais, la fibre n'est pas encore partout et le réseau cuivre RTC s'arrête.
+                CSX Telecom propose des solutions adaptées : fibre quand elle est disponible, 5G ou
+                Starlink Business là où elle ne l'est pas encore, et un standard IP sans coupure.
+              </p>
+              <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Demander un audit gratuit à Gourdon
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+                <a href="#services" className="btn border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20">
+                  Nos solutions
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ENCART TECHNOLOGIES RURALES */}
-      <section className="py-10 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div
-            className="rounded-2xl p-7 text-white"
-            style={{ background: "linear-gradient(135deg, #1515DC, #0D0DA8)" }}
-          >
-            <h2 className="text-xl font-bold mb-4">
-              🛰️ Connectivité professionnelle même en zone rurale
-            </h2>
-            <p className="opacity-90 mb-5 text-sm leading-relaxed">
-              La couverture fibre du Gourdonais est en cours mais encore partielle. CSX Telecom
-              s'adapte à chaque situation grâce à un panel de technologies complémentaires.
-            </p>
-            <div className="grid grid-cols-2 gap-3">
-              {techs.map((t) => (
-                <div key={t.label} className="flex items-center gap-3 text-sm opacity-90">
-                  <span className="text-xl">{t.icon}</span>
-                  {t.label}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="py-12 md:py-16">
+            <div className="grid grid-cols-2 gap-8 md:-mx-9 md:grid-cols-4 md:gap-0">
+              {stats.map((stat, i) => (
+                <div key={i} className="relative text-center md:px-9 md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-12 md:after:w-px md:after:-translate-y-1/2 md:after:bg-slate-200 md:last:after:hidden">
+                  <div className="mb-2 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>{stat.value}</div>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -208,109 +170,119 @@ export default function GourdonPage() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section id="services" className="py-16 md:py-24" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Nos solutions pour les entreprises du Gourdonais
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Standard IP, internet adapté à votre connectivité réelle et agents IA : des solutions
-            professionnelles conçues pour fonctionner dans le sud du Lot.
-          </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {services.map((service) => (
-              <Link
-                key={service.href}
-                href={service.href}
-                className="group p-8 rounded-2xl bg-white border border-gray-100 hover:border-[#1515DC] hover:shadow-lg transition-all"
-              >
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3
-                  className="text-xl font-bold mb-3 group-hover:text-[#1515DC] transition-colors"
-                  style={{ color: "#111827" }}
-                >
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">{service.description}</p>
-                <span className="font-semibold text-sm" style={{ color: "#1515DC" }}>
-                  En savoir plus →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* POURQUOI CSX À GOURDON */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Pourquoi CSX Telecom à Gourdon ?
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Un opérateur qui connaît les contraintes des zones rurales et apporte de vraies
-            réponses, pas des offres standardisées pensées pour les villes.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {reasons.map((reason, i) => (
-              <div key={i} className="p-6 rounded-2xl border-l-4" style={{ background: "#F0F4FF", borderColor: "#1515DC" }}>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#1515DC" }}>
-                  {reason.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">{reason.description}</p>
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="pb-12">
+            <div className="rounded-3xl p-7 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
+              <h2 className="mb-4 text-xl font-bold tracking-tight text-white">🛰️ Connectivité professionnelle même en zone rurale</h2>
+              <p className="mb-5 text-sm leading-relaxed text-white/85">
+                La couverture fibre du Gourdonais est en cours mais encore partielle. CSX Telecom
+                s'adapte à chaque situation grâce à un panel de technologies complémentaires.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
+                {techs.map((t) => (
+                  <div key={t.label} className="flex items-center gap-3 text-sm text-white/90">
+                    <span className="text-xl">{t.icon}</span>
+                    {t.label}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Questions fréquentes — Télécom à Gourdon
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Les questions des entreprises du Gourdonais et du sud du Lot.
-          </p>
-          <div className="space-y-4">
-            {faqItems.map((item, i) => (
-              <details
-                key={i}
-                className="border border-gray-100 rounded-2xl p-6 open:border-[#1515DC]"
-              >
-                <summary
-                  className="font-bold text-lg cursor-pointer list-none flex justify-between items-center gap-4"
-                  style={{ color: "#111827" }}
-                >
-                  <span>{item.question}</span>
-                  <span className="flex-shrink-0 text-xl font-light" style={{ color: "#1515DC" }}>+</span>
-                </summary>
-                <p className="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
-              </details>
-            ))}
+      <section id="services" style={{ background: "var(--csx-light)" }}>
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4">Nos solutions pour les entreprises du Gourdonais</h2>
+              <p className="text-lg text-slate-600">
+                Standard IP, internet adapté à votre connectivité réelle et agents IA : des solutions
+                professionnelles conçues pour fonctionner dans le sud du Lot.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {services.map((service) => (
+                <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
+                  <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
+                  <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
+                    En savoir plus<span className="ml-1 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="py-20 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Votre télécom à Gourdon, résolu
-          </h2>
-          <p className="text-lg mb-4 opacity-80">
-            Audit gratuit sur site. Nous analysons votre connectivité réelle et vous proposons la
-            solution adaptée à votre situation géographique exacte.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Demander mon audit gratuit — Réponse sous 24h
-          </Link>
+      <section className="relative">
+        <div className="absolute inset-0 -z-10 mb-24 rounded-tr-[100px] md:mb-0" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-text) 0%, var(--csx-darker) 70%, var(--csx-dark) 100%)" }} />
+        <div className="container-page text-white">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4 text-white">Pourquoi CSX Telecom à Gourdon ?</h2>
+              <p className="text-lg text-white/70">
+                Un opérateur qui connaît les contraintes des zones rurales et apporte de vraies
+                réponses, pas des offres standardisées pensées pour les villes.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {reasons.map((reason, i) => (
+                <div key={i} className="rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10">
+                  <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-secondary)" }}>{reason.title}</h3>
+                  <p className="leading-relaxed text-white/80">{reason.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="mb-12 text-center">
+                <h2 className="h2 mb-4">Questions fréquentes — Télécom à Gourdon</h2>
+                <p className="text-lg text-slate-600">Les questions des entreprises du Gourdonais et du sud du Lot.</p>
+              </div>
+              <div className="space-y-4">
+                {faqItems.map((item, i) => (
+                  <details key={i} className="group rounded-2xl border border-slate-200 bg-white p-6 open:border-[var(--csx-primary)] open:shadow-sm">
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-bold tracking-tight">
+                      <span>{item.question}</span>
+                      <span className="shrink-0 text-xl font-light transition-transform group-open:rotate-45" style={{ color: "var(--csx-primary)" }}>+</span>
+                    </summary>
+                    <p className="mt-4 leading-relaxed text-slate-600">{item.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative">
+        <div className="absolute inset-0 -z-10" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>Votre télécom à Gourdon, résolu</p>
+                <h2 className="h2 text-white">Audit gratuit sur site</h2>
+                <p className="mt-4 text-lg text-white/75">Nous analysons votre connectivité réelle et vous proposons la solution adaptée à votre situation géographique exacte.</p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Demander mon audit gratuit — Réponse sous 24h
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

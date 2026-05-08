@@ -120,74 +120,75 @@ export default function MentionsLegalesPage() {
   return (
     <>
       {/* HERO */}
-      <section
-        className="relative py-16 md:py-20 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-3">Mentions légales</h1>
-          <p className="opacity-80">
-            Informations légales relatives au site{" "}
-            <span className="font-semibold">csx-telecom.fr</span>
-          </p>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-20 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-12 md:pt-24 md:pb-20">
+            <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
+              <h1 className="h2 mb-3 text-white">Mentions légales</h1>
+              <p className="text-white/80">
+                Informations légales relatives au site{" "}
+                <span className="font-[550]">csx-telecom.fr</span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* CONTENU */}
-      <section className="py-12 md:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="space-y-10">
-            {sections.map((section) => (
-              <div key={section.title}>
-                <h2
-                  className="text-xl font-bold mb-5 pb-3 border-b-2"
-                  style={{ color: "#1515DC", borderColor: "#1515DC" }}
-                >
-                  {section.title}
-                </h2>
-                <dl className="space-y-3">
-                  {section.content.map((item) => (
-                    <div
-                      key={item.label}
-                      className="grid sm:grid-cols-[200px_1fr] gap-1 sm:gap-4 py-2 border-b border-gray-50 last:border-0"
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="space-y-10">
+                {sections.map((section) => (
+                  <div key={section.title}>
+                    <h2
+                      className="mb-5 border-b-2 pb-3 text-xl font-bold tracking-tight"
+                      style={{ color: "var(--csx-primary)", borderColor: "var(--csx-primary)" }}
                     >
-                      <dt className="text-sm font-semibold text-gray-500">{item.label}</dt>
-                      <dd className="text-sm text-gray-700 leading-relaxed">{item.value}</dd>
-                    </div>
-                  ))}
-                </dl>
+                      {section.title}
+                    </h2>
+                    <dl className="space-y-3">
+                      {section.content.map((item) => (
+                        <div
+                          key={item.label}
+                          className="grid gap-1 border-b border-slate-50 py-2 last:border-0 sm:grid-cols-[200px_1fr] sm:gap-4"
+                        >
+                          <dt className="text-sm font-[550] text-slate-500">{item.label}</dt>
+                          <dd className="text-sm leading-relaxed text-slate-700">{item.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
 
-          <div
-            className="mt-12 rounded-2xl p-6 text-sm text-gray-600"
-            style={{ background: "#F0F4FF" }}
-          >
-            <p>
-              Pour toute question relative aux présentes mentions légales, contactez-nous :{" "}
-              <a
-                href="mailto:contact@csx.fr"
-                className="font-semibold hover:underline"
-                style={{ color: "#1515DC" }}
-              >
-                contact@csx.fr
-              </a>{" "}
-              · <a href="tel:+33582730360" className="font-semibold hover:underline" style={{ color: "#1515DC" }}>05 82 73 03 60</a>
-            </p>
-            <p className="mt-2 text-gray-400">
-              Dernière mise à jour : 22 avril 2026
-            </p>
-          </div>
+              <div className="mt-12 rounded-2xl p-6 text-sm text-slate-600" style={{ background: "var(--csx-light)" }}>
+                <p>
+                  Pour toute question relative aux présentes mentions légales, contactez-nous :{" "}
+                  <a href="mailto:contact@csx.fr" className="font-[550] hover:underline" style={{ color: "var(--csx-primary)" }}>
+                    contact@csx.fr
+                  </a>{" "}
+                  ·{" "}
+                  <a href="tel:+33582730360" className="font-[550] hover:underline" style={{ color: "var(--csx-primary)" }}>
+                    05 82 73 03 60
+                  </a>
+                </p>
+                <p className="mt-2 text-slate-400">Dernière mise à jour : 22 avril 2026</p>
+              </div>
 
-          <div className="mt-8 text-center">
-            <Link
-              href="/"
-              className="inline-block px-6 py-3 rounded-lg font-semibold text-white hover:opacity-90 transition-all"
-              style={{ background: "#1515DC" }}
-            >
-              ← Retour à l'accueil
-            </Link>
+              <div className="mt-8 text-center">
+                <Link href="/" className="btn btn-primary group shadow-sm">
+                  <span className="mr-2 transition-transform duration-150 group-hover:-translate-x-0.5">←</span>
+                  Retour à l'accueil
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -111,163 +111,199 @@ const offices = [
 export default function AProposPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* HERO */}
-      <section
-        className="relative py-20 md:py-32 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="inline-block mb-4 px-4 py-1 rounded-full text-sm font-medium bg-white/20">
-            Opérateur ARCEP · Depuis 2009 · +200 clients
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-28 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+            <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
+              <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
+                Opérateur ARCEP · Depuis 2009 · +200 clients
+              </div>
+              <h1 className="h1 mb-6 text-white">
+                CSX Telecom —{" "}
+                <span style={{ color: "var(--csx-secondary)" }}>15 ans d'expertise télécom</span>{" "}
+                pour les PME
+              </h1>
+              <p className="mb-4 text-lg font-[550] text-white/90 md:text-xl">
+                Un opérateur indépendant, local, qui ne vous vend que ce dont vous avez besoin.
+              </p>
+              <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
+                Depuis 2009, CSX Telecom accompagne les entreprises de la région Occitanie et du Pays
+                Basque dans leurs projets télécom. Téléphonie IP, internet professionnel, agents IA :
+                nous construisons des solutions durables, avec une équipe présente sur le terrain.
+              </p>
+              <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                Parler à un consultant
+                <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+              </Link>
+            </div>
           </div>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            CSX Telecom —{" "}
-            <span style={{ color: "#29ABE2" }}>15 ans d'expertise télécom</span>{" "}
-            pour les PME
-          </h1>
-          <p className="text-lg md:text-xl mb-4 font-semibold opacity-90">
-            Un opérateur indépendant, local, qui ne vous vend que ce dont vous avez besoin.
-          </p>
-          <p className="text-base md:text-lg mb-10 max-w-3xl mx-auto opacity-80 leading-relaxed">
-            Depuis 2009, CSX Telecom accompagne les entreprises de la région Occitanie et du Pays
-            Basque dans leurs projets télécom. Téléphonie IP, internet professionnel, agents IA :
-            nous construisons des solutions durables, avec une équipe présente sur le terrain.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Parler à un consultant
-          </Link>
         </div>
       </section>
 
       {/* STATS */}
-      <section className="py-12" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.value} className="text-center">
-                <div className="text-2xl md:text-3xl font-bold mb-1" style={{ color: "#1515DC" }}>
-                  {stat.value}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="py-12 md:py-16">
+            <div className="grid grid-cols-2 gap-8 md:-mx-9 md:grid-cols-4 md:gap-0">
+              {stats.map((stat, i) => (
+                <div
+                  key={i}
+                  className="relative text-center md:px-9 md:after:absolute md:after:right-0 md:after:top-1/2 md:after:h-12 md:after:w-px md:after:-translate-y-1/2 md:after:bg-slate-200 md:last:after:hidden"
+                >
+                  <div className="mb-2 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-slate-500">{stat.label}</div>
                 </div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* HISTOIRE */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: "#111827" }}>
-            Notre histoire
-          </h2>
-          <div className="space-y-6 text-gray-700 leading-relaxed text-lg">
-            <p>
-              CSX Telecom est né d'un constat simple : les PME méritent le même niveau de service
-              télécom que les grandes entreprises, avec un interlocuteur qui les connaît et qui se
-              déplace. Pas une hotline anonyme, pas un contrat standardisé impossible à modifier.
-            </p>
-            <p>
-              Depuis notre création, nous avons obtenu la déclaration d'opérateur auprès de
-              l'ARCEP. Ce statut n'est pas anodin : il nous permet d'accéder directement aux
-              infrastructures de tous les opérateurs — Orange, SFR, Bouygues, opérateurs fibre
-              locaux — et de négocier les meilleures conditions pour nos clients sans aucun lien
-              de dépendance avec un opérateur en particulier.
-            </p>
-            <p>
-              Au fil des années, nous avons accompagné plus de 200 entreprises dans leur
-              transformation télécom : migration depuis le réseau cuivre RTC, déploiement de
-              standards IP, construction de réseaux MPLS multi-sites, et plus récemment intégration
-              d'agents vocaux IA dans les flux d'appels.
-            </p>
-            <p>
-              Aujourd'hui, notre équipe est répartie sur quatre agglomérations — Toulouse, Montauban,
-              Cahors et Bayonne — pour rester au plus près de nos clients. Nous continuons d'investir
-              dans les nouvelles technologies, notamment l'IA vocale, pour anticiper les besoins des
-              entreprises de demain.
-            </p>
+      <section style={{ background: "var(--csx-light)" }}>
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <h2 className="h2 mb-8">Notre histoire</h2>
+              <div className="space-y-6 text-lg leading-relaxed text-slate-700">
+                <p>
+                  CSX Telecom est né d'un constat simple : les PME méritent le même niveau de service
+                  télécom que les grandes entreprises, avec un interlocuteur qui les connaît et qui se
+                  déplace. Pas une hotline anonyme, pas un contrat standardisé impossible à modifier.
+                </p>
+                <p>
+                  Depuis notre création, nous avons obtenu la déclaration d'opérateur auprès de
+                  l'ARCEP. Ce statut n'est pas anodin : il nous permet d'accéder directement aux
+                  infrastructures de tous les opérateurs — Orange, SFR, Bouygues, opérateurs fibre
+                  locaux — et de négocier les meilleures conditions pour nos clients sans aucun lien
+                  de dépendance avec un opérateur en particulier.
+                </p>
+                <p>
+                  Au fil des années, nous avons accompagné plus de 200 entreprises dans leur
+                  transformation télécom : migration depuis le réseau cuivre RTC, déploiement de
+                  standards IP, construction de réseaux MPLS multi-sites, et plus récemment intégration
+                  d'agents vocaux IA dans les flux d'appels.
+                </p>
+                <p>
+                  Aujourd'hui, notre équipe est répartie sur quatre agglomérations — Toulouse, Montauban,
+                  Cahors et Bayonne — pour rester au plus près de nos clients. Nous continuons d'investir
+                  dans les nouvelles technologies, notamment l'IA vocale, pour anticiper les besoins des
+                  entreprises de demain.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* VALEURS */}
-      <section className="py-16 md:py-24" style={{ background: "#F0F4FF" }}>
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Nos valeurs
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Ce qui nous guide au quotidien, dans chaque installation et chaque relation client.
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {values.map((val) => (
-              <div key={val.title} className="bg-white p-6 rounded-2xl border-l-4" style={{ borderColor: "#1515DC" }}>
-                <div className="text-3xl mb-3">{val.icon}</div>
-                <h3 className="text-lg font-bold mb-2" style={{ color: "#1515DC" }}>{val.title}</h3>
-                <p className="text-gray-600 leading-relaxed text-sm">{val.description}</p>
-              </div>
-            ))}
+      {/* VALEURS — section sombre */}
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-24 rounded-tr-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-text) 0%, var(--csx-darker) 70%, var(--csx-dark) 100%)" }}
+        />
+        <div className="container-page text-white">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4 text-white">Nos valeurs</h2>
+              <p className="text-lg text-white/70">
+                Ce qui nous guide au quotidien, dans chaque installation et chaque relation client.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {values.map((val) => (
+                <div key={val.title} className="rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10">
+                  <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-2xl">
+                    {val.icon}
+                  </div>
+                  <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-secondary)" }}>
+                    {val.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-white/80">{val.description}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* AGENCES */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4" style={{ color: "#111827" }}>
-            Nos équipes sur le terrain
-          </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-            Quatre implantations pour couvrir la région Occitanie et le Pays Basque avec des
-            techniciens et consultants locaux.
-          </p>
-          <div className="grid md:grid-cols-2 gap-6">
-            {offices.map((office) => (
-              <div key={office.city} className="p-6 rounded-2xl border border-gray-100 hover:border-[#1515DC] hover:shadow-md transition-all">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h3 className="text-xl font-bold" style={{ color: "#1515DC" }}>{office.city}</h3>
-                    <p className="text-sm text-gray-500">{office.dept}</p>
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto mb-12 max-w-2xl text-center">
+              <h2 className="h2 mb-4">Nos équipes sur le terrain</h2>
+              <p className="text-lg text-slate-600">
+                Quatre implantations pour couvrir la région Occitanie et le Pays Basque avec des
+                techniciens et consultants locaux.
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2">
+              {offices.map((office) => (
+                <div
+                  key={office.city}
+                  className="rounded-3xl border border-slate-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-md"
+                >
+                  <div className="mb-3 flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
+                        {office.city}
+                      </h3>
+                      <p className="text-sm text-slate-500">{office.dept}</p>
+                    </div>
+                    <span
+                      className="shrink-0 rounded-full px-3 py-1 text-xs font-[550]"
+                      style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}
+                    >
+                      {office.role}
+                    </span>
                   </div>
-                  <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ background: "#F0F4FF", color: "#1515DC" }}>
-                    {office.role}
-                  </span>
+                  <p className="leading-relaxed text-slate-600">{office.description}</p>
                 </div>
-                <p className="text-gray-600 leading-relaxed">{office.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA FINAL */}
-      <section className="py-20 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Travaillons ensemble
-          </h2>
-          <p className="text-lg mb-4 opacity-80">
-            Audit gratuit de votre situation télécom. Sans engagement, sur site ou à distance.
-          </p>
-          <p className="text-base mb-8 opacity-70">
-            Un consultant CSX Telecom vous répond sous 24h.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-4 rounded-lg font-bold text-white text-lg hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Nous contacter — Réponse sous 24h
-          </Link>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>
+                  Travaillons ensemble
+                </p>
+                <h2 className="h2 text-white">Un consultant vous répond sous 24h</h2>
+                <p className="mt-4 text-lg text-white/75">
+                  Audit gratuit de votre situation télécom. Sans engagement, sur site ou à distance.
+                </p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Nous contacter — Réponse sous 24h
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

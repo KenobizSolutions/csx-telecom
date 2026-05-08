@@ -105,28 +105,36 @@ export default function FinReseauCuivreRTCPage() {
       />
 
       {/* HERO */}
-      <section
-        className="relative py-16 md:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Link href="/blog" className="text-white/70 hover:text-white text-sm transition-colors">
-              ← Blog
-            </Link>
-            <span className="text-white/40">·</span>
-            <span className="text-sm font-medium px-3 py-1 rounded-full bg-white/20">Téléphonie IP</span>
-            <span className="text-white/40">·</span>
-            <span className="text-sm opacity-70">5 min de lecture</span>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-20 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-24 md:pb-20">
+            <div className="mx-auto max-w-3xl text-white anim-fade-up">
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <Link href="/blog" className="text-sm text-white/70 transition-colors hover:text-white">
+                  ← Blog
+                </Link>
+                <span className="text-white/40">·</span>
+                <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
+                  Téléphonie IP
+                </span>
+                <span className="text-white/40">·</span>
+                <span className="text-sm text-white/70">5 min de lecture</span>
+              </div>
+              <h1 className="h2 mb-5 text-white">
+                La fin du réseau cuivre RTC : ce que les entreprises doivent savoir
+              </h1>
+              <p className="text-lg leading-relaxed text-white/80">
+                Orange arrête progressivement le réseau téléphonique traditionnel. Délais, impacts,
+                solutions de migration : tout ce qu'il faut anticiper avant d'être coupé sans préavis.
+              </p>
+              <p className="mt-4 text-sm text-white/60">15 mars 2026 · CSX Telecom</p>
+            </div>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-            La fin du réseau cuivre RTC : ce que les entreprises doivent savoir
-          </h1>
-          <p className="text-lg opacity-80 leading-relaxed">
-            Orange arrête progressivement le réseau téléphonique traditionnel. Délais, impacts,
-            solutions de migration : tout ce qu'il faut anticiper avant d'être coupé sans préavis.
-          </p>
-          <p className="text-sm opacity-60 mt-4">15 mars 2026 · CSX Telecom</p>
         </div>
       </section>
 
@@ -233,22 +241,29 @@ export default function FinReseauCuivreRTCPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Vous êtes concerné par la fin du réseau cuivre ?
-          </h2>
-          <p className="opacity-80 mb-6">
-            CSX Telecom vérifie gratuitement votre date de coupure et vous prépare une migration
-            sans stress. Un consultant vous répond sous 24h.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-8 py-4 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Demander mon audit gratuit — Réponse sous 24h
-          </Link>
+      <section className="relative">
+        <div className="absolute inset-0 -z-10" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>
+                  Vous êtes concerné par la fin du réseau cuivre ?
+                </p>
+                <h2 className="h2 text-white">Migration sans stress, vérification gratuite</h2>
+                <p className="mt-4 text-lg text-white/75">
+                  CSX Telecom vérifie gratuitement votre date de coupure et vous prépare une migration
+                  sans stress. Un consultant vous répond sous 24h.
+                </p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/contact" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Demander mon audit gratuit — Réponse sous 24h
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

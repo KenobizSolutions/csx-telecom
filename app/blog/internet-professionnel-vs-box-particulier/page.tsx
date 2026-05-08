@@ -104,28 +104,36 @@ export default function InternetProVsBoxPage() {
       />
 
       {/* HERO */}
-      <section
-        className="relative py-16 md:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Link href="/blog" className="text-white/70 hover:text-white text-sm transition-colors">
-              ← Blog
-            </Link>
-            <span className="text-white/40">·</span>
-            <span className="text-sm font-medium px-3 py-1 rounded-full bg-white/20">Internet professionnel</span>
-            <span className="text-white/40">·</span>
-            <span className="text-sm opacity-70">7 min de lecture</span>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-20 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-24 md:pb-20">
+            <div className="mx-auto max-w-3xl text-white anim-fade-up">
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <Link href="/blog" className="text-sm text-white/70 transition-colors hover:text-white">
+                  ← Blog
+                </Link>
+                <span className="text-white/40">·</span>
+                <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
+                  Internet professionnel
+                </span>
+                <span className="text-white/40">·</span>
+                <span className="text-sm text-white/70">7 min de lecture</span>
+              </div>
+              <h1 className="h2 mb-5 text-white">
+                Internet professionnel vs box grand public : les vraies différences
+              </h1>
+              <p className="text-lg leading-relaxed text-white/80">
+                GTR, débit garanti, QoS, redondance, support dédié : voici pourquoi votre activité
+                ne peut pas reposer sur une simple box d'opérateur.
+              </p>
+              <p className="mt-4 text-sm text-white/60">20 janvier 2026 · CSX Telecom</p>
+            </div>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-            Internet professionnel vs box grand public : les vraies différences
-          </h1>
-          <p className="text-lg opacity-80 leading-relaxed">
-            GTR, débit garanti, QoS, redondance, support dédié : voici pourquoi votre activité
-            ne peut pas reposer sur une simple box d'opérateur.
-          </p>
-          <p className="text-sm opacity-60 mt-4">20 janvier 2026 · CSX Telecom</p>
         </div>
       </section>
 
@@ -244,21 +252,26 @@ export default function InternetProVsBoxPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Votre internet mérite une GTR et un vrai support
-          </h2>
-          <p className="opacity-80 mb-6">
-            Audit réseau gratuit. Devis multi-opérateur sous 48h. Un consultant dédié, pas une hotline.
-          </p>
-          <Link
-            href="/internet-professionnel"
-            className="inline-block px-8 py-4 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Découvrir nos offres internet professionnel
-          </Link>
+      <section className="relative">
+        <div className="absolute inset-0 -z-10" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>
+                  Votre internet mérite une GTR et un vrai support
+                </p>
+                <h2 className="h2 text-white">Audit réseau gratuit, devis multi-opérateur sous 48h</h2>
+                <p className="mt-4 text-lg text-white/75">Un consultant dédié, pas une hotline.</p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/internet-professionnel" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Découvrir nos offres internet professionnel
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

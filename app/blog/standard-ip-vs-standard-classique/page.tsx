@@ -103,28 +103,36 @@ export default function StandardIPVsClassiquePage() {
       />
 
       {/* HERO */}
-      <section
-        className="relative py-16 md:py-24 text-white"
-        style={{ background: "linear-gradient(135deg, #0D0DA8 0%, #1515DC 60%, #29ABE2 100%)" }}
-      >
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="flex items-center gap-3 mb-4">
-            <Link href="/blog" className="text-white/70 hover:text-white text-sm transition-colors">
-              ← Blog
-            </Link>
-            <span className="text-white/40">·</span>
-            <span className="text-sm font-medium px-3 py-1 rounded-full bg-white/20">Téléphonie IP</span>
-            <span className="text-white/40">·</span>
-            <span className="text-sm opacity-70">6 min de lecture</span>
+      <section className="relative">
+        <div
+          className="absolute inset-0 -z-10 mb-20 rounded-bl-[100px] md:mb-0"
+          aria-hidden="true"
+          style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
+        />
+        <div className="container-page">
+          <div className="pt-20 pb-16 md:pt-24 md:pb-20">
+            <div className="mx-auto max-w-3xl text-white anim-fade-up">
+              <div className="mb-5 flex flex-wrap items-center gap-3">
+                <Link href="/blog" className="text-sm text-white/70 transition-colors hover:text-white">
+                  ← Blog
+                </Link>
+                <span className="text-white/40">·</span>
+                <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-wide text-white backdrop-blur">
+                  Téléphonie IP
+                </span>
+                <span className="text-white/40">·</span>
+                <span className="text-sm text-white/70">6 min de lecture</span>
+              </div>
+              <h1 className="h2 mb-5 text-white">
+                Standard IP vs standard classique : pourquoi migrer en 2026 ?
+              </h1>
+              <p className="text-lg leading-relaxed text-white/80">
+                Comparatif complet entre téléphonie IP et analogique classique : fonctionnalités,
+                coûts, limites et recommandations pour décider sereinement.
+              </p>
+              <p className="mt-4 text-sm text-white/60">10 février 2026 · CSX Telecom</p>
+            </div>
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-5 leading-tight">
-            Standard IP vs standard classique : pourquoi migrer en 2026 ?
-          </h1>
-          <p className="text-lg opacity-80 leading-relaxed">
-            Comparatif complet entre téléphonie IP et analogique classique : fonctionnalités,
-            coûts, limites et recommandations pour décider sereinement.
-          </p>
-          <p className="text-sm opacity-60 mt-4">10 février 2026 · CSX Telecom</p>
         </div>
       </section>
 
@@ -232,22 +240,29 @@ export default function StandardIPVsClassiquePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 text-white text-center" style={{ background: "#0D0DA8" }}>
-        <div className="max-w-3xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Votre standard téléphonique mérite une mise à niveau
-          </h2>
-          <p className="opacity-80 mb-6">
-            CSX Telecom analyse votre installation actuelle et vous propose la migration la plus
-            adaptée. Audit gratuit, réponse sous 24h.
-          </p>
-          <Link
-            href="/standard-telephonique-ipbx"
-            className="inline-block px-8 py-4 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-            style={{ background: "#29ABE2" }}
-          >
-            Découvrir nos solutions standard IP
-          </Link>
+      <section className="relative">
+        <div className="absolute inset-0 -z-10" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
+        <div className="container-page">
+          <div className="py-16 md:py-20">
+            <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
+              <div className="mb-8 text-center lg:mb-0 lg:text-left">
+                <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>
+                  Votre standard téléphonique mérite une mise à niveau
+                </p>
+                <h2 className="h2 text-white">Audit gratuit, réponse sous 24h</h2>
+                <p className="mt-4 text-lg text-white/75">
+                  CSX Telecom analyse votre installation actuelle et vous propose la migration la plus
+                  adaptée.
+                </p>
+              </div>
+              <div className="flex justify-center lg:shrink-0">
+                <Link href="/standard-telephonique-ipbx" className="btn group bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
+                  Découvrir nos solutions standard IP
+                  <span className="ml-2 transition-transform duration-150 group-hover:translate-x-0.5">→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </>

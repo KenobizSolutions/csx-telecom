@@ -241,7 +241,7 @@ export default function StandardIPVsClassiquePage() {
 
       {/* CTA */}
       <section className="relative">
-        <div className="absolute inset-0 -z-10" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
+        <div className="absolute inset-0 -z-10 rounded-bl-[100px]" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 100%)" }} />
         <div className="container-page">
           <div className="py-16 md:py-20">
             <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">

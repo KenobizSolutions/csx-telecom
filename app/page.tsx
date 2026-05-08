@@ -325,7 +325,7 @@ export default function HomePage() {
       {/* CTA FINAL — section sombre style template */}
       <section className="relative">
         <div
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-10 rounded-bl-[100px]"
           aria-hidden="true"
           style={{
             background:

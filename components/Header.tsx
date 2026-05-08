@@ -1,16 +1,20 @@
 "use client";
 
 /**
- * Header CSX Telecom — version "floating pill" très visible.
+ * Header CSX Telecom — bandeau translucide sur scroll.
  *
- * Design :
- *  - Header sticky, fond entièrement transparent (laisse passer le hero)
- *  - Logo grande taille à gauche
- *  - Une SEULE bulle blanche centrale qui contient tous les liens nav
- *    + le bouton "Audit gratuit" (effet plus prononcé)
- *  - La bulle a une ombre marquée, une bordure subtile et du backdrop-blur
- *    pour un vrai effet "flotte au-dessus du contenu"
- *  - Toujours visible pendant le scroll (sticky top: 0)
+ * Layout :
+ *  - Logo à gauche
+ *  - Bulle nav centrée (indépendante)
+ *  - Bouton "Audit gratuit" à droite (indépendant)
+ *
+ * Comportement :
+ *  - Sticky top:0 → reste visible pendant tout le scroll
+ *  - Au repos : bandeau totalement transparent
+ *  - Au scroll : le bandeau (uniquement) devient translucide
+ *    (bg-white/70 + backdrop-blur). Le logo, la bulle menu et le
+ *    bouton "Audit gratuit" restent solides et clairement visibles
+ *    en permanence.
  */
 
 import * as React from "react";
@@ -28,6 +32,14 @@ const navItems = [
 
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   React.useEffect(() => {
     function onKeyDown(e: KeyboardEvent) {
@@ -38,10 +50,18 @@ export function Header() {
   }, [isOpen]);
 
   return (
-    <header className="sticky top-0 z-50 w-full pt-3 md:pt-4">
+    <header
+      className={[
+        "sticky top-0 z-50 w-full transition-colors duration-300",
+        scrolled
+          ? "bg-white/70 backdrop-blur-md border-b border-slate-200/50"
+          : "bg-transparent backdrop-blur-0 border-b border-transparent",
+      ].join(" ")}
+    >
       <div className="container-page">
-        <div className="flex items-center justify-between gap-4">
-          {/* Logo — prend toute la hauteur disponible */}
+        {/* Layout : grille 3 colonnes pour centrer parfaitement la bulle nav */}
+        <div className="grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-24">
+          {/* Logo (gauche) — toujours opaque */}
           <Link
             href="/"
             className="shrink-0"
@@ -59,14 +79,10 @@ export function Header() {
             />
           </Link>
 
-          {/* Bulle nav + CTA — flotte au-dessus du contenu */}
+          {/* Bulle navigation (centre) — toujours opaque */}
           <nav
             aria-label="Navigation principale"
-            className={[
-              "hidden lg:flex items-center gap-1 pl-2 pr-1.5 py-1.5",
-              "rounded-full border border-slate-200/70 bg-white/85 backdrop-blur-xl",
-              "shadow-[0_8px_30px_rgba(13,13,168,0.12)]",
-            ].join(" ")}
+            className="hidden lg:flex justify-self-center items-center gap-1 rounded-full border border-slate-200 bg-white px-2 py-1.5 shadow-[0_8px_30px_rgba(13,13,168,0.12)]"
           >
             {navItems.map((item) => (
               <Link
@@ -77,10 +93,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            {/* CTA dans la même bulle */}
+          </nav>
+
+          {/* CTA Audit gratuit (droite) — toujours opaque, séparé de la bulle nav */}
+          <div className="flex items-center gap-2 justify-self-end">
             <Link
               href="/contact"
-              className="ml-1 inline-flex items-center rounded-full bg-[var(--csx-primary)] px-4 py-2 text-[14px] font-[550] text-white shadow-sm transition-all hover:bg-[var(--csx-dark)] group"
+              className="hidden sm:inline-flex group items-center rounded-full bg-[var(--csx-primary)] px-5 py-2.5 text-[14px] font-[550] text-white shadow-[0_4px_20px_rgba(21,21,220,0.25)] transition-all hover:bg-[var(--csx-dark)]"
             >
               Audit gratuit
               <span className="ml-2 text-white/80 transition-transform duration-150 group-hover:translate-x-0.5">
@@ -89,19 +108,11 @@ export function Header() {
                 </svg>
               </span>
             </Link>
-          </nav>
 
-          {/* Mobile : CTA + burger dans des bulles assorties */}
-          <div className="flex items-center gap-2 lg:hidden">
-            <Link
-              href="/contact"
-              className="hidden sm:inline-flex h-11 items-center rounded-full border border-slate-200/70 bg-white/85 px-4 text-[14px] font-[550] text-[var(--csx-primary)] shadow-[0_4px_20px_rgba(13,13,168,0.1)] backdrop-blur-xl transition hover:bg-white"
-            >
-              Audit gratuit
-            </Link>
+            {/* Burger mobile */}
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200/70 bg-white/85 text-slate-700 shadow-[0_4px_20px_rgba(13,13,168,0.1)] backdrop-blur-xl transition hover:bg-white"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-[0_4px_20px_rgba(13,13,168,0.1)] transition hover:bg-slate-50 lg:hidden"
               aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={isOpen}
               onClick={() => setIsOpen((v) => !v)}
@@ -123,12 +134,12 @@ export function Header() {
         </div>
       </div>
 
-      {/* Drawer mobile — bulle flottante par-dessus le contenu */}
+      {/* Drawer mobile */}
       {isOpen && (
         <div className="container-page lg:hidden">
           <nav
             aria-label="Navigation mobile"
-            className="mt-3 rounded-3xl border border-slate-200/70 bg-white/95 p-3 shadow-[0_8px_30px_rgba(13,13,168,0.15)] backdrop-blur-xl"
+            className="mt-1 mb-3 rounded-3xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(13,13,168,0.15)]"
           >
             <ul className="grid gap-1">
               {navItems.map((item) => (

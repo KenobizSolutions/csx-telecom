@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
@@ -8,9 +9,18 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SteeveWidget } from "@/components/SteeveWidget";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+// Aspekta — police principale (reprise du template fintech-next)
+const aspekta = localFont({
+  src: [
+    { path: "../public/fonts/Aspekta-350.woff2", weight: "350" },
+    { path: "../public/fonts/Aspekta-400.woff2", weight: "400" },
+    { path: "../public/fonts/Aspekta-450.woff2", weight: "450" },
+    { path: "../public/fonts/Aspekta-500.woff2", weight: "500" },
+    { path: "../public/fonts/Aspekta-550.woff2", weight: "550" },
+    { path: "../public/fonts/Aspekta-700.woff2", weight: "700" },
+  ],
+  variable: "--font-aspekta",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -36,9 +46,9 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${aspekta.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="bg-white text-[var(--csx-text)] font-[400] antialiased">
+      <body className="bg-white font-sans text-[var(--csx-text)] font-[400] antialiased">
         <div className="flex min-h-screen flex-col overflow-hidden">
           <Header />
           <main className="grow">{children}</main>

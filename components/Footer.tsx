@@ -28,7 +28,7 @@ const zoneLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative">
+    <footer className="relative mt-6 md:mt-10">
       {/* Fond sombre + coin arrondi haut-droit (signature fintech-next) */}
       <div
         className="absolute inset-0 -z-10 rounded-tr-[100px]"

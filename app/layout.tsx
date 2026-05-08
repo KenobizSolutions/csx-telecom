@@ -48,8 +48,8 @@ export default function RootLayout({
       lang="fr"
       className={`${aspekta.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="bg-white font-sans text-[var(--csx-text)] font-[400] antialiased">
-        <div className="flex min-h-screen flex-col overflow-hidden">
+      <body className="overflow-x-clip bg-white font-sans text-[var(--csx-text)] font-[400] antialiased">
+        <div className="flex min-h-screen flex-col">
           <Header />
           <main className="grow">{children}</main>
           <Footer />

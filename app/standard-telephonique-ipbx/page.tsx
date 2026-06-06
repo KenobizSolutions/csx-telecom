@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IP & IPBX pour les entreprises",
+  title: "Standard téléphonique IP & IPBX pour entreprise",
   description:
     "Installation et maintenance de standard IP ou IPBX, de 2 à +100 postes. Fin du réseau cuivre RTC, migration sans coupure, cloud ou sur site. Opérateur ARCEP.",
   alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },
@@ -313,6 +313,87 @@ export default function StandardIPBXPage() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENU SEO — IPBX, trunk SIP, centrex, téléphonie IP */}
+      <section style={{ background: "var(--csx-light)" }}>
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl space-y-10">
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Qu&apos;est-ce qu&apos;un IPBX ?
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Un IPBX (Internet Protocol Branch eXchange) est le standard téléphonique d&apos;entreprise de
+                  nouvelle génération. Là où l&apos;ancien PABX commutait des lignes analogiques sur le réseau
+                  cuivre, l&apos;IPBX gère les appels en voix sur IP : routage des appels internes et externes,
+                  files d&apos;attente, messageries, renvois, serveur vocal interactif, conférence. Il existe en
+                  deux formes : l&apos;IPBX sur site, installé dans vos locaux, et l&apos;IPBX cloud (hébergé),
+                  accessible depuis n&apos;importe quel poste connecté.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Trunk SIP : remplacer directement vos lignes RTC
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Le trunk SIP (ou SIP trunk) est le canal qui relie votre standard au réseau téléphonique
+                  via internet. Il remplace les anciennes lignes analogiques et les accès T0/T2 du réseau
+                  RTC en voie d&apos;extinction. Un trunk SIP fournit autant de communications simultanées que
+                  nécessaire, permet de conserver vos numéros par portage et s&apos;adapte instantanément quand
+                  votre activité grandit. En tant qu&apos;opérateur déclaré ARCEP, CSX Telecom fournit les
+                  trunks SIP en direct — sans intermédiaire qui dégrade la qualité vocale.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Centrex : la téléphonie d&apos;entreprise entièrement hébergée
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Le Centrex désigne un standard téléphonique entièrement hébergé chez l&apos;opérateur : aucun
+                  équipement à gérer dans vos locaux, toutes les fonctions du standard sont rendues depuis le
+                  cloud. C&apos;est la solution idéale pour les structures multi-sites ou en télétravail. Le
+                  Centrex rejoint notre offre de{" "}
+                  <Link href="/voip-telephonie-cloud" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    VoIP &amp; téléphonie cloud
+                  </Link>{" "}
+                  : les fonctions d&apos;un grand standard, sans investissement matériel.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Téléphonie IP pour entreprise : ce qui change au quotidien
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  La téléphonie IP d&apos;entreprise apporte la mobilité (votre numéro fixe vous suit sur mobile
+                  et en télétravail), l&apos;évolutivité (un poste s&apos;ajoute en quelques minutes) et de nouvelles
+                  fonctions : standard automatique, statistiques d&apos;appels, couplage avec vos outils. Elle
+                  ouvre aussi la voie aux{" "}
+                  <Link href="/agents-virtuels-ia" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    agents vocaux IA
+                  </Link>
+                  , intégrés nativement à votre standard IP pour répondre 24h/24.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Bien choisir son standard téléphonique d&apos;entreprise
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Cloud ou sur site, nombre de postes, niveau de redondance : le bon choix dépend de votre
+                  organisation, pas d&apos;un catalogue. Nous ne sommes liés à aucune marque — ce qui compte,
+                  c&apos;est une solution qui fonctionne et un support réactif. Nous nous appuyons sur les
+                  technologies les plus éprouvées du marché et dimensionnons votre standard à votre réalité.{" "}
+                  <Link href="/contact" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    Demandez votre audit gratuit
+                  </Link>
+                  .
+                </p>
+              </div>
             </div>
           </div>
         </div>

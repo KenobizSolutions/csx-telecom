@@ -1,10 +1,11 @@
 # CSX Telecom
 > Opérateur télécom indépendant déclaré ARCEP pour les TPE et PME
 
-CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), intervenant à Toulouse, Montauban, Cahors, Gourdon, Caussade, Bayonne et Biarritz. Depuis plus de 15 ans, nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP, internet professionnel multi-opérateur et agents virtuels IA.
+CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), intervenant à Toulouse, Montauban, Cahors, Gourdon, Caussade, Bayonne et Biarritz. Depuis plus de 17 ans, nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP, internet professionnel multi-opérateur et agents virtuels IA.
 
 ## Services
 - Standard téléphonique IP & IPBX (2 à +100 postes)
+- VoIP & téléphonie cloud (voix sur IP hébergée, sans matériel)
 - Internet professionnel & MPLS multi-opérateur (fibre, 5G, Starlink)
 - Agents virtuels IA téléphoniques (24h/24 7j/7)
 
@@ -17,6 +18,7 @@ CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), 
 ## Pages principales
 - Accueil : https://csx-telecom.fr/
 - Standard IP & IPBX : https://csx-telecom.fr/standard-telephonique-ipbx
+- VoIP & téléphonie cloud : https://csx-telecom.fr/voip-telephonie-cloud
 - Internet professionnel : https://csx-telecom.fr/internet-professionnel
 - Agents virtuels IA : https://csx-telecom.fr/agents-virtuels-ia
 - À propos : https://csx-telecom.fr/a-propos
@@ -35,6 +37,12 @@ CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), 
 - La fin du réseau cuivre RTC : https://csx-telecom.fr/blog/fin-reseau-cuivre-rtc
 - Cybersécurité télécom pour les PME : https://csx-telecom.fr/blog/cybersecurite-telecom-pme
 - Agents IA vocaux — comment ça marche : https://csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
+- Standard IP vs standard classique : https://csx-telecom.fr/blog/standard-ip-vs-standard-classique
+- Internet professionnel vs box grand public : https://csx-telecom.fr/blog/internet-professionnel-vs-box-particulier
+- IPBX vs Centrex : quelle solution ? : https://csx-telecom.fr/blog/ipbx-vs-centrex-quelle-solution
+- Trunk SIP : qu'est-ce que c'est et pourquoi migrer ? : https://csx-telecom.fr/blog/trunk-sip-explication
+- Standard téléphonique IA vs accueil humain : https://csx-telecom.fr/blog/standard-telephonique-ia-vs-humain
+- Fin du RTC : la checklist de migration vers l'IP : https://csx-telecom.fr/blog/migration-rtc-checklist
 
 ## À propos de l'opérateur
 CSX Telecom est déclaré opérateur auprès de l'ARCEP (Autorité de Régulation des Communications Électroniques et des Postes). Ce statut permet un accès direct aux infrastructures de tous les opérateurs nationaux (Orange, SFR, Bouygues, opérateurs fibre locaux) et à Starlink Business, sans dépendance commerciale envers l'un d'eux.

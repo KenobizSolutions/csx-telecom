@@ -44,6 +44,15 @@ export default async function ArticlePage(props: {
   const article = getArticleBySlug(slug);
   if (!article) notFound();
 
+  // Maillage interne : chaque article pointe vers la page service liée à sa catégorie.
+  const serviceByCategory: Record<string, { label: string; href: string }> = {
+    "Téléphonie IP": { label: "Standard téléphonique IP & IPBX", href: "/standard-telephonique-ipbx" },
+    "IA & Innovation": { label: "Agents virtuels IA", href: "/agents-virtuels-ia" },
+    "Internet professionnel": { label: "Internet professionnel", href: "/internet-professionnel" },
+    "Cybersécurité": { label: "Standard téléphonique IP & IPBX", href: "/standard-telephonique-ipbx" },
+  };
+  const relatedService = serviceByCategory[article.category];
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -145,7 +154,7 @@ export default async function ArticlePage(props: {
                   <div>
                     <p className="font-[550] text-slate-800">Équipe CSX Telecom</p>
                     <p className="text-sm text-slate-500">
-                      Opérateur télécom indépendant déclaré ARCEP · Cahors, Toulouse, Montauban, Bayonne
+                      Opérateur télécom indépendant déclaré ARCEP · Cahors, Montauban, Gourdon, Bayonne
                     </p>
                   </div>
                 </div>
@@ -185,6 +194,19 @@ export default async function ArticlePage(props: {
                     </li>
                   </ul>
                 </div>
+
+                {relatedService && (
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6">
+                    <h3 className="mb-3 font-bold tracking-tight">Le service associé</h3>
+                    <Link
+                      href={relatedService.href}
+                      className="inline-flex items-center text-sm font-[550] transition-colors hover:underline"
+                      style={{ color: "var(--csx-primary)" }}
+                    >
+                      {relatedService.label} →
+                    </Link>
+                  </div>
+                )}
 
                 <div className="rounded-3xl border border-slate-200 bg-white p-6">
                   <h3 className="mb-4 font-bold tracking-tight">Autres articles</h3>

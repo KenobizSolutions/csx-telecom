@@ -49,7 +49,7 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience CSX Telecom" },
+  { value: "+17 ans", label: "d'expérience CSX Telecom" },
   { value: "+200", label: "clients actifs de 1 à +800 salariés" },
   { value: "Opérateur ARCEP", label: "multi-opérateur indépendant" },
   { value: "24h/24", label: "agents IA disponibles" },
@@ -87,7 +87,7 @@ const reasons = [
   },
   {
     title: "Local et réactif",
-    description: "Nos équipes sont à Toulouse, Montauban, Cahors et Bayonne. Nous nous déplaçons. Pas de hotline nationale.",
+    description: "Nos équipes sont à Cahors, Montauban, Gourdon et Bayonne. Nous nous déplaçons sur tout le Lot, le Tarn-et-Garonne, la Haute-Garonne et le Pays Basque. Pas de hotline nationale.",
   },
   {
     title: "Solutions sur-mesure",
@@ -100,11 +100,11 @@ const reasons = [
 ];
 
 const zones = [
-  { city: "Toulouse", dept: "Haute-Garonne (31)", href: "/toulouse", priority: true },
-  { city: "Montauban", dept: "Tarn-et-Garonne (82)", href: "/montauban", priority: true },
   { city: "Cahors", dept: "Lot (46)", href: "/cahors", priority: true },
+  { city: "Montauban", dept: "Tarn-et-Garonne (82)", href: "/montauban", priority: true },
+  { city: "Caussade", dept: "Tarn-et-Garonne (82)", href: "/caussade", priority: true },
   { city: "Gourdon", dept: "Lot (46)", href: "/gourdon", priority: false },
-  { city: "Caussade", dept: "Tarn-et-Garonne (82)", href: "/caussade", priority: false },
+  { city: "Toulouse", dept: "Haute-Garonne (31)", href: "/toulouse", priority: false },
   { city: "Bayonne · Biarritz", dept: "Pyrénées-Atlantiques (64)", href: "/bayonne-biarritz", priority: false },
 ];
 
@@ -145,7 +145,7 @@ export default function HomePage() {
                 Un seul interlocuteur. Tous les opérateurs. Zéro coupure.
               </p>
               <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-                CSX Telecom est un opérateur télécom indépendant déclaré à l'ARCEP. Depuis plus de 15 ans,
+                CSX Telecom est un opérateur télécom indépendant déclaré à l'ARCEP. Depuis plus de 17 ans,
                 nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP,
                 d'internet professionnel et d'agents virtuels IA sur-mesure.
               </p>

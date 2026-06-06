@@ -27,7 +27,7 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "Fibre + 5G", label: "et Starlink pour zones rurales" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "24h/24", label: "agents IA et supervision disponibles" },

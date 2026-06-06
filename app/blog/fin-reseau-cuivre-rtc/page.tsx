@@ -232,7 +232,7 @@ export default function FinReseauCuivreRTCPage() {
               >
                 <p className="font-semibold mb-1" style={{ color: "#1515DC" }}>CSX Telecom</p>
                 <p className="text-gray-600 leading-relaxed">
-                  Opérateur ARCEP indépendant depuis 15 ans. Toulouse · Montauban · Cahors · Bayonne.
+                  Opérateur ARCEP indépendant depuis 17 ans. Cahors · Montauban · Gourdon · Bayonne.
                 </p>
               </div>
             </aside>

@@ -243,7 +243,7 @@ export default function InternetProVsBoxPage() {
                 <p className="font-semibold mb-1" style={{ color: "#1515DC" }}>CSX Telecom</p>
                 <p className="text-gray-600 leading-relaxed">
                   Opérateur ARCEP indépendant. Fibre, SDSL, 5G, Starlink, MPLS.
-                  Toulouse · Montauban · Cahors · Bayonne.
+                  Cahors · Montauban · Gourdon · Bayonne.
                 </p>
               </div>
             </aside>

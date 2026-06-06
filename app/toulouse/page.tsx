@@ -4,31 +4,41 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Opérateur télécom à Toulouse — Standard IP & Internet pro (31)",
   description:
-    "Opérateur télécom à Toulouse et en Haute-Garonne (31). Standard IP, IPBX, internet multi-opérateur, agents IA. Équipe locale, audit gratuit, intervention rapide sur toute la métropole.",
+    "Opérateur télécom à Toulouse et en Haute-Garonne (31). Standard IP, IPBX, internet multi-opérateur, agents IA. Audit gratuit, intervention sur site sur toute la métropole toulousaine.",
   alternates: { canonical: "https://www.csx-telecom.fr/toulouse" },
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Toulouse",
-  description:
-    "Opérateur télécom indépendant déclaré ARCEP à Toulouse. Standard IP, IPBX, internet professionnel multi-opérateur et agents IA pour les entreprises de la métropole toulousaine.",
-  url: "https://www.csx-telecom.fr/toulouse",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Toulouse",
-    postalCode: "31000",
-    addressCountry: "FR",
+  "@type": "Service",
+  name: "Opérateur télécom pour entreprises à Toulouse",
+  serviceType: "Téléphonie IP, internet professionnel et agents IA",
+  provider: {
+    "@type": "Organization",
+    name: "CSX Telecom",
+    url: "https://www.csx-telecom.fr",
+    telephone: "+33582730360",
+    email: "contact@csx.fr",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1 Place Emilien Imbert",
+      addressLocality: "Cahors",
+      postalCode: "46000",
+      addressCountry: "FR",
+    },
   },
-  areaServed: { "@type": "City", name: "Toulouse" },
+  description:
+    "CSX Telecom, opérateur déclaré ARCEP, intervient à Toulouse et en Haute-Garonne : standard IP, IPBX, internet professionnel multi-opérateur et agents IA pour les entreprises de la métropole toulousaine.",
+  url: "https://www.csx-telecom.fr/toulouse",
+  areaServed: [
+    { "@type": "City", name: "Toulouse" },
+    { "@type": "AdministrativeArea", name: "Haute-Garonne" },
+  ],
 } as const;
 
 const stats = [
   { value: "+200", label: "clients actifs en région Occitanie" },
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "24h/24", label: "supervision et agents IA disponibles" },
 ];
@@ -38,7 +48,7 @@ const services = [
     icon: "📞",
     title: "Standard téléphonique IP & IPBX",
     description:
-      "De 2 à +100 postes, cloud ou sur site. Portage de vos numéros sans coupure. Nos techniciens toulousains se déplacent sur Toulouse intra-muros et dans toute la première couronne.",
+      "De 2 à +100 postes, cloud ou sur site. Portage de vos numéros sans coupure. Nos techniciens se déplacent sur Toulouse intra-muros et dans toute la première couronne.",
     href: "/standard-telephonique-ipbx",
   },
   {
@@ -59,9 +69,9 @@ const services = [
 
 const reasons = [
   {
-    title: "Une équipe locale présente à Toulouse",
+    title: "Une couverture terrain de toute la métropole",
     description:
-      "Nos techniciens et consultants sont basés à Toulouse. Ils connaissent la métropole, ses zones d'activité — Labège-Innopole, Colomiers, Blagnac, Tournefeuille — et interviennent rapidement sans sous-traitance.",
+      "Nos techniciens interviennent directement sur Toulouse et sa couronne — Labège-Innopole, Colomiers, Blagnac, Tournefeuille — depuis nos agences d'Occitanie, sans sous-traitance ni délai imposé par un prestataire.",
   },
   {
     title: "Accès direct à tous les opérateurs présents sur la métropole",
@@ -76,7 +86,7 @@ const reasons = [
   {
     title: "Un seul interlocuteur, pas une hotline",
     description:
-      "Votre consultant toulousain connaît votre dossier et reste joignable directement pour toute la durée du contrat. Aucun ticket, aucune hotline nationale, aucun sous-traitant interposé.",
+      "Votre consultant dédié connaît votre dossier et reste joignable directement pour toute la durée du contrat. Aucun ticket, aucune hotline nationale, aucun sous-traitant interposé.",
   },
 ];
 
@@ -93,14 +103,14 @@ const zones = [
 
 const faqItems = [
   {
-    question: "CSX Telecom est-il vraiment présent physiquement à Toulouse ?",
+    question: "CSX Telecom intervient-il vraiment à Toulouse ?",
     answer:
-      "Oui. Nous ne sommes pas un opérateur national qui déclare « couvrir » Toulouse depuis Paris. Notre équipe technique et commerciale est basée sur la métropole. Nos techniciens se déplacent directement chez vous — Toulouse intra-muros, Labège, Colomiers, Blagnac, Tournefeuille — sans sous-traitance et sans délai imposé par un prestataire extérieur.",
+      "Oui. Nous ne sommes pas un opérateur national qui déclare « couvrir » Toulouse depuis Paris. Opérateur régional d'Occitanie, nous intervenons directement sur Toulouse Métropole : nos techniciens se déplacent chez vous — Toulouse intra-muros, Labège, Colomiers, Blagnac, Tournefeuille — sans sous-traitance et sans délai imposé par un prestataire extérieur.",
   },
   {
     question: "Quel est le délai d'intervention à Toulouse en cas de panne ?",
     answer:
-      "Pour les incidents critiques, notre objectif est d'intervenir sous 4h sur Toulouse Métropole. Nous proposons des GTR (Garantie de Temps de Rétablissement) contractuelles selon votre offre. Pour les petites structures sans GTR, la prise en charge téléphonique est immédiate et l'intervention sur site est planifiée dans la journée ou le lendemain selon la disponibilité.",
+      "Nous proposons des GTR (Garantie de Temps de Rétablissement) contractuelles de 4h ou 8h selon votre offre — l'engagement porte sur le rétablissement de votre accès. Pour les petites structures sans GTR, la prise en charge téléphonique est immédiate et l'intervention sur site est planifiée selon la disponibilité de nos équipes.",
   },
   {
     question: "La métropole toulousaine est-elle bien couverte en fibre professionnelle ?",
@@ -135,18 +145,18 @@ export default function ToulousePage() {
           <div className="pt-20 pb-16 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
-                Haute-Garonne (31) · Opérateur ARCEP · Équipe locale
+                Haute-Garonne (31) · Opérateur ARCEP · Intervention sur site
               </div>
               <h1 className="h1 mb-6 text-white">
                 Téléphonie IP et internet professionnel à Toulouse —{" "}
                 <span style={{ color: "var(--csx-secondary)" }}>CSX Telecom</span>
               </h1>
               <p className="mb-4 text-lg font-[550] text-white/90 md:text-xl">
-                Un opérateur télécom indépendant, présent physiquement sur la métropole toulousaine.
+                Un opérateur télécom indépendant qui intervient sur toute la métropole toulousaine.
               </p>
               <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
                 Standard IP, IPBX, internet multi-opérateur, MPLS et agents IA : CSX Telecom accompagne
-                les entreprises de Toulouse et de la Haute-Garonne avec une équipe locale qui intervient
+                les entreprises de Toulouse et de la Haute-Garonne avec des techniciens qui interviennent
                 sur site et un consultant dédié pour toute la durée de votre contrat.
               </p>
               <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -185,7 +195,7 @@ export default function ToulousePage() {
               <h2 className="h2 mb-4">Nos solutions pour les entreprises de Toulouse</h2>
               <p className="text-lg text-slate-600">
                 Toutes nos solutions sont disponibles à Toulouse, avec installation et maintenance
-                assurées par nos techniciens locaux. Pas de sous-traitance.
+                assurées par nos propres techniciens. Pas de sous-traitance.
               </p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
@@ -211,8 +221,8 @@ export default function ToulousePage() {
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <h2 className="h2 mb-4 text-white">Pourquoi CSX Telecom à Toulouse ?</h2>
               <p className="text-lg text-white/70">
-                Un opérateur présent physiquement à Toulouse, pas un revendeur national qui sous-traite
-                les interventions terrain.
+                Un opérateur régional qui intervient directement à Toulouse, pas un revendeur national qui
+                sous-traite les interventions terrain.
               </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2">
@@ -280,7 +290,7 @@ export default function ToulousePage() {
             <div className="lg:flex lg:items-center lg:justify-between lg:gap-16">
               <div className="mb-8 text-center lg:mb-0 lg:text-left">
                 <p className="mb-3 text-xl font-[550]" style={{ color: "var(--csx-secondary)" }}>Parlons de votre télécom à Toulouse</p>
-                <h2 className="h2 text-white">Un consultant toulousain vous répond sous 24h</h2>
+                <h2 className="h2 text-white">Un consultant CSX Telecom vous répond sous 24h</h2>
                 <p className="mt-4 text-lg text-white/75">Audit gratuit sur site ou à distance. Devis sous 48h.</p>
               </div>
               <div className="flex justify-center lg:shrink-0">

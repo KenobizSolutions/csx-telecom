@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "À propos — 15 ans d'expertise télécom pour les PME",
+  title: "À propos — 17 ans d'expertise télécom pour les PME",
   description:
-    "CSX Telecom, opérateur ARCEP indépendant depuis 15 ans. +200 clients PME. Équipes à Toulouse, Montauban, Cahors et Bayonne. Proximité, multi-opérateur, IA.",
+    "CSX Telecom, opérateur ARCEP indépendant depuis 17 ans. +200 clients PME. Équipes à Cahors, Montauban, Gourdon et Bayonne. Proximité, multi-opérateur, IA.",
   alternates: { canonical: "https://www.csx-telecom.fr/a-propos" },
 };
 
@@ -17,7 +17,7 @@ const jsonLd = {
     "@type": "LocalBusiness",
     name: "CSX Telecom",
     description:
-      "Opérateur télécom indépendant déclaré ARCEP. 15 ans d'expérience. Plus de 200 clients PME. Téléphonie IP, internet professionnel, agents IA.",
+      "Opérateur télécom indépendant déclaré ARCEP. 17 ans d'expérience. Plus de 200 clients PME. Téléphonie IP, internet professionnel, agents IA.",
     foundingDate: "2009",
     numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 20 },
     url: "https://www.csx-telecom.fr",
@@ -36,10 +36,10 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience dans les télécoms d'entreprise" },
+  { value: "+17 ans", label: "d'expérience dans les télécoms d'entreprise" },
   { value: "+200", label: "clients actifs, de 1 à +800 salariés" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur indépendant" },
-  { value: "4 villes", label: "équipes présentes à Toulouse, Montauban, Cahors, Bayonne" },
+  { value: "4 villes", label: "équipes à Cahors, Montauban, Gourdon, Bayonne" },
 ];
 
 const values = [
@@ -77,7 +77,7 @@ const values = [
     icon: "🌱",
     title: "Vision long terme",
     description:
-      "Depuis 15 ans, nous accompagnons des entreprises qui évoluent. Certains clients sont avec nous depuis le début. Cette fidélité repose sur une relation honnête : nous conseillons ce qui est bon pour eux, pas ce qui maximise notre marge.",
+      "Depuis 17 ans, nous accompagnons des entreprises qui évoluent. Certains clients sont avec nous depuis le début. Cette fidélité repose sur une relation honnête : nous conseillons ce qui est bon pour eux, pas ce qui maximise notre marge.",
   },
 ];
 
@@ -89,10 +89,10 @@ const offices = [
     description: "Notre base principale. 1 Place Emilien Imbert, 46000 Cahors. SIRET : 800 317 570 00011. Toutes les décisions stratégiques et opérationnelles partent d'ici.",
   },
   {
-    city: "Toulouse",
-    dept: "Haute-Garonne (31)",
-    role: "Équipe technique & commerciale",
-    description: "Notre plus grande équipe terrain, pour couvrir la métropole toulousaine et l'ensemble du 31.",
+    city: "Gourdon",
+    dept: "Lot (46)",
+    role: "Équipe Lot Sud",
+    description: "Présence locale pour le sud du Lot — Gourdon, Souillac, la Bouriane — et les zones rurales du 46.",
   },
   {
     city: "Montauban",
@@ -128,7 +128,7 @@ export default function AProposPage() {
               </div>
               <h1 className="h1 mb-6 text-white">
                 CSX Telecom —{" "}
-                <span style={{ color: "var(--csx-secondary)" }}>15 ans d'expertise télécom</span>{" "}
+                <span style={{ color: "var(--csx-secondary)" }}>17 ans d'expertise télécom</span>{" "}
                 pour les PME
               </h1>
               <p className="mb-4 text-lg font-[550] text-white/90 md:text-xl">
@@ -195,8 +195,8 @@ export default function AProposPage() {
                   d'agents vocaux IA dans les flux d'appels.
                 </p>
                 <p>
-                  Aujourd'hui, notre équipe est répartie sur quatre agglomérations — Toulouse, Montauban,
-                  Cahors et Bayonne — pour rester au plus près de nos clients. Nous continuons d'investir
+                  Aujourd'hui, notre équipe est répartie sur quatre agglomérations — Cahors, Montauban,
+                  Gourdon et Bayonne — pour rester au plus près de nos clients. Nous continuons d'investir
                   dans les nouvelles technologies, notamment l'IA vocale, pour anticiper les besoins des
                   entreprises de demain.
                 </p>

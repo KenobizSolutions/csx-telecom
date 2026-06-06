@@ -24,6 +24,7 @@ import Image from "next/image";
 const navItems = [
   { label: "Standard IP",  href: "/standard-telephonique-ipbx" },
   { label: "Internet Pro", href: "/internet-professionnel" },
+  { label: "VoIP",         href: "/voip-telephonie-cloud" },
   { label: "Agents IA",    href: "/agents-virtuels-ia" },
   { label: "À propos",     href: "/a-propos" },
   { label: "Blog",         href: "/blog" },

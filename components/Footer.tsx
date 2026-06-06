@@ -11,10 +11,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceLinks = [
-  { label: "Standard IP & IPBX",     href: "/standard-telephonique-ipbx" },
-  { label: "Internet professionnel", href: "/internet-professionnel" },
-  { label: "Agents virtuels IA",     href: "/agents-virtuels-ia" },
-  { label: "À propos",               href: "/a-propos" },
+  { label: "Standard IP & IPBX",      href: "/standard-telephonique-ipbx" },
+  { label: "VoIP & téléphonie cloud", href: "/voip-telephonie-cloud" },
+  { label: "Internet professionnel",  href: "/internet-professionnel" },
+  { label: "Agents virtuels IA",      href: "/agents-virtuels-ia" },
+  { label: "À propos",                href: "/a-propos" },
 ] as const;
 
 const zoneLinks = [
@@ -58,8 +59,8 @@ export function Footer() {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
               Opérateur télécom indépendant déclaré ARCEP. Téléphonie IP, internet
-              professionnel et agents IA pour les PME — Cahors, Toulouse, Montauban,
-              Pays Basque.
+              professionnel et agents IA pour les PME — Cahors, Montauban, Gourdon
+              et Pays Basque.
             </p>
           </div>
 

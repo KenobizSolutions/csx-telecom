@@ -13,26 +13,9 @@ const jsonLd = {
   "@type": "AboutPage",
   name: "À propos de CSX Telecom",
   url: "https://www.csx-telecom.fr/a-propos",
-  mainEntity: {
-    "@type": "LocalBusiness",
-    name: "CSX Telecom",
-    description:
-      "Opérateur télécom indépendant déclaré ARCEP. 17 ans d'expérience. Plus de 200 clients PME. Téléphonie IP, internet professionnel, agents IA.",
-    foundingDate: "2009",
-    numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 20 },
-    url: "https://www.csx-telecom.fr",
-    telephone: "+33582730360",
-    email: "contact@csx.fr",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1 Place Emilien Imbert",
-      addressLocality: "Cahors",
-      postalCode: "46000",
-      addressCountry: "FR",
-    },
-    taxID: "800 317 570 00011",
-    areaServed: ["Toulouse", "Montauban", "Cahors", "Bayonne", "Gourdon", "Caussade"],
-  },
+  // L'entité complète (NAP, horaires, sameAs…) est le nœud canonique
+  // #organization émis par app/layout.tsx — on s'y réfère par @id.
+  mainEntity: { "@id": "https://www.csx-telecom.fr/#organization" },
 } as const;
 
 const stats = [
@@ -224,7 +207,7 @@ export default function AProposPage() {
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {values.map((val) => (
                 <div key={val.title} className="rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10">
-                  <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-2xl">
+                  <div aria-hidden="true" className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-2xl">
                     {val.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-secondary)" }}>

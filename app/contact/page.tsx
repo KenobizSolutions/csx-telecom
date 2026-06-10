@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact — Demandez votre audit gratuit",
   description:
-    "Contactez CSX Telecom : 05 82 73 03 60 · contact@csx.fr. Siège à Cahors (Lot 46). Lun–Ven 8h–17h, pause 12h–13h30. Assistante virtuelle disponible 24h/24.",
+    "Contactez CSX Telecom : 05 82 73 03 60 · contact@csx.fr. Siège à Cahors (Lot 46). Lun–Jeu 8h30–12h / 13h30–17h30, Ven jusqu'à 17h. Assistante virtuelle IA 24h/24.",
   alternates: { canonical: "https://www.csx-telecom.fr/contact" },
 };
 
@@ -12,34 +12,8 @@ const jsonLd = {
   "@type": "ContactPage",
   name: "Contact CSX Telecom",
   url: "https://www.csx-telecom.fr/contact",
-  mainEntity: {
-    "@type": "LocalBusiness",
-    name: "CSX Telecom",
-    telephone: "+33582730360",
-    email: "contact@csx.fr",
-    url: "https://www.csx-telecom.fr",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1 Place Emilien Imbert",
-      addressLocality: "Cahors",
-      postalCode: "46000",
-      addressCountry: "FR",
-    },
-    openingHoursSpecification: [
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "08:00",
-        closes: "12:00",
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "13:30",
-        closes: "17:00",
-      },
-    ],
-  },
+  // NAP et horaires : portés par le nœud canonique #organization (layout).
+  mainEntity: { "@id": "https://www.csx-telecom.fr/#organization" },
 } as const;
 
 const coordonnees = [
@@ -47,7 +21,7 @@ const coordonnees = [
     icon: "📞",
     label: "Téléphone",
     value: "05 82 73 03 60",
-    detail: "Lun–Ven 8h–12h · 13h30–17h",
+    detail: "Lun–Jeu 8h30–12h · 13h30–17h30 · Ven jusqu'à 17h",
     href: "tel:+33582730360",
   },
   {
@@ -74,11 +48,11 @@ const coordonnees = [
 ];
 
 const horaires = [
-  { day: "Lundi",    plage: "8h00 – 12h00  ·  13h30 – 17h00", ouvert: true },
-  { day: "Mardi",    plage: "8h00 – 12h00  ·  13h30 – 17h00", ouvert: true },
-  { day: "Mercredi", plage: "8h00 – 12h00  ·  13h30 – 17h00", ouvert: true },
-  { day: "Jeudi",    plage: "8h00 – 12h00  ·  13h30 – 17h00", ouvert: true },
-  { day: "Vendredi", plage: "8h00 – 12h00  ·  13h30 – 17h00", ouvert: true },
+  { day: "Lundi",    plage: "8h30 – 12h00  ·  13h30 – 17h30", ouvert: true },
+  { day: "Mardi",    plage: "8h30 – 12h00  ·  13h30 – 17h30", ouvert: true },
+  { day: "Mercredi", plage: "8h30 – 12h00  ·  13h30 – 17h30", ouvert: true },
+  { day: "Jeudi",    plage: "8h30 – 12h00  ·  13h30 – 17h30", ouvert: true },
+  { day: "Vendredi", plage: "8h30 – 12h00  ·  13h30 – 17h00", ouvert: true },
   { day: "Samedi",   plage: "Fermé",                            ouvert: false },
   { day: "Dimanche", plage: "Fermé",                            ouvert: false },
 ];
@@ -162,7 +136,7 @@ export default function ContactPage() {
                   key={c.label}
                   className="flex items-start gap-5 rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <span className="shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <span aria-hidden="true" className="shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {c.icon}
                   </span>
                   <div>
@@ -184,7 +158,7 @@ export default function ContactPage() {
 
             <div className="mt-12 text-center">
               <a href="tel:+33582730360" className="btn group bg-[var(--csx-primary)] text-white shadow-sm hover:bg-[var(--csx-dark)]">
-                <span className="mr-2">📞</span> Appeler le 05 82 73 03 60
+                <span className="mr-2" aria-hidden="true">📞</span> Appeler le 05 82 73 03 60
               </a>
               <p className="mt-3 text-sm text-slate-500">
                 Ou écrivez à{" "}
@@ -213,7 +187,7 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <div className="mt-5 flex items-start gap-3 rounded-xl p-4 text-sm" style={{ background: "var(--csx-light)" }}>
-                  <span className="shrink-0 text-xl">🤖</span>
+                  <span className="shrink-0 text-xl" aria-hidden="true">🤖</span>
                   <p className="leading-relaxed text-slate-600">
                     En dehors des heures d'ouverture, notre{" "}
                     <strong>assistante virtuelle IA répond à vos appels 24h/24</strong> et prend vos
@@ -283,10 +257,10 @@ export default function ContactPage() {
               </div>
               <div className="flex flex-col items-center gap-3 sm:flex-row lg:shrink-0">
                 <a href="tel:+33582730360" className="btn bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
-                  📞 05 82 73 03 60
+                  <span aria-hidden="true">📞 </span>05 82 73 03 60
                 </a>
                 <a href="mailto:contact@csx.fr" className="btn border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20">
-                  ✉️ contact@csx.fr
+                  <span aria-hidden="true">✉️ </span>contact@csx.fr
                 </a>
               </div>
             </div>

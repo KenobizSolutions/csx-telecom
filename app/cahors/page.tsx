@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Cahors — Standard IP & Internet pro (46)",
+  title: "Opérateur télécom à Cahors et dans le Lot (46)",
   description:
     "CSX Telecom, siège social à Cahors. Opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA. Expertise locale depuis 17 ans.",
   alternates: { canonical: "https://www.csx-telecom.fr/cahors" },
@@ -197,7 +197,7 @@ export default function CahorsPage() {
               className="flex items-start gap-5 rounded-2xl border-l-4 p-6"
               style={{ background: "var(--csx-light)", borderColor: "var(--csx-secondary)" }}
             >
-              <span className="shrink-0 text-3xl">🏢</span>
+              <span className="shrink-0 text-3xl" aria-hidden="true">🏢</span>
               <div>
                 <p className="mb-1 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                   Siège social CSX Telecom — Cahors, Lot (46)
@@ -231,7 +231,7 @@ export default function CahorsPage() {
                   href={service.href}
                   className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {service.icon}
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
@@ -288,7 +288,7 @@ export default function CahorsPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="mb-3 text-2xl font-bold tracking-tight text-white">
-                📍 Couverture de l'ensemble du département du Lot
+                <span aria-hidden="true">📍 </span>Couverture de l'ensemble du département du Lot
               </h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Depuis Cahors, nos équipes interviennent dans tout le 46 — du nord (Figeac,

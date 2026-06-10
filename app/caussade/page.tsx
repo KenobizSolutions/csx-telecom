@@ -2,28 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Caussade — Standard IP & Internet pro (82)",
+  title: "Opérateur télécom entreprise à Caussade (82)",
   description:
     "Opérateur télécom à Caussade et dans le Quercy Blanc (Tarn-et-Garonne 82). Standard IP, internet professionnel, agents IA. Intervention locale depuis Montauban et Cahors.",
   alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
 };
 
+// Pas d'agence à Caussade : on déclare un Service couvrant la zone,
+// fourni par l'entité canonique (siège Cahors) — pas un établissement local.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Caussade",
+  "@type": "Service",
+  name: "Opérateur télécom pour entreprises à Caussade",
+  serviceType: "Téléphonie IP, internet professionnel et agents IA",
+  provider: { "@id": "https://www.csx-telecom.fr/#organization" },
   description:
-    "Opérateur télécom indépendant déclaré ARCEP à Caussade et dans le Quercy Blanc. Standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
+    "CSX Telecom, opérateur déclaré ARCEP, intervient à Caussade et dans le Quercy Blanc : standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
   url: "https://www.csx-telecom.fr/caussade",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Caussade",
-    postalCode: "82300",
-    addressCountry: "FR",
-  },
-  areaServed: { "@type": "City", name: "Caussade" },
+  areaServed: [
+    { "@type": "City", name: "Caussade" },
+    { "@type": "AdministrativeArea", name: "Tarn-et-Garonne" },
+  ],
 } as const;
 
 const stats = [
@@ -176,7 +175,7 @@ export default function CaussadePage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -216,7 +215,7 @@ export default function CaussadePage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl">⚠️ La fin du réseau cuivre impacte le Quercy Blanc</h2>
+              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><span aria-hidden="true">⚠️ </span>La fin du réseau cuivre impacte le Quercy Blanc</h2>
               <p className="text-sm leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau RTC dans le Tarn-et-Garonne. Si votre
                 entreprise fonctionne encore avec des lignes téléphoniques classiques, la migration

@@ -55,7 +55,9 @@ export const metadata: Metadata = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  // Nœud canonique unique de l'entreprise (référencé par @id sur les autres
+  // pages) — double type pour porter à la fois logo/sameAs et NAP/horaires.
+  "@type": ["Organization", "LocalBusiness"],
   "@id": "https://www.csx-telecom.fr/#organization",
   name: "CSX Telecom",
   url: "https://www.csx-telecom.fr",
@@ -64,6 +66,7 @@ const organizationJsonLd = {
   description:
     "Opérateur télécom indépendant déclaré ARCEP. Téléphonie IP, VoIP, internet professionnel et agents virtuels IA pour les entreprises.",
   foundingDate: "2009",
+  numberOfEmployees: { "@type": "QuantitativeValue", minValue: 5, maxValue: 20 },
   telephone: "+33582730360",
   email: "contact@csx.fr",
   taxID: "800 317 570 00011",
@@ -74,6 +77,26 @@ const organizationJsonLd = {
     postalCode: "46000",
     addressCountry: "FR",
   },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:30",
+      closes: "12:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+      opens: "13:30",
+      closes: "17:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Friday"],
+      opens: "13:30",
+      closes: "17:00",
+    },
+  ],
   areaServed: [
     "Lot (46)",
     "Tarn-et-Garonne (82)",

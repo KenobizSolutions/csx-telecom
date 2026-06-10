@@ -57,6 +57,7 @@ export function Header() {
   React.useEffect(() => {
     if (!isOpen) return;
     const drawer = drawerRef.current;
+    const burger = burgerRef.current;
     if (!drawer) return;
     const focusables = drawer.querySelectorAll<HTMLElement>("a[href]");
     focusables[0]?.focus();
@@ -75,7 +76,7 @@ export function Header() {
     drawer.addEventListener("keydown", trapTab);
     return () => {
       drawer.removeEventListener("keydown", trapTab);
-      burgerRef.current?.focus();
+      burger?.focus();
     };
   }, [isOpen]);
 

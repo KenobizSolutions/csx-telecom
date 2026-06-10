@@ -145,17 +145,17 @@ export default function InternetProVsBoxPage() {
             <article>
               {/* Tableau comparatif */}
               <div className="mb-10 overflow-x-auto">
-                <h2 className="text-2xl font-bold mb-5" style={{ color: "#1515DC" }}>
+                <h2 className="text-2xl font-bold mb-5" style={{ color: "var(--csx-primary)" }}>
                   Comparatif : box grand public vs internet professionnel
                 </h2>
                 <div className="rounded-2xl overflow-hidden border border-gray-100">
                   <div
                     className="grid grid-cols-3 text-sm font-bold text-white"
-                    style={{ background: "#1515DC" }}
+                    style={{ background: "var(--csx-primary)" }}
                   >
                     <div className="p-4">Critère</div>
                     <div className="p-4 border-l border-white/20">Box grand public</div>
-                    <div className="p-4 border-l border-white/20" style={{ background: "#0D0DA8" }}>
+                    <div className="p-4 border-l border-white/20" style={{ background: "var(--csx-dark)" }}>
                       Internet professionnel
                     </div>
                   </div>
@@ -168,8 +168,8 @@ export default function InternetProVsBoxPage() {
                       <div className="p-4 font-medium text-gray-800">{row.critere}</div>
                       <div className="p-4 text-gray-500 border-l border-gray-100">{row.box}</div>
                       <div
-                        className="p-4 font-semibold border-l border-gray-100"
-                        style={{ color: "#1515DC" }}
+                        className="p-4 font-[550] border-l border-gray-100"
+                        style={{ color: "var(--csx-primary)" }}
                       >
                         {row.pro}
                       </div>
@@ -180,7 +180,7 @@ export default function InternetProVsBoxPage() {
 
               {sections.map((section, i) => (
                 <div key={i} className="mb-10">
-                  <h2 className="text-2xl font-bold mb-4" style={{ color: "#1515DC" }}>
+                  <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--csx-primary)" }}>
                     {section.heading}
                   </h2>
                   {section.body.split("\n\n").map((para, j) => (
@@ -196,7 +196,7 @@ export default function InternetProVsBoxPage() {
             <aside className="space-y-6">
               <div
                 className="rounded-2xl p-6 text-white sticky top-4"
-                style={{ background: "#0D0DA8" }}
+                style={{ background: "var(--csx-dark)" }}
               >
                 <h3 className="font-bold text-lg mb-3">Audit réseau gratuit</h3>
                 <p className="text-sm opacity-80 leading-relaxed mb-5">
@@ -206,7 +206,7 @@ export default function InternetProVsBoxPage() {
                 <Link
                   href="/contact"
                   className="block text-center px-5 py-3 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-                  style={{ background: "#29ABE2" }}
+                  style={{ background: "var(--csx-secondary)" }}
                 >
                   Demander un audit réseau
                 </Link>
@@ -219,7 +219,7 @@ export default function InternetProVsBoxPage() {
                     <Link
                       href="/blog/fin-reseau-cuivre-rtc"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       La fin du réseau cuivre RTC : ce que les entreprises doivent savoir
                     </Link>
@@ -228,7 +228,7 @@ export default function InternetProVsBoxPage() {
                     <Link
                       href="/blog/standard-ip-vs-standard-classique"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       Standard IP vs standard classique : pourquoi migrer ?
                     </Link>
@@ -238,9 +238,9 @@ export default function InternetProVsBoxPage() {
 
               <div
                 className="rounded-2xl p-5 text-sm"
-                style={{ background: "#F0F4FF" }}
+                style={{ background: "var(--csx-light)" }}
               >
-                <p className="font-semibold mb-1" style={{ color: "#1515DC" }}>CSX Telecom</p>
+                <p className="font-[550] mb-1" style={{ color: "var(--csx-primary)" }}>CSX Telecom</p>
                 <p className="text-gray-600 leading-relaxed">
                   Opérateur ARCEP indépendant. Fibre, SDSL, 5G, Starlink, MPLS.
                   Cahors · Montauban · Gourdon · Bayonne.

@@ -9,6 +9,12 @@ export type Article = {
   sections: { heading: string; body: string }[];
 };
 
+// NB : fin-reseau-cuivre-rtc, standard-ip-vs-standard-classique et
+// internet-professionnel-vs-box-particulier ont une page statique dédiée
+// (app/blog/<slug>/page.tsx, avec tableaux comparatifs) qui prime sur la
+// route dynamique [slug]. Leurs entrées ici ne servent qu'au listing du
+// blog, au sitemap et aux liens « Autres articles » — le contenu affiché
+// est celui de la page statique.
 export const articles: Article[] = [
   {
     slug: "fin-reseau-cuivre-rtc",

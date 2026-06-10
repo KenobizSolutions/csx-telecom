@@ -10,9 +10,10 @@ export const metadata: Metadata = {
 };
 
 const categoryColors: Record<string, string> = {
-  "Téléphonie IP":   "var(--csx-primary)",
-  "Cybersécurité":   "var(--csx-dark)",
-  "IA & Innovation": "var(--csx-secondary)",
+  "Téléphonie IP":            "var(--csx-primary)",
+  "Cybersécurité":            "var(--csx-dark)",
+  "IA & Innovation":          "var(--csx-secondary)",
+  "Internet professionnel":   "var(--csx-darker)",
 };
 
 export default function BlogPage() {
@@ -70,7 +71,10 @@ export default function BlogPage() {
                           year: "numeric",
                         })}
                       </div>
-                      <div>⏱ {article.readingTime} de lecture</div>
+                      <div>
+                        <span aria-hidden="true">⏱ </span>
+                        {article.readingTime} de lecture
+                      </div>
                     </div>
                   </div>
 

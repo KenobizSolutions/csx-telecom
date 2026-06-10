@@ -146,7 +146,7 @@ export default function FinReseauCuivreRTCPage() {
             <article>
               {sections.map((section, i) => (
                 <div key={i} className="mb-10">
-                  <h2 className="text-2xl font-bold mb-4" style={{ color: "#1515DC" }}>
+                  <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--csx-primary)" }}>
                     {section.heading}
                   </h2>
                   {section.body.split("\n\n").map((para, j) => (
@@ -160,7 +160,7 @@ export default function FinReseauCuivreRTCPage() {
               {/* Encart résumé */}
               <div
                 className="rounded-2xl p-7 text-white mt-8"
-                style={{ background: "linear-gradient(135deg, #1515DC, #0D0DA8)" }}
+                style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
               >
                 <h3 className="text-xl font-bold mb-3">En résumé : les 5 points clés</h3>
                 <ul className="space-y-2 text-sm opacity-90">
@@ -186,7 +186,7 @@ export default function FinReseauCuivreRTCPage() {
             <aside className="space-y-6">
               <div
                 className="rounded-2xl p-6 text-white sticky top-4"
-                style={{ background: "#0D0DA8" }}
+                style={{ background: "var(--csx-dark)" }}
               >
                 <h3 className="font-bold text-lg mb-3">Votre migration, notre expertise</h3>
                 <p className="text-sm opacity-80 leading-relaxed mb-5">
@@ -196,7 +196,7 @@ export default function FinReseauCuivreRTCPage() {
                 <Link
                   href="/contact"
                   className="block text-center px-5 py-3 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-                  style={{ background: "#29ABE2" }}
+                  style={{ background: "var(--csx-secondary)" }}
                 >
                   Demander un audit gratuit
                 </Link>
@@ -209,7 +209,7 @@ export default function FinReseauCuivreRTCPage() {
                     <Link
                       href="/blog/standard-ip-vs-standard-classique"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       Standard IP vs standard classique : pourquoi migrer ?
                     </Link>
@@ -218,7 +218,7 @@ export default function FinReseauCuivreRTCPage() {
                     <Link
                       href="/blog/internet-professionnel-vs-box-particulier"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       Internet professionnel vs box grand public : les vraies différences
                     </Link>
@@ -228,9 +228,9 @@ export default function FinReseauCuivreRTCPage() {
 
               <div
                 className="rounded-2xl p-5 text-sm"
-                style={{ background: "#F0F4FF" }}
+                style={{ background: "var(--csx-light)" }}
               >
-                <p className="font-semibold mb-1" style={{ color: "#1515DC" }}>CSX Telecom</p>
+                <p className="font-[550] mb-1" style={{ color: "var(--csx-primary)" }}>CSX Telecom</p>
                 <p className="text-gray-600 leading-relaxed">
                   Opérateur ARCEP indépendant depuis 17 ans. Cahors · Montauban · Gourdon · Bayonne.
                 </p>

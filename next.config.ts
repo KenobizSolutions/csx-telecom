@@ -1,6 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  images: {
+    // Next.js 16 : les qualités doivent être déclarées explicitement (défaut [75]).
+    // 85 = logo header, 80 = logo footer, 75 = défaut des autres images.
+    qualities: [75, 80, 85],
+  },
   async headers() {
     return [
       {

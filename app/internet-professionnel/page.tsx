@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Internet professionnel fibre & MPLS multi-opérateur",
+  title: "Internet professionnel & fibre entreprise",
   description:
     "Accès internet professionnel avec vraie redondance multi-opérateur. Fibre dédiée, SDSL, 5G, Starlink, MPLS, pare-feu NGFW. Opérateur ARCEP indépendant.",
   alternates: { canonical: "https://www.csx-telecom.fr/internet-professionnel" },
@@ -198,7 +198,7 @@ export default function InternetProfessionnelPage() {
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
                   <div className="mb-4 flex items-start justify-between">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                    <div aria-hidden="true" className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                       {tech.icon}
                     </div>
                     {tech.badge && (
@@ -277,11 +277,90 @@ export default function InternetProfessionnelPage() {
                 >
                   <div className="p-4 font-medium text-slate-800">{row.critere}</div>
                   <div className="border-l border-slate-100 p-4 text-center text-slate-500">{row.classic}</div>
-                  <div className="border-l border-slate-100 p-4 text-center font-semibold" style={{ color: "var(--csx-primary)" }}>
+                  <div className="border-l border-slate-100 p-4 text-center font-[550]" style={{ color: "var(--csx-primary)" }}>
                     {row.csx}
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENU SEO — fibre entreprise, MPLS, box pro */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl space-y-10">
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Fibre entreprise : la fibre optique professionnelle
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  La fibre entreprise n&apos;est pas une box grand public déguisée. Une offre de fibre
+                  professionnelle (FTTO, fibre optique dédiée) garantit un débit symétrique, une bande
+                  passante non mutualisée et une GTR contractuelle. En opérateur indépendant déclaré ARCEP,
+                  CSX Telecom compare les offres de fibre pro disponibles à votre adresse — Orange, SFR,
+                  Bouygues, opérateurs fibre locaux — et retient la plus fiable pour votre activité, sans
+                  préférence commerciale.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  SDSL, 5G et Starlink : couvrir chaque site
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Toutes les adresses ne sont pas éligibles à la fibre. Le SDSL reste une solution
+                  symétrique fiable là où la fibre n&apos;est pas déployée ; la 5G fixe sert d&apos;accès principal
+                  ou de lien de secours automatique ; Starlink Business couvre les zones blanches, les sites
+                  isolés et les chantiers, sans génie civil. Pour chaque site, nous choisissons la
+                  technologie d&apos;accès internet pour entreprise la plus adaptée.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  MPLS & redondance multi-opérateur
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Pour les entreprises multi-sites, le MPLS interconnecte vos établissements dans un réseau
+                  privé performant et sécurisé. Couplé à une vraie redondance multi-opérateur (un accès
+                  principal chez un opérateur, un secours chez un autre), votre connexion bascule
+                  automatiquement en cas de coupure — votre MPLS reste actif, même sur la 5G de secours.
+                  Vos applications métier et votre téléphonie IP ne s&apos;arrêtent pas.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Box internet entreprise ou accès professionnel ?
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Une box internet entreprise d&apos;entrée de gamme peut suffire à une petite structure, mais
+                  elle n&apos;offre ni débit garanti, ni GTR, ni adresse IP fixe, ni QoS pour prioriser la voix.
+                  Dès que votre activité dépend du réseau — téléphonie IP, applications cloud, paiement —
+                  un accès professionnel avec engagement de rétablissement devient indispensable. Nous vous
+                  aidons à dimensionner l&apos;offre fibre entreprise réellement utile, sans surdimensionner.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  GTR et délais de raccordement
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  La GTR (Garantie de Temps de Rétablissement) est l&apos;engagement contractuel de remise en
+                  service sous 4 h ou 8 h en cas de panne — un critère décisif pour une entreprise. Les
+                  délais de raccordement varient selon la technologie et l&apos;adresse : nous vérifions votre
+                  éligibilité, vous annonçons un délai réaliste et prévoyons une solution de transition
+                  (5G, SDSL) si nécessaire. Une connexion fiable est aussi la base d&apos;un{" "}
+                  <Link href="/standard-telephonique-ipbx" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    standard téléphonique IP
+                  </Link>{" "}
+                  stable.{" "}
+                  <Link href="/contact" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    Vérifiez votre éligibilité
+                  </Link>
+                  .
+                </p>
+              </div>
             </div>
           </div>
         </div>

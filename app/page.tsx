@@ -10,46 +10,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.csx-telecom.fr/" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://www.csx-telecom.fr/#organization",
-  name: "CSX Telecom",
-  description: "Opérateur télécom indépendant déclaré ARCEP.",
-  url: "https://www.csx-telecom.fr",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1 Place Emilien Imbert",
-    addressLocality: "Cahors",
-    postalCode: "46000",
-    addressCountry: "FR",
-  },
-  taxID: "800 317 570 00011",
-  creator: {
-    "@type": "Organization",
-    name: "Kenobiz Sites",
-    url: "https://kenobiz-sites.fr",
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      opens: "08:30",
-      closes: "12:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      opens: "13:30",
-      closes: "17:30",
-    },
-  ],
-} as const;
+// Les données structurées de l'entreprise (Organization + LocalBusiness,
+// @id #organization) sont émises globalement par app/layout.tsx.
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience CSX Telecom" },
+  { value: "+17 ans", label: "d'expérience CSX Telecom" },
   { value: "+200", label: "clients actifs de 1 à +800 salariés" },
   { value: "Opérateur ARCEP", label: "multi-opérateur indépendant" },
   { value: "24h/24", label: "agents IA disponibles" },
@@ -87,7 +52,7 @@ const reasons = [
   },
   {
     title: "Local et réactif",
-    description: "Nos équipes sont à Toulouse, Montauban, Cahors et Bayonne. Nous nous déplaçons. Pas de hotline nationale.",
+    description: "Nos équipes sont à Cahors, Montauban, Gourdon et Bayonne. Nous nous déplaçons sur tout le Lot, le Tarn-et-Garonne, la Haute-Garonne et le Pays Basque. Pas de hotline nationale.",
   },
   {
     title: "Solutions sur-mesure",
@@ -100,22 +65,17 @@ const reasons = [
 ];
 
 const zones = [
-  { city: "Toulouse", dept: "Haute-Garonne (31)", href: "/toulouse", priority: true },
-  { city: "Montauban", dept: "Tarn-et-Garonne (82)", href: "/montauban", priority: true },
   { city: "Cahors", dept: "Lot (46)", href: "/cahors", priority: true },
+  { city: "Montauban", dept: "Tarn-et-Garonne (82)", href: "/montauban", priority: true },
+  { city: "Caussade", dept: "Tarn-et-Garonne (82)", href: "/caussade", priority: true },
   { city: "Gourdon", dept: "Lot (46)", href: "/gourdon", priority: false },
-  { city: "Caussade", dept: "Tarn-et-Garonne (82)", href: "/caussade", priority: false },
+  { city: "Toulouse", dept: "Haute-Garonne (31)", href: "/toulouse", priority: false },
   { city: "Bayonne · Biarritz", dept: "Pyrénées-Atlantiques (64)", href: "/bayonne-biarritz", priority: false },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* HERO — fond gradient + coin arrondi bas-gauche (signature template) */}
       <section className="relative">
         <div
@@ -145,7 +105,7 @@ export default function HomePage() {
                 Un seul interlocuteur. Tous les opérateurs. Zéro coupure.
               </p>
               <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-                CSX Telecom est un opérateur télécom indépendant déclaré à l'ARCEP. Depuis plus de 15 ans,
+                CSX Telecom est un opérateur télécom indépendant déclaré à l'ARCEP. Depuis plus de 17 ans,
                 nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP,
                 d'internet professionnel et d'agents virtuels IA sur-mesure.
               </p>
@@ -205,7 +165,7 @@ export default function HomePage() {
                   href={service.href}
                   className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {service.icon}
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
@@ -271,7 +231,7 @@ export default function HomePage() {
               <div className="md:flex md:items-center md:justify-between md:gap-8">
                 <div className="mb-6 md:mb-0 md:max-w-2xl">
                   <h2 className="h3 mb-3 text-white">
-                    ⚠️ La fin du réseau cuivre RTC approche — êtes-vous prêt ?
+                    <span aria-hidden="true">⚠️ </span>La fin du réseau cuivre RTC approche — êtes-vous prêt ?
                   </h2>
                   <p className="leading-relaxed text-white/85">
                     Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire.

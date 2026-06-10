@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom Bayonne Biarritz — Standard IP & Internet pro (64)",
+  title: "Opérateur télécom Bayonne · Biarritz (64)",
   description:
     "Opérateur télécom au Pays Basque (64). Standard IP, IPBX, internet multi-opérateur, agents IA. Antenne locale à Bayonne. Audit gratuit pour les entreprises de Bayonne, Biarritz, Anglet.",
   alternates: { canonical: "https://www.csx-telecom.fr/bayonne-biarritz" },
@@ -31,7 +31,7 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "+200", label: "clients actifs en région" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "24h/24", label: "agents IA et supervision disponibles" },
@@ -191,7 +191,7 @@ export default function BayonneBiarritzPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -231,7 +231,7 @@ export default function BayonneBiarritzPage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white md:p-10" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white">📍 Intervention dans tout le Pays Basque</h2>
+              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><span aria-hidden="true">📍 </span>Intervention dans tout le Pays Basque</h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Notre équipe locale couvre l'ensemble du bassin BAB et le Pays Basque intérieur,
                 de Hendaye à Hasparren.

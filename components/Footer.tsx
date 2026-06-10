@@ -11,10 +11,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 const serviceLinks = [
-  { label: "Standard IP & IPBX",     href: "/standard-telephonique-ipbx" },
-  { label: "Internet professionnel", href: "/internet-professionnel" },
-  { label: "Agents virtuels IA",     href: "/agents-virtuels-ia" },
-  { label: "À propos",               href: "/a-propos" },
+  { label: "Standard IP & IPBX",      href: "/standard-telephonique-ipbx" },
+  { label: "VoIP & téléphonie cloud", href: "/voip-telephonie-cloud" },
+  { label: "Internet professionnel",  href: "/internet-professionnel" },
+  { label: "Agents virtuels IA",      href: "/agents-virtuels-ia" },
+  { label: "À propos",                href: "/a-propos" },
 ] as const;
 
 const zoneLinks = [
@@ -58,16 +59,16 @@ export function Footer() {
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">
               Opérateur télécom indépendant déclaré ARCEP. Téléphonie IP, internet
-              professionnel et agents IA pour les PME — Cahors, Toulouse, Montauban,
-              Pays Basque.
+              professionnel et agents IA pour les PME — Cahors, Montauban, Gourdon
+              et Pays Basque.
             </p>
           </div>
 
           {/* Services */}
           <div className="md:col-span-4 lg:col-span-3">
-            <h6 className="mb-4 text-sm font-bold tracking-wide text-white">
+            <p className="mb-4 text-sm font-bold tracking-wide text-white">
               Services
-            </h6>
+            </p>
             <ul className="space-y-2 text-sm">
               {serviceLinks.map((l) => (
                 <li key={l.href}>
@@ -84,9 +85,9 @@ export function Footer() {
 
           {/* Zones */}
           <div className="md:col-span-4 lg:col-span-3">
-            <h6 className="mb-4 text-sm font-bold tracking-wide text-white">
+            <p className="mb-4 text-sm font-bold tracking-wide text-white">
               Zones d'intervention
-            </h6>
+            </p>
             <ul className="space-y-2 text-sm">
               {zoneLinks.map((l) => (
                 <li key={l.href}>
@@ -103,14 +104,14 @@ export function Footer() {
 
           {/* Contact */}
           <div className="md:col-span-4 lg:col-span-2">
-            <h6 className="mb-4 text-sm font-bold tracking-wide text-white">
+            <p className="mb-4 text-sm font-bold tracking-wide text-white">
               Contact
-            </h6>
+            </p>
             <ul className="space-y-2 text-sm text-white/75">
               <li>
                 <a
                   href="tel:+33582730360"
-                  className="font-semibold text-white transition-colors hover:text-[var(--csx-secondary)]"
+                  className="font-[550] text-white transition-colors hover:text-[var(--csx-secondary)]"
                 >
                   05 82 73 03 60
                 </a>
@@ -123,7 +124,11 @@ export function Footer() {
                   contact@csx.fr
                 </a>
               </li>
-              <li>Lun–Ven 8h–17h</li>
+              <li>
+                Lun–Jeu 8h30–12h · 13h30–17h30
+                <br />
+                Ven 8h30–12h · 13h30–17h
+              </li>
               <li className="text-white/60">
                 1 Place Emilien Imbert
                 <br />
@@ -148,7 +153,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Agence web IA-first Sud-Ouest"
-                  className="font-semibold text-white/85 transition-colors hover:text-[var(--csx-secondary)] hover:underline"
+                  className="font-[550] text-white/85 transition-colors hover:text-[var(--csx-secondary)] hover:underline"
                 >
                   Kenobiz Sites
                 </a>

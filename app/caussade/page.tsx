@@ -2,32 +2,31 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Caussade — Standard IP & Internet pro (82)",
+  title: "Opérateur télécom entreprise à Caussade (82)",
   description:
     "Opérateur télécom à Caussade et dans le Quercy Blanc (Tarn-et-Garonne 82). Standard IP, internet professionnel, agents IA. Intervention locale depuis Montauban et Cahors.",
   alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
 };
 
+// Pas d'agence à Caussade : on déclare un Service couvrant la zone,
+// fourni par l'entité canonique (siège Cahors) — pas un établissement local.
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Caussade",
+  "@type": "Service",
+  name: "Opérateur télécom pour entreprises à Caussade",
+  serviceType: "Téléphonie IP, internet professionnel et agents IA",
+  provider: { "@id": "https://www.csx-telecom.fr/#organization" },
   description:
-    "Opérateur télécom indépendant déclaré ARCEP à Caussade et dans le Quercy Blanc. Standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
+    "CSX Telecom, opérateur déclaré ARCEP, intervient à Caussade et dans le Quercy Blanc : standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
   url: "https://www.csx-telecom.fr/caussade",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Caussade",
-    postalCode: "82300",
-    addressCountry: "FR",
-  },
-  areaServed: { "@type": "City", name: "Caussade" },
+  areaServed: [
+    { "@type": "City", name: "Caussade" },
+    { "@type": "AdministrativeArea", name: "Tarn-et-Garonne" },
+  ],
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "+200", label: "clients actifs en région Occitanie" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "2 équipes", label: "Montauban et Cahors à proximité" },
@@ -176,7 +175,7 @@ export default function CaussadePage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -216,13 +215,115 @@ export default function CaussadePage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl">⚠️ La fin du réseau cuivre impacte le Quercy Blanc</h2>
+              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><span aria-hidden="true">⚠️ </span>La fin du réseau cuivre impacte le Quercy Blanc</h2>
               <p className="text-sm leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau RTC dans le Tarn-et-Garonne. Si votre
                 entreprise fonctionne encore avec des lignes téléphoniques classiques, la migration
                 vers l'IP est inévitable — et souvent plus rapide que prévu. CSX Telecom anticipe
                 avec vous et réalise la transition sans coupure ni perte de numéro.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="space-y-12">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Standard téléphonique d'entreprise à Caussade (Tarn-et-Garonne, 82)
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Installer un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      standard téléphonique d'entreprise
+                    </Link>{" "}
+                    à Caussade, dans le sud du Tarn-et-Garonne, c'est moderniser l'accueil de ses appels tout en
+                    préparant la fin du réseau cuivre RTC. CSX Telecom équipe les commerces, négoces, exploitations
+                    agricoles et professions libérales du Quercy Blanc avec des solutions dimensionnées à leur
+                    activité, sans surdimensionnement inutile.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Située entre nos équipes de Montauban et de Cahors, la zone de Caussade bénéficie d'une
+                    intervention terrain rapide depuis l'un ou l'autre site. L'audit gratuit qualifie vos lignes et
+                    vos usages, puis le portage de vos numéros s'effectue sans coupure ni perte de votre identité
+                    téléphonique.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Opérateur internet professionnel à Caussade
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Dans le Quercy Blanc, la couverture fibre progresse mais les zones industrielles et artisanales
+                    périphériques de Caussade restent parfois en attente. En opérateur déclaré ARCEP accédant
+                    directement à Orange, SFR, Bouygues, aux opérateurs fibre locaux et à Starlink Business, CSX
+                    Telecom vérifie l'éligibilité exacte de votre adresse et bâtit une offre d'{" "}
+                    <Link href="/internet-professionnel" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      internet professionnel
+                    </Link>{" "}
+                    sur mesure, fibre, SDSL, 5G, Starlink ou MPLS.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Pour les entreprises du sud du 82 qui ne peuvent se permettre aucune coupure, nous combinons un
+                    lien principal et un secours automatique, assortis d'un engagement de rétablissement (GTR). Cette
+                    approche multi-opérateur, sans préférence commerciale, garantit la connexion la plus fiable
+                    réellement disponible à Caussade.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    IPBX & téléphonie IP à Caussade
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    La{" "}
+                    <Link href="/voip-telephonie-cloud" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      téléphonie IP hébergée dans le cloud
+                    </Link>{" "}
+                    offre aux entreprises de Caussade des fonctions avancées sans matériel lourd : standard
+                    automatique, files d'attente, renvois selon les horaires et postes utilisables en mobilité. Un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      IPBX cloud ou sur site
+                    </Link>{" "}
+                    convient aussi bien au commerce local qu'à la structure répartie sur plusieurs sites du Quercy
+                    Blanc.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Grâce à notre double proximité avec Montauban et Cahors, le paramétrage de l'IPBX et la formation
+                    des équipes se font rapidement, au plus près de votre organisation. La migration vers la
+                    téléphonie IP s'effectue sans interruption de service et sans changement de numéro.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Accueil téléphonique IA à Caussade
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Dans le tissu de TPE et d'indépendants du Quercy Blanc, beaucoup gèrent seuls le téléphone. L'{" "}
+                    <Link href="/agents-virtuels-ia" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      accueil téléphonique par agent IA
+                    </Link>{" "}
+                    répond à leur place : il décroche, qualifie la demande, prend les messages et les rendez-vous,
+                    24h/24, y compris hors des horaires d'ouverture. Commerces, artisans et professions libérales de
+                    Caussade ne laissent plus aucun appel sans réponse.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Couplé à votre standard IP, l'agent virtuel intervient en débordement ou en dehors des heures de
+                    bureau et transmet l'information à votre équipe. Vous souhaitez étudier la solution adaptée à
+                    votre entreprise dans le Quercy Blanc ?{" "}
+                    <Link href="/contact" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      Demandez votre audit gratuit
+                    </Link>{" "}
+                    : une équipe proche de Caussade vous répond.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

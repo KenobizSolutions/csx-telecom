@@ -6,8 +6,18 @@ import { articles, getArticleBySlug } from "../data";
 /* ------------------------------------------------------------------ */
 /*  Static params — pre-render all known slugs at build time           */
 /* ------------------------------------------------------------------ */
+// Ces slugs ont une page statique dédiée (app/blog/<slug>/page.tsx) qui prime
+// sur cette route dynamique : on ne les pré-génère pas une seconde fois ici.
+const STANDALONE_SLUGS = [
+  "fin-reseau-cuivre-rtc",
+  "standard-ip-vs-standard-classique",
+  "internet-professionnel-vs-box-particulier",
+];
+
 export function generateStaticParams() {
-  return articles.map((a) => ({ slug: a.slug }));
+  return articles
+    .filter((a) => !STANDALONE_SLUGS.includes(a.slug))
+    .map((a) => ({ slug: a.slug }));
 }
 
 /* ------------------------------------------------------------------ */
@@ -43,6 +53,15 @@ export default async function ArticlePage(props: {
   const { slug } = await props.params;
   const article = getArticleBySlug(slug);
   if (!article) notFound();
+
+  // Maillage interne : chaque article pointe vers la page service liée à sa catégorie.
+  const serviceByCategory: Record<string, { label: string; href: string }> = {
+    "Téléphonie IP": { label: "Standard téléphonique IP & IPBX", href: "/standard-telephonique-ipbx" },
+    "IA & Innovation": { label: "Agents virtuels IA", href: "/agents-virtuels-ia" },
+    "Internet professionnel": { label: "Internet professionnel", href: "/internet-professionnel" },
+    "Cybersécurité": { label: "Standard téléphonique IP & IPBX", href: "/standard-telephonique-ipbx" },
+  };
+  const relatedService = serviceByCategory[article.category];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -103,7 +122,10 @@ export default async function ArticlePage(props: {
                 </span>
                 <span className="text-sm text-white/60">{formattedDate}</span>
                 <span className="text-sm text-white/60">·</span>
-                <span className="text-sm text-white/60">⏱ {article.readingTime} de lecture</span>
+                <span className="text-sm text-white/60">
+                  <span aria-hidden="true">⏱ </span>
+                  {article.readingTime} de lecture
+                </span>
               </div>
               <h1 className="h2 mb-5 text-white">{article.title}</h1>
               <p className="max-w-3xl text-base leading-relaxed text-white/80 md:text-lg">
@@ -145,7 +167,7 @@ export default async function ArticlePage(props: {
                   <div>
                     <p className="font-[550] text-slate-800">Équipe CSX Telecom</p>
                     <p className="text-sm text-slate-500">
-                      Opérateur télécom indépendant déclaré ARCEP · Cahors, Toulouse, Montauban, Bayonne
+                      Opérateur télécom indépendant déclaré ARCEP · Cahors, Montauban, Gourdon, Bayonne
                     </p>
                   </div>
                 </div>
@@ -172,19 +194,32 @@ export default async function ArticlePage(props: {
                   <ul className="space-y-3 text-sm text-slate-600">
                     <li>
                       <a href="tel:+33582730360" className="flex items-center gap-2 font-[500] transition-colors hover:text-[var(--csx-primary)]">
-                        <span>📞</span> 05 82 73 03 60
+                        <span aria-hidden="true">📞</span> 05 82 73 03 60
                       </a>
                     </li>
                     <li>
                       <a href="mailto:contact@csx.fr" className="flex items-center gap-2 transition-colors hover:text-[var(--csx-primary)]">
-                        <span>✉️</span> contact@csx.fr
+                        <span aria-hidden="true">✉️</span> contact@csx.fr
                       </a>
                     </li>
                     <li className="flex items-center gap-2 text-slate-400">
-                      <span>🕒</span> Lun–Ven 8h–17h
+                      <span aria-hidden="true">🕒</span> Lun–Jeu 8h30–12h · 13h30–17h30 · Ven 17h
                     </li>
                   </ul>
                 </div>
+
+                {relatedService && (
+                  <div className="rounded-3xl border border-slate-200 bg-white p-6">
+                    <h3 className="mb-3 font-bold tracking-tight">Le service associé</h3>
+                    <Link
+                      href={relatedService.href}
+                      className="inline-flex items-center text-sm font-[550] transition-colors hover:underline"
+                      style={{ color: "var(--csx-primary)" }}
+                    >
+                      {relatedService.label} →
+                    </Link>
+                  </div>
+                )}
 
                 <div className="rounded-3xl border border-slate-200 bg-white p-6">
                   <h3 className="mb-4 font-bold tracking-tight">Autres articles</h3>

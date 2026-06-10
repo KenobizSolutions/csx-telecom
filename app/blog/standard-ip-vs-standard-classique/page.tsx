@@ -31,7 +31,7 @@ const comparison = [
   { critere: "Coût mensuel", classique: "Lignes RTC facturées à l'unité", ip: "Abonnement SIP mutualisé, économique" },
   { critere: "Télétravail", classique: "Impossible sans renvoi manuel", ip: "Natif : appel depuis n'importe où" },
   { critere: "Évolutivité", classique: "Ajout de ligne = travaux + délai", ip: "Ajout de poste en quelques minutes" },
-  { critere: "Intégration CRM", classique: "Très limitée", ip: "Connecteurs natifs disponibles" },
+  { critere: "Intégration CRM", classique: "Très limitée", ip: "Possible selon la solution choisie" },
   { critere: "Enregistrement appels", classique: "Équipement dédié coûteux", ip: "Inclus selon offre" },
   { critere: "Mobilité géographique", classique: "Numéro lié à une adresse physique", ip: "Numéro accessible partout" },
   { critere: "Fin programmée", classique: "Oui — réseau RTC en cours d'extinction", ip: "Non — technologie d'avenir" },
@@ -144,17 +144,17 @@ export default function StandardIPVsClassiquePage() {
             <article>
               {/* Tableau comparatif */}
               <div className="mb-10 overflow-x-auto">
-                <h2 className="text-2xl font-bold mb-5" style={{ color: "#1515DC" }}>
+                <h2 className="text-2xl font-bold mb-5" style={{ color: "var(--csx-primary)" }}>
                   Comparatif rapide : standard classique vs standard IP
                 </h2>
                 <div className="rounded-2xl overflow-hidden border border-gray-100">
                   <div
                     className="grid grid-cols-3 text-sm font-bold text-white"
-                    style={{ background: "#1515DC" }}
+                    style={{ background: "var(--csx-primary)" }}
                   >
                     <div className="p-4">Critère</div>
                     <div className="p-4 border-l border-white/20">Standard classique</div>
-                    <div className="p-4 border-l border-white/20" style={{ background: "#0D0DA8" }}>
+                    <div className="p-4 border-l border-white/20" style={{ background: "var(--csx-dark)" }}>
                       Standard IP
                     </div>
                   </div>
@@ -167,8 +167,8 @@ export default function StandardIPVsClassiquePage() {
                       <div className="p-4 font-medium text-gray-800">{row.critere}</div>
                       <div className="p-4 text-gray-500 border-l border-gray-100">{row.classique}</div>
                       <div
-                        className="p-4 font-semibold border-l border-gray-100"
-                        style={{ color: "#1515DC" }}
+                        className="p-4 font-[550] border-l border-gray-100"
+                        style={{ color: "var(--csx-primary)" }}
                       >
                         {row.ip}
                       </div>
@@ -179,7 +179,7 @@ export default function StandardIPVsClassiquePage() {
 
               {sections.map((section, i) => (
                 <div key={i} className="mb-10">
-                  <h2 className="text-2xl font-bold mb-4" style={{ color: "#1515DC" }}>
+                  <h2 className="text-2xl font-bold mb-4" style={{ color: "var(--csx-primary)" }}>
                     {section.heading}
                   </h2>
                   {section.body.split("\n\n").map((para, j) => (
@@ -195,7 +195,7 @@ export default function StandardIPVsClassiquePage() {
             <aside className="space-y-6">
               <div
                 className="rounded-2xl p-6 text-white sticky top-4"
-                style={{ background: "#0D0DA8" }}
+                style={{ background: "var(--csx-dark)" }}
               >
                 <h3 className="font-bold text-lg mb-3">Migrez vers l'IP sans stress</h3>
                 <p className="text-sm opacity-80 leading-relaxed mb-5">
@@ -205,7 +205,7 @@ export default function StandardIPVsClassiquePage() {
                 <Link
                   href="/contact"
                   className="block text-center px-5 py-3 rounded-lg font-bold text-white hover:opacity-90 transition-all"
-                  style={{ background: "#29ABE2" }}
+                  style={{ background: "var(--csx-secondary)" }}
                 >
                   Demander un audit gratuit
                 </Link>
@@ -218,7 +218,7 @@ export default function StandardIPVsClassiquePage() {
                     <Link
                       href="/blog/fin-reseau-cuivre-rtc"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       La fin du réseau cuivre RTC : ce que les entreprises doivent savoir
                     </Link>
@@ -227,7 +227,7 @@ export default function StandardIPVsClassiquePage() {
                     <Link
                       href="/blog/internet-professionnel-vs-box-particulier"
                       className="text-sm hover:underline leading-tight block"
-                      style={{ color: "#1515DC" }}
+                      style={{ color: "var(--csx-primary)" }}
                     >
                       Internet professionnel vs box grand public : les vraies différences
                     </Link>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Gourdon — Standard IP & Internet pro (46)",
+  title: "Opérateur télécom entreprise à Gourdon (46)",
   description:
     "Opérateur télécom à Gourdon et dans le sud du Lot (46). Standard IP, internet fibre, 5G et Starlink pour zones rurales. Audit gratuit, intervention locale depuis Cahors.",
   alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
@@ -27,7 +27,7 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "Fibre + 5G", label: "et Starlink pour zones rurales" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "24h/24", label: "agents IA et supervision disponibles" },
@@ -205,7 +205,7 @@ export default function GourdonPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>

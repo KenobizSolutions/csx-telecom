@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Agents virtuels IA — Répondeur téléphonique intelligent 24h/24",
+  title: "Agent vocal IA & standard téléphonique IA pour entreprise",
   description:
-    "Agents IA vocaux qui répondent à vos appels 24h/24. Accueil standard, prise de RDV, FAQ, qualification de leads. Intégration native avec votre standard IP.",
+    "Agent vocal IA et standard téléphonique IA pour entreprise : accueil téléphonique 24h/24, débordement d'appels, accueil externalisé par IA. Voix naturelle, intégré à votre standard IP.",
   alternates: { canonical: "https://www.csx-telecom.fr/agents-virtuels-ia" },
 };
 
@@ -34,8 +34,8 @@ const useCases = [
     icon: "📅",
     title: "Prise de rendez-vous",
     description:
-      "L'agent consulte votre agenda en temps réel, propose des créneaux disponibles, confirme le rendez-vous et envoie une confirmation par SMS ou email. Compatible avec Google Calendar, Outlook, Zoho Calendar et la plupart des CRM.",
-    examples: ["Consultation de l'agenda en direct", "Confirmation par SMS / email automatique", "Rappel J-1 automatique"],
+      "L'agent propose des créneaux selon vos règles, recueille les coordonnées de l'appelant et transmet la demande de rendez-vous à votre équipe. L'interfaçage éventuel avec votre agenda ou votre logiciel métier est étudié lors de l'audit, selon ce que votre système permet.",
+    examples: ["Proposition de créneaux selon vos règles", "Recueil des coordonnées de l'appelant", "Transmission de la demande à votre équipe"],
   },
   {
     icon: "❓",
@@ -48,8 +48,8 @@ const useCases = [
     icon: "🎯",
     title: "Qualification de leads",
     description:
-      "Pour les entreprises qui reçoivent des demandes commerciales, l'agent pose les questions de qualification (secteur, taille, besoin, budget), enregistre les réponses et les pousse directement dans votre CRM avant de transférer vers un commercial.",
-    examples: ["Questions de qualification scriptées", "Intégration CRM (Zoho, HubSpot, Salesforce)", "Transfert chaud vers commercial disponible"],
+      "Pour les entreprises qui reçoivent des demandes commerciales, l'agent pose les questions de qualification (secteur, taille, besoin), structure les réponses et les transmet à votre équipe avant de transférer l'appelant vers un commercial disponible.",
+    examples: ["Questions de qualification scriptées", "Synthèse structurée de chaque appel", "Transfert vers un commercial disponible"],
   },
 ];
 
@@ -90,9 +90,9 @@ const faqItems = [
       "C'est à vous de décider. Certains clients préfèrent une transparence totale — l'agent se présente comme un assistant automatique. D'autres préfèrent que l'agent parle au nom de l'entreprise sans préciser sa nature. Dans les deux cas, la qualité vocale et la compréhension contextuelle sont telles que l'expérience reste fluide et professionnelle. Nous vous conseillons sur la meilleure approche selon votre secteur et votre clientèle.",
   },
   {
-    question: "Comment l'agent IA s'intègre-t-il à mon agenda ou mon CRM ?",
+    question: "L'agent IA peut-il s'interfacer avec mon agenda ou mes outils métier ?",
     answer:
-      "L'intégration se fait via des connecteurs standards : Google Calendar, Microsoft Outlook, Zoho Calendar pour les agendas ; Zoho CRM, HubSpot, Salesforce pour les CRM. L'agent peut consulter les disponibilités en temps réel, créer des événements, enregistrer des leads et déclencher des workflows. La configuration est réalisée par nos équipes lors du déploiement — vous n'avez pas besoin de compétences techniques.",
+      "Cela dépend entièrement de votre système d'information. L'interfaçage avec un agenda, un logiciel de prise de rendez-vous ou un outil métier n'est pas systématique : il est étudié lors de l'audit, en fonction de ce que votre solution permet réellement. Lorsque l'interfaçage n'est pas possible ou pas souhaité, l'agent recueille les informations et les transmet à votre équipe sous forme de message structuré ou d'e-mail. Nous vous indiquons clairement, avant tout engagement, ce qui est réalisable dans votre cas précis — sans promesse en l'air.",
   },
   {
     question: "Que se passe-t-il si l'agent IA ne comprend pas la demande de l'appelant ?",
@@ -199,7 +199,7 @@ export default function AgentsVirtuelIAPage() {
                   key={useCase.title}
                   className="rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {useCase.icon}
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
@@ -262,7 +262,7 @@ export default function AgentsVirtuelIAPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="h3 mb-4 text-white">
-                🤖 Disponible quand vos équipes ne le sont pas
+                <span aria-hidden="true">🤖 </span>Disponible quand vos équipes ne le sont pas
               </h2>
               <p className="mb-4 leading-relaxed text-white/85">
                 Les appels ne s'arrêtent pas à 17h. Un prospect qui tombe sur la messagerie vocale
@@ -273,6 +273,71 @@ export default function AgentsVirtuelIAPage() {
                 L'agent IA ne remplace pas vos équipes : il les décharge des appels répétitifs et
                 s'assure qu'aucune opportunité n'est perdue en dehors des heures de bureau.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTENU SEO — accueil téléphonique & standard IA */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl space-y-10">
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Qu&apos;est-ce qu&apos;un agent vocal IA ?
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Un agent vocal IA est un programme capable de répondre au téléphone, de comprendre une
+                  demande exprimée à l&apos;oral et d&apos;y réagir avec une voix naturelle. Concrètement, c&apos;est un
+                  agent virtuel vocal IA qui décroche à votre place : il accueille l&apos;appelant, répond aux
+                  questions courantes, oriente vers le bon service et prend un message quand personne n&apos;est
+                  disponible. Chez CSX Telecom, cet agent est intégré directement à votre standard
+                  téléphonique IP — il fait partie de votre installation, pas d&apos;un service externe
+                  déconnecté de votre téléphonie.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Standard téléphonique IA : un accueil qui ne dort jamais
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Un standard téléphonique IA — ou standard téléphonique virtuel IA — prend en charge vos
+                  appels 24h/24, 7j/7, sans file d&apos;attente ni appel manqué. En heures ouvrées, il absorbe
+                  les pics et le débordement d&apos;appels lorsque vos lignes sont occupées ; en dehors des
+                  heures de bureau, il assure un accueil téléphonique automatique IA cohérent avec votre
+                  image. Aucun prospect ne tombe plus sur une messagerie impersonnelle.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Accueil téléphonique d&apos;entreprise : externalisé par IA
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  Externaliser son accueil téléphonique ne signifie plus forcément confier ses appels à un
+                  centre d&apos;appels distant. L&apos;accueil téléphonique externalisé par IA ouvre une troisième
+                  voie : un accueil disponible en permanence, qui parle en votre nom, applique vos consignes
+                  et transmet chaque demande à votre équipe. Vous gardez la maîtrise du discours et de la
+                  relation client, sans mobiliser un poste dédié à décrocher.
+                </p>
+              </div>
+              <div>
+                <h2 className="mb-4 text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                  Pour quelles entreprises ?
+                </h2>
+                <p className="leading-relaxed text-slate-700">
+                  TPE et PME qui ne peuvent pas toujours décrocher, structures qui reçoivent beaucoup
+                  d&apos;appels répétitifs, équipes souvent en déplacement : l&apos;agent vocal IA décharge vos
+                  collaborateurs des appels à faible valeur tout en garantissant une réponse immédiate. Il
+                  ne remplace pas l&apos;humain — il évite que des appels restent sans réponse. La prise de
+                  rendez-vous et l&apos;interfaçage avec vos outils sont étudiés au cas par cas lors de
+                  l&apos;audit.{" "}
+                  <Link href="/contact" className="font-[550] underline" style={{ color: "var(--csx-primary)" }}>
+                    Demandez une démo gratuite
+                  </Link>
+                  .
+                </p>
+              </div>
             </div>
           </div>
         </div>

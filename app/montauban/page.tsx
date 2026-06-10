@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Montauban — Standard IP & Internet pro (82)",
+  title: "Opérateur télécom entreprise à Montauban (82)",
   description:
     "Opérateur télécom à Montauban et dans le Tarn-et-Garonne (82). Standard IP, IPBX, internet professionnel multi-opérateur pour TPE et PME. Audit gratuit, intervention locale.",
   alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
@@ -28,7 +28,7 @@ const jsonLd = {
 
 const stats = [
   { value: "+200", label: "clients actifs en région Occitanie" },
-  { value: "+15 ans", label: "d'expérience télécom d'entreprise" },
+  { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
   { value: "24h/24", label: "supervision et agents IA disponibles" },
 ];
@@ -74,9 +74,9 @@ const reasons = [
       "Artisans, commerces, cabinets médicaux, PME agroalimentaires : nous connaissons les contraintes des petites structures. Nos offres sont dimensionnées à votre réalité, pas à celle d'un grand groupe.",
   },
   {
-    title: "Entre Toulouse et Cahors : le meilleur des deux",
+    title: "Sur l'axe Montauban-Cahors : une couverture rapprochée",
     description:
-      "Montauban bénéficie de la proximité de nos deux équipes principales. Qu'il s'agisse d'une intervention rapide ou d'un projet plus complexe, la couverture est assurée sans délai supplémentaire.",
+      "Montauban se trouve sur notre zone d'intervention historique, à proximité directe de notre siège de Cahors. Qu'il s'agisse d'une intervention rapide ou d'un projet plus complexe, la couverture est assurée sans délai supplémentaire.",
   },
 ];
 
@@ -187,7 +187,7 @@ export default function MontaubanPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -227,7 +227,7 @@ export default function MontaubanPage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white md:p-10" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white">📍 Intervention dans tout le Tarn-et-Garonne</h2>
+              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><span aria-hidden="true">📍 </span>Intervention dans tout le Tarn-et-Garonne</h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Nos techniciens interviennent à Montauban et dans l'ensemble du département 82, depuis
                 Moissac jusqu'à Caussade.
@@ -239,6 +239,110 @@ export default function MontaubanPage() {
                     {zone}
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="space-y-12">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Standard téléphonique d'entreprise à Montauban (Tarn-et-Garonne, 82)
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Pour une TPE ou une PME du Tarn-et-Garonne, déployer un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      standard téléphonique d'entreprise
+                    </Link>{" "}
+                    à Montauban répond à un double enjeu : moderniser l'accueil des appels et anticiper la fin du
+                    réseau cuivre RTC. CSX Telecom dimensionne chaque installation à la taille réelle de la
+                    structure, de quelques postes pour un artisan à plusieurs dizaines pour une PME, sans forfait
+                    surdimensionné.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    L'audit gratuit de l'existant permet de cartographier vos lignes, vos usages et vos numéros
+                    avant de planifier la bascule. Le portage s'effectue sans coupure et sans perte de numéro, et
+                    nos techniciens interviennent directement à Montauban et dans le 82, sans intermédiaire.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Opérateur internet professionnel à Montauban
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Montauban et le Tarn-et-Garonne bénéficient d'un déploiement fibre actif, mais toutes les zones
+                    d'activité ne sont pas encore éligibles au même rythme. En opérateur déclaré ARCEP accédant
+                    directement à Orange, SFR, Bouygues, aux opérateurs fibre locaux et à Starlink Business, CSX
+                    Telecom compare objectivement les offres d'{" "}
+                    <Link href="/internet-professionnel" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      internet professionnel
+                    </Link>{" "}
+                    disponibles à votre adresse, qu'il s'agisse de fibre, de SDSL, de 5G ou d'une liaison MPLS
+                    inter-sites.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Pour les entreprises montalbanaises dont l'activité dépend d'une connexion permanente, nous
+                    ajoutons un lien de secours automatique et un engagement de rétablissement (GTR). Cette
+                    indépendance vis-à-vis des opérateurs réseau garantit le meilleur choix technique pour chaque
+                    site du 82, sans préférence commerciale.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    IPBX & téléphonie IP à Montauban
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    La{" "}
+                    <Link href="/voip-telephonie-cloud" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      téléphonie IP en mode cloud
+                    </Link>{" "}
+                    apporte aux entreprises de Montauban des fonctions longtemps réservées aux grands groupes :
+                    standard automatique, files d'attente, horaires d'ouverture, renvois et postes nomades. Un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      IPBX
+                    </Link>{" "}
+                    hébergé ou installé sur site s'adapte aussi bien au commerce de centre-ville qu'à la PME
+                    multi-sites du Tarn-et-Garonne.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Sur l'axe Montauban-Cahors, la proximité de notre siège permet un accompagnement réactif : de la
+                    configuration initiale au paramétrage fin, en passant par la formation des équipes. La téléphonie
+                    IP évolue ensuite au rythme de votre entreprise, en ajoutant ou retirant des postes en quelques
+                    minutes.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Accueil téléphonique IA à Montauban
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Les artisans, commerçants et professions libérales montalbanais ne peuvent pas toujours
+                    décrocher. L'{" "}
+                    <Link href="/agents-virtuels-ia" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      accueil téléphonique par agent IA
+                    </Link>{" "}
+                    prend le relais : il répond, qualifie la demande, note les messages et oriente les appelants,
+                    24h/24, sans laisser un seul appel sans réponse, même en pleine activité ou hors des horaires
+                    d'ouverture.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Intégré à votre standard IP, l'agent virtuel se déclenche en débordement ou en dehors des heures
+                    de bureau et transmet l'information à votre équipe. Vous voulez savoir ce que cela donnerait pour
+                    votre activité à Montauban ?{" "}
+                    <Link href="/contact" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      Demandez votre audit gratuit
+                    </Link>{" "}
+                    : nous vous répondons rapidement.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

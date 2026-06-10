@@ -1,40 +1,48 @@
 # CSX Telecom
 > Opérateur télécom indépendant déclaré ARCEP pour les TPE et PME
 
-CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), intervenant à Toulouse, Montauban, Cahors, Gourdon, Caussade, Bayonne et Biarritz. Depuis plus de 15 ans, nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP, internet professionnel multi-opérateur et agents virtuels IA.
+CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), intervenant à Toulouse, Montauban, Cahors, Gourdon, Caussade, Bayonne et Biarritz. Depuis plus de 17 ans, nous accompagnons plus de 200 entreprises avec des solutions de téléphonie IP, internet professionnel multi-opérateur et agents virtuels IA.
 
 ## Services
 - Standard téléphonique IP & IPBX (2 à +100 postes)
+- VoIP & téléphonie cloud (voix sur IP hébergée, sans matériel)
 - Internet professionnel & MPLS multi-opérateur (fibre, 5G, Starlink)
 - Agents virtuels IA téléphoniques (24h/24 7j/7)
 
 ## Contact
-- Site : https://csx-telecom.fr
+- Site : https://www.csx-telecom.fr
 - Téléphone : 05 82 73 03 60
 - Email : contact@csx.fr
-- Horaires : lun-ven 8h-17h
+- Horaires : lun–jeu 8h30–12h / 13h30–17h30, ven 8h30–12h / 13h30–17h
 
 ## Pages principales
-- Accueil : https://csx-telecom.fr/
-- Standard IP & IPBX : https://csx-telecom.fr/standard-telephonique-ipbx
-- Internet professionnel : https://csx-telecom.fr/internet-professionnel
-- Agents virtuels IA : https://csx-telecom.fr/agents-virtuels-ia
-- À propos : https://csx-telecom.fr/a-propos
-- Contact : https://csx-telecom.fr/contact
-- Blog : https://csx-telecom.fr/blog
+- Accueil : https://www.csx-telecom.fr/
+- Standard IP & IPBX : https://www.csx-telecom.fr/standard-telephonique-ipbx
+- VoIP & téléphonie cloud : https://www.csx-telecom.fr/voip-telephonie-cloud
+- Internet professionnel : https://www.csx-telecom.fr/internet-professionnel
+- Agents virtuels IA : https://www.csx-telecom.fr/agents-virtuels-ia
+- À propos : https://www.csx-telecom.fr/a-propos
+- Contact : https://www.csx-telecom.fr/contact
+- Blog : https://www.csx-telecom.fr/blog
 
 ## Zones géographiques
-- Toulouse (Haute-Garonne 31) : https://csx-telecom.fr/toulouse
-- Montauban (Tarn-et-Garonne 82) : https://csx-telecom.fr/montauban
-- Cahors / Lot (46) — siège social : https://csx-telecom.fr/cahors
-- Gourdon (sud du Lot 46) : https://csx-telecom.fr/gourdon
-- Caussade / Quercy Blanc (82) : https://csx-telecom.fr/caussade
-- Bayonne & Biarritz (Pyrénées-Atlantiques 64) : https://csx-telecom.fr/bayonne-biarritz
+- Toulouse (Haute-Garonne 31) : https://www.csx-telecom.fr/toulouse
+- Montauban (Tarn-et-Garonne 82) : https://www.csx-telecom.fr/montauban
+- Cahors / Lot (46) — siège social : https://www.csx-telecom.fr/cahors
+- Gourdon (sud du Lot 46) : https://www.csx-telecom.fr/gourdon
+- Caussade / Quercy Blanc (82) : https://www.csx-telecom.fr/caussade
+- Bayonne & Biarritz (Pyrénées-Atlantiques 64) : https://www.csx-telecom.fr/bayonne-biarritz
 
 ## Articles de blog
-- La fin du réseau cuivre RTC : https://csx-telecom.fr/blog/fin-reseau-cuivre-rtc
-- Cybersécurité télécom pour les PME : https://csx-telecom.fr/blog/cybersecurite-telecom-pme
-- Agents IA vocaux — comment ça marche : https://csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
+- La fin du réseau cuivre RTC : https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc
+- Cybersécurité télécom pour les PME : https://www.csx-telecom.fr/blog/cybersecurite-telecom-pme
+- Agents IA vocaux — comment ça marche : https://www.csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
+- Standard IP vs standard classique : https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique
+- Internet professionnel vs box grand public : https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier
+- IPBX vs Centrex : quelle solution ? : https://www.csx-telecom.fr/blog/ipbx-vs-centrex-quelle-solution
+- Trunk SIP : qu'est-ce que c'est et pourquoi migrer ? : https://www.csx-telecom.fr/blog/trunk-sip-explication
+- Standard téléphonique IA vs accueil humain : https://www.csx-telecom.fr/blog/standard-telephonique-ia-vs-humain
+- Fin du RTC : la checklist de migration vers l'IP : https://www.csx-telecom.fr/blog/migration-rtc-checklist
 
 ## À propos de l'opérateur
 CSX Telecom est déclaré opérateur auprès de l'ARCEP (Autorité de Régulation des Communications Électroniques et des Postes). Ce statut permet un accès direct aux infrastructures de tous les opérateurs nationaux (Orange, SFR, Bouygues, opérateurs fibre locaux) et à Starlink Business, sans dépendance commerciale envers l'un d'eux.

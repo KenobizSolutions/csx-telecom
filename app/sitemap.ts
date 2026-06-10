@@ -2,13 +2,14 @@ import type { MetadataRoute } from "next";
 import { articles } from "./blog/data";
 
 const BASE = "https://www.csx-telecom.fr";
-const TODAY = new Date("2026-04-22");
+const TODAY = new Date("2026-06-06");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [
     // Pages principales
     { url: `${BASE}/`,                            lastModified: TODAY, changeFrequency: "weekly",  priority: 1.0 },
     { url: `${BASE}/standard-telephonique-ipbx`,  lastModified: TODAY, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${BASE}/voip-telephonie-cloud`,        lastModified: TODAY, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/internet-professionnel`,       lastModified: TODAY, changeFrequency: "monthly", priority: 0.9 },
     { url: `${BASE}/agents-virtuels-ia`,           lastModified: TODAY, changeFrequency: "monthly", priority: 0.9 },
     // Pages institutionnelles

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Cahors — Standard IP & Internet pro (46)",
+  title: "Opérateur télécom à Cahors et dans le Lot (46)",
   description:
-    "CSX Telecom, siège social à Cahors. Opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA. Expertise locale depuis 15 ans.",
+    "CSX Telecom, siège social à Cahors. Opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA. Expertise locale depuis 17 ans.",
   alternates: { canonical: "https://www.csx-telecom.fr/cahors" },
 };
 
@@ -30,7 +30,7 @@ const jsonLd = {
 } as const;
 
 const stats = [
-  { value: "+15 ans", label: "d'expertise télécom depuis Cahors" },
+  { value: "+17 ans", label: "d'expertise télécom depuis Cahors" },
   { value: "+200", label: "clients actifs en région Occitanie" },
   { value: "Lot (46)", label: "notre territoire historique" },
   { value: "ARCEP", label: "opérateur déclaré, multi-opérateur" },
@@ -64,7 +64,7 @@ const reasons = [
   {
     title: "Cahors, notre siège social depuis l'origine",
     description:
-      "CSX Telecom est né à Cahors. Notre siège social, nos équipes dirigeantes et nos opérations centrales sont basés dans le Lot depuis plus de 15 ans. Vous ne parlez pas à un prestataire de passage : vous parlez à l'entreprise elle-même.",
+      "CSX Telecom est né à Cahors. Notre siège social, nos équipes dirigeantes et nos opérations centrales sont basés dans le Lot depuis plus de 17 ans. Vous ne parlez pas à un prestataire de passage : vous parlez à l'entreprise elle-même.",
   },
   {
     title: "Connaissance fine du territoire lotois",
@@ -149,7 +149,7 @@ export default function CahorsPage() {
                 Notre siège est à Cahors. Le Lot est notre territoire depuis le premier jour.
               </p>
               <p className="mx-auto mb-10 max-w-2xl text-base leading-relaxed text-white/75 md:text-lg">
-                CSX Telecom est né à Cahors. Depuis plus de 15 ans, nous accompagnons les entreprises
+                CSX Telecom est né à Cahors. Depuis plus de 17 ans, nous accompagnons les entreprises
                 du Lot dans leurs projets télécom : standard IP, internet professionnel, migration
                 depuis le réseau cuivre RTC et agents IA. Une expertise locale sans équivalent
                 dans le département.
@@ -197,7 +197,7 @@ export default function CahorsPage() {
               className="flex items-start gap-5 rounded-2xl border-l-4 p-6"
               style={{ background: "var(--csx-light)", borderColor: "var(--csx-secondary)" }}
             >
-              <span className="shrink-0 text-3xl">🏢</span>
+              <span className="shrink-0 text-3xl" aria-hidden="true">🏢</span>
               <div>
                 <p className="mb-1 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                   Siège social CSX Telecom — Cahors, Lot (46)
@@ -231,7 +231,7 @@ export default function CahorsPage() {
                   href={service.href}
                   className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {service.icon}
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
@@ -288,7 +288,7 @@ export default function CahorsPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="mb-3 text-2xl font-bold tracking-tight text-white">
-                📍 Couverture de l'ensemble du département du Lot
+                <span aria-hidden="true">📍 </span>Couverture de l'ensemble du département du Lot
               </h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Depuis Cahors, nos équipes interviennent dans tout le 46 — du nord (Figeac,
@@ -301,6 +301,115 @@ export default function CahorsPage() {
                     {zone}
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION EDITORIALE SEO */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-3xl">
+              <div className="space-y-12">
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Standard téléphonique d'entreprise à Cahors (Lot, 46)
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Mettre en place un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      standard téléphonique d'entreprise
+                    </Link>{" "}
+                    à Cahors, c'est s'appuyer sur l'opérateur qui a son siège social dans le Lot. CSX Telecom
+                    accompagne depuis l'origine les commerces, cabinets, artisans et PME cadurciens dans le
+                    remplacement de leurs anciennes lignes analogiques par une solution moderne, multi-postes et
+                    évolutive. L'extinction du réseau cuivre RTC d'Orange rend cette bascule particulièrement
+                    urgente dans le département 46, où de nombreuses installations fonctionnent encore en
+                    analogique.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Chaque projet démarre par un audit gratuit de l'existant à Cahors et dans sa périphérie. Nous
+                    qualifions le nombre de postes, les usages réels et l'éligibilité de chaque adresse, puis nous
+                    assurons le portage des numéros sans coupure. Parce que nous sommes implantés sur place, vous
+                    gardez un interlocuteur direct du premier échange à la mise en service, sans centre d'appels
+                    délocalisé.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Opérateur internet professionnel à Cahors
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Dans le Lot, la couverture fibre reste inégale d'une commune à l'autre, et les zones rurales du
+                    Cahorsien sont souvent mal desservies par les opérateurs nationaux. En tant qu'opérateur déclaré
+                    ARCEP accédant directement à Orange, SFR, Bouygues, aux opérateurs fibre locaux et à Starlink
+                    Business, CSX Telecom construit une offre d'{" "}
+                    <Link href="/internet-professionnel" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      internet professionnel
+                    </Link>{" "}
+                    réellement adaptée à chaque adresse, fibre, SDSL, 5G, Starlink ou MPLS selon l'éligibilité.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Pour les entreprises cadurciennes dont l'activité ne peut tolérer aucune interruption, nous
+                    associons un lien principal et une solution de secours automatique, avec un engagement de
+                    rétablissement (GTR). Cette approche multi-opérateur, pilotée localement, garantit un accès
+                    internet fiable même dans les secteurs du Lot où la fibre tarde encore à arriver.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    IPBX & téléphonie IP à Cahors
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    La{" "}
+                    <Link href="/voip-telephonie-cloud" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      téléphonie IP dans le cloud
+                    </Link>{" "}
+                    remplace avantageusement les anciens autocommutateurs : standard automatique, files
+                    d'attente, renvois intelligents, postes nomades et messagerie unifiée, le tout administrable à
+                    distance. Pour les entreprises du Lot qui disposent de plusieurs sites ou de collaborateurs en
+                    déplacement dans la vallée, un{" "}
+                    <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      IPBX cloud ou sur site
+                    </Link>{" "}
+                    centralise la téléphonie sans multiplier les abonnements.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Depuis Cahors, nos équipes paramètrent l'IPBX au plus près de votre organisation et forment vos
+                    collaborateurs. La migration s'effectue sans coupure et sans changement de numéro, un atout
+                    décisif pour les structures cadurciennes installées de longue date et soucieuses de préserver
+                    leur identité téléphonique.
+                  </p>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                    Accueil téléphonique IA à Cahors
+                  </h2>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Dans un territoire où les TPE et indépendants sont souvent seuls à gérer l'accueil, l'{" "}
+                    <Link href="/agents-virtuels-ia" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      accueil téléphonique par agent IA
+                    </Link>{" "}
+                    permet de ne plus jamais manquer un appel. Professions libérales, hôtels de la vallée du Lot,
+                    artisans et commerces cadurciens peuvent confier à un agent virtuel la prise de messages, la
+                    qualification des demandes et l'orientation des appelants, 24h/24 et même hors des horaires
+                    d'ouverture.
+                  </p>
+                  <p className="mt-4 leading-relaxed text-slate-600">
+                    Couplé à votre standard IP, l'agent IA s'intègre naturellement à votre organisation existante et
+                    se déclenche en débordement ou en dehors des heures de bureau. Vous souhaitez évaluer la
+                    solution la plus pertinente pour votre entreprise à Cahors ?{" "}
+                    <Link href="/contact" className="font-[550] underline decoration-[var(--csx-secondary)] underline-offset-2 hover:text-[var(--csx-primary)]">
+                      Demandez votre audit gratuit
+                    </Link>{" "}
+                    : un interlocuteur local du Lot vous répond.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

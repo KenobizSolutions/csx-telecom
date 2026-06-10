@@ -52,7 +52,42 @@ Branche : `seo-optimisation`. Travaux réalisés sur un site **en production** (
 - **`public/llms.txt`** mis à jour (17 ans, VoIP, 4 nouveaux articles).
 - Données structurées **`FAQPage`** déjà présentes sur les pages services/villes (conservées) ; nouvelle page VoIP livrée avec `Service` + `FAQPage`.
 
+## Passe d'audit complémentaire (revue qualité)
+
+**Cohérence factuelle & SEO local**
+- **Horaires unifiés partout** (footer, contact, blog, llms.txt, JSON-LD) sur la
+  vraie référence : Lun–Jeu 8h30–12h / 13h30–17h30, Ven 8h30–12h / 13h30–17h.
+  Trois versions contradictoires coexistaient auparavant.
+- **JSON-LD consolidé** : un seul nœud canonique `#organization`
+  (`Organization` + `LocalBusiness`, avec NAP, horaires, logo, sameAs) émis par
+  le layout ; les pages accueil / contact / à-propos s'y réfèrent par `@id` au
+  lieu de dupliquer des données divergentes.
+- **Caussade** : `LocalBusiness` (adresse locale fictive) → `Service` fourni par
+  le siège, comme Toulouse (pas d'agence sur place).
+- **Titres villes raccourcis** (≤ 60 caractères avec le suffixe) pour éviter la
+  troncature en SERP.
+- `llms.txt` : URLs harmonisées en `https://www.csx-telecom.fr` (canonique).
+
+**Blog**
+- Les 3 slugs à page statique dédiée ne sont plus pré-générés une 2ᵉ fois par la
+  route dynamique `[slug]` (note explicative dans `data.ts`).
+- Couleurs de marque en dur (#1515DC…) remplacées par les variables CSS dans les
+  3 pages statiques ; couleur de badge ajoutée pour « Internet professionnel ».
+- Tableau comparatif : « Connecteurs natifs disponibles » → « Possible selon la
+  solution choisie » (cohérent avec la règle « aucune intégration native promise »).
+
+**Accessibilité & divers**
+- Émojis décoratifs marqués `aria-hidden` (icônes de cartes, pictos de titres,
+  émojis de boutons) sur tout le site.
+- Drawer mobile : focus envoyé au menu à l'ouverture, Tab cyclé à l'intérieur,
+  focus rendu au bouton burger à la fermeture (`aria-controls` ajouté).
+- Footer : titres de colonnes `<h6>` → `<p>` (hiérarchie de titres) ; graisse
+  600 (`font-semibold`, non chargée pour Aspekta) remplacée par `font-[550]`.
+- En-têtes de sécurité ajoutés dans `next.config.ts` (nosniff, X-Frame-Options,
+  Referrer-Policy, HSTS, Permissions-Policy — micro non restreint pour le widget
+  vocal).
+
 ## Vérifications
 
-- `npm run build` : ✅ 31 pages générées, TypeScript clean.
-- Garde-fous (grep) : ✅ aucune marque produit, aucun prix chiffré, aucune référence client, plus aucune mention « 15 ans » ni d'agence Toulouse.
+- `npm run build` : ✅ TypeScript clean.
+- Garde-fous (grep) : ✅ aucune marque produit, aucun prix chiffré, aucune référence client, plus aucune mention « 15 ans » ni d'agence Toulouse ; horaires identiques partout ; un seul nœud `#organization`.

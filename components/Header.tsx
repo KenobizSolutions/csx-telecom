@@ -34,6 +34,8 @@ const navItems = [
 export function Header() {
   const [isOpen, setIsOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
+  const drawerRef = React.useRef<HTMLElement>(null);
+  const burgerRef = React.useRef<HTMLButtonElement>(null);
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -48,6 +50,33 @@ export function Header() {
     }
     if (isOpen) window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
+  // Drawer mobile : focus sur le premier lien à l'ouverture, Tab cyclé à
+  // l'intérieur du menu, focus rendu au bouton burger à la fermeture.
+  React.useEffect(() => {
+    if (!isOpen) return;
+    const drawer = drawerRef.current;
+    if (!drawer) return;
+    const focusables = drawer.querySelectorAll<HTMLElement>("a[href]");
+    focusables[0]?.focus();
+    function trapTab(e: KeyboardEvent) {
+      if (e.key !== "Tab" || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+    drawer.addEventListener("keydown", trapTab);
+    return () => {
+      drawer.removeEventListener("keydown", trapTab);
+      burgerRef.current?.focus();
+    };
   }, [isOpen]);
 
   return (
@@ -132,10 +161,12 @@ export function Header() {
 
             {/* Burger mobile */}
             <button
+              ref={burgerRef}
               type="button"
               className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-[0_4px_20px_rgba(13,13,168,0.1)] transition hover:bg-slate-50 lg:hidden"
               aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
               aria-expanded={isOpen}
+              aria-controls="mobile-nav"
               onClick={() => setIsOpen((v) => !v)}
             >
               {isOpen ? (
@@ -159,6 +190,8 @@ export function Header() {
       {isOpen && (
         <div className="container-page lg:hidden">
           <nav
+            ref={drawerRef}
+            id="mobile-nav"
             aria-label="Navigation mobile"
             className="mt-1 mb-3 rounded-3xl border border-slate-200 bg-white p-3 shadow-[0_8px_30px_rgba(13,13,168,0.15)]"
           >

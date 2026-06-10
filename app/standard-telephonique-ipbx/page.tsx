@@ -187,7 +187,7 @@ export default function StandardIPBXPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="h3 mb-4 text-white">
-                ⚠️ Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
+                <span aria-hidden="true">⚠️ </span>Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
               </h2>
               <p className="mb-4 leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau téléphonique classique (RTC) depuis 2023. Si votre
@@ -221,7 +221,7 @@ export default function StandardIPBXPage() {
                   key={f.title}
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {f.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>

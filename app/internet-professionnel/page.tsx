@@ -198,7 +198,7 @@ export default function InternetProfessionnelPage() {
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
                   <div className="mb-4 flex items-start justify-between">
-                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                    <div aria-hidden="true" className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                       {tech.icon}
                     </div>
                     {tech.badge && (
@@ -277,7 +277,7 @@ export default function InternetProfessionnelPage() {
                 >
                   <div className="p-4 font-medium text-slate-800">{row.critere}</div>
                   <div className="border-l border-slate-100 p-4 text-center text-slate-500">{row.classic}</div>
-                  <div className="border-l border-slate-100 p-4 text-center font-semibold" style={{ color: "var(--csx-primary)" }}>
+                  <div className="border-l border-slate-100 p-4 text-center font-[550]" style={{ color: "var(--csx-primary)" }}>
                     {row.csx}
                   </div>
                 </div>

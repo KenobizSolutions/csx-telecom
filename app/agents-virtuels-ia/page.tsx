@@ -199,7 +199,7 @@ export default function AgentsVirtuelIAPage() {
                   key={useCase.title}
                   className="rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
-                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {useCase.icon}
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
@@ -262,7 +262,7 @@ export default function AgentsVirtuelIAPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="h3 mb-4 text-white">
-                🤖 Disponible quand vos équipes ne le sont pas
+                <span aria-hidden="true">🤖 </span>Disponible quand vos équipes ne le sont pas
               </h2>
               <p className="mb-4 leading-relaxed text-white/85">
                 Les appels ne s'arrêtent pas à 17h. Un prospect qui tombe sur la messagerie vocale

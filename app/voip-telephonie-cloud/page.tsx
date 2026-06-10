@@ -145,7 +145,7 @@ export default function VoipTelephonieCloudPage() {
                   key={f.title}
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
+                  <div aria-hidden="true" className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
                     {f.icon}
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>

@@ -14,7 +14,7 @@
  *  - speaking   → double anneau pulsé + onde sonore (l'agent répond)
  */
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ConversationProvider,
   useConversation,
@@ -88,9 +88,10 @@ function CloseIcon({ className }: { className?: string }) {
 /*  Bouton vocal (consomme le contexte)                                */
 /* ------------------------------------------------------------------ */
 
-function SteeveButton() {
+function SteeveButton({ autoStart = false }: { autoStart?: boolean }) {
   const { startSession, endSession, status, isSpeaking } = useConversation();
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const autoStarted = useRef(false);
 
   // Auto-dismiss du toast d'erreur après 5 s
   useEffect(() => {
@@ -104,12 +105,7 @@ function SteeveButton() {
   const isListening = status === "connected" && !isSpeaking;
   const isSpeakingNow = status === "connected" && isSpeaking;
 
-  const handleClick = async () => {
-    if (isActive) {
-      endSession();
-      return;
-    }
-
+  const startCall = async () => {
     // Demande explicite de la permission micro avant tout démarrage SDK
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -133,6 +129,24 @@ function SteeveButton() {
     } catch {
       setErrorMsg("Impossible de joindre l'assistant pour le moment.");
     }
+  };
+
+  // Le composant n'est monté qu'au clic du visiteur (chargement paresseux du
+  // SDK). Si autoStart est demandé, on lance l'appel dès le montage, une seule fois.
+  useEffect(() => {
+    if (autoStart && !autoStarted.current) {
+      autoStarted.current = true;
+      void startCall();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoStart]);
+
+  const handleClick = async () => {
+    if (isActive) {
+      endSession();
+      return;
+    }
+    await startCall();
   };
 
   // Libellé bouton selon l'état
@@ -254,10 +268,10 @@ function SteeveButton() {
 /*  Wrapper exporté avec ConversationProvider                          */
 /* ------------------------------------------------------------------ */
 
-export function SteeveWidget() {
+export function SteeveWidget({ autoStart = false }: { autoStart?: boolean }) {
   return (
     <ConversationProvider agentId={AGENT_ID}>
-      <SteeveButton />
+      <SteeveButton autoStart={autoStart} />
     </ConversationProvider>
   );
 }

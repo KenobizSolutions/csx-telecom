@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -12,20 +11,13 @@ import { SteeveWidgetLazy } from "@/components/SteeveWidgetLazy";
 // Aspekta — police principale (reprise du template fintech-next)
 const aspekta = localFont({
   src: [
-    { path: "../public/fonts/Aspekta-350.woff2", weight: "350" },
     { path: "../public/fonts/Aspekta-400.woff2", weight: "400" },
-    { path: "../public/fonts/Aspekta-450.woff2", weight: "450" },
     { path: "../public/fonts/Aspekta-500.woff2", weight: "500" },
     { path: "../public/fonts/Aspekta-550.woff2", weight: "550" },
     { path: "../public/fonts/Aspekta-700.woff2", weight: "700" },
   ],
   variable: "--font-aspekta",
   display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -122,11 +114,12 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${aspekta.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${aspekta.variable} h-full antialiased`}
     >
       <head>
         {/* Pré-connexion vers l'API ElevenLabs (utilisée par le widget vocal) */}
-        <link rel="preconnect" href="https://api.elevenlabs.io" crossOrigin="anonymous" />
+        {/* Le SDK vocal n'est chargé qu'au clic sur la bulle : un simple
+            dns-prefetch suffit à préparer la connexion, sans coût eager. */}
         <link rel="dns-prefetch" href="https://api.elevenlabs.io" />
       </head>
       <body className="overflow-x-clip bg-white font-sans text-[var(--csx-text)] font-[400] antialiased">

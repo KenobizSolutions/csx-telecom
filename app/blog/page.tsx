@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "./data";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Blog télécom entreprise — Guides et conseils",
@@ -19,6 +20,7 @@ const categoryColors: Record<string, string> = {
 export default function BlogPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Blog", url: "https://www.csx-telecom.fr/blog" }]} />
       {/* HERO */}
       <section className="relative">
         <div

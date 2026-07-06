@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Agent vocal IA & standard téléphonique IA pour entreprise",
@@ -119,6 +120,7 @@ const faqJsonLd = {
 export default function AgentsVirtuelIAPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Agents virtuels IA", url: "https://www.csx-telecom.fr/agents-virtuels-ia" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 

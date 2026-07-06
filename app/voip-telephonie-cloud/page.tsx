@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Téléphonie cloud & VoIP pour entreprise",
@@ -86,6 +87,7 @@ const faqJsonLd = {
 export default function VoipTelephonieCloudPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "VoIP & téléphonie cloud", url: "https://www.csx-telecom.fr/voip-telephonie-cloud" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 

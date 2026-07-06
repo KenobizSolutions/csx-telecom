@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ContactForm } from "./ContactForm";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Contact — Demandez votre audit gratuit",
@@ -90,6 +92,7 @@ const etapes = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Contact", url: "https://www.csx-telecom.fr/contact" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* HERO */}
@@ -113,6 +116,26 @@ export default function ContactPage() {
                 Un audit gratuit de votre situation télécom, sur site ou à distance. Nos consultants
                 vous répondent sous 24h en jours ouvrés.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FORMULAIRE */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-2xl">
+              <div className="mb-8 text-center">
+                <h2 className="h2 mb-4">Écrivez-nous en 1 minute</h2>
+                <p className="text-lg text-slate-600">
+                  Décrivez votre besoin : un consultant vous répond sous 24h en jours ouvrés,
+                  sans engagement.
+                </p>
+              </div>
+              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+                <ContactForm />
+              </div>
             </div>
           </div>
         </div>

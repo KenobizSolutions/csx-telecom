@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug } from "../data";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 /* ------------------------------------------------------------------ */
 /*  Static params — pre-render all known slugs at build time           */
@@ -95,6 +96,7 @@ export default async function ArticlePage(props: {
 
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Blog", url: "https://www.csx-telecom.fr/blog" }, { name: article.title, url: `https://www.csx-telecom.fr/blog/${article.slug}` }]} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

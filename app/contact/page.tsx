@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./ContactForm";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Contact — Demandez votre audit gratuit",
@@ -91,6 +92,7 @@ const etapes = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Contact", url: "https://www.csx-telecom.fr/contact" }]} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       {/* HERO */}

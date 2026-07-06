@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SteeveWidgetLazy } from "@/components/SteeveWidgetLazy";
@@ -139,6 +140,7 @@ export default function RootLayout({
         <SteeveWidgetLazy />
 
         <Analytics />
+        <AnalyticsEvents />
         <SpeedInsights />
       </body>
     </html>

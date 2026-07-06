@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/a-propos`,                     lastModified: TODAY, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE}/contact`,                      lastModified: TODAY, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/mentions-legales`,             lastModified: TODAY, changeFrequency: "yearly",  priority: 0.3 },
+    { url: `${BASE}/politique-confidentialite`,    lastModified: TODAY, changeFrequency: "yearly",  priority: 0.3 },
     // Blog
     { url: `${BASE}/blog`,                         lastModified: TODAY, changeFrequency: "weekly",  priority: 0.7 },
     // Zones géographiques

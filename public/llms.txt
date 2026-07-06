@@ -24,6 +24,7 @@ CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), 
 - À propos : https://www.csx-telecom.fr/a-propos
 - Contact : https://www.csx-telecom.fr/contact
 - Blog : https://www.csx-telecom.fr/blog
+- Politique de confidentialité : https://www.csx-telecom.fr/politique-confidentialite
 
 ## Zones géographiques
 - Toulouse (Haute-Garonne 31) : https://www.csx-telecom.fr/toulouse

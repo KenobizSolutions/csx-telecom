@@ -160,12 +160,20 @@ export function Footer() {
               </span>
             </div>
 
-            <Link
-              href="/mentions-legales"
-              className="transition-colors hover:text-[var(--csx-secondary)]"
-            >
-              Mentions légales
-            </Link>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+              <Link
+                href="/mentions-legales"
+                className="transition-colors hover:text-[var(--csx-secondary)]"
+              >
+                Mentions légales
+              </Link>
+              <Link
+                href="/politique-confidentialite"
+                className="transition-colors hover:text-[var(--csx-secondary)]"
+              >
+                Politique de confidentialité
+              </Link>
+            </div>
           </div>
         </div>
       </div>

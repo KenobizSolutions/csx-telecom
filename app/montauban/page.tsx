@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom entreprise à Montauban (82)",
+  title: "Installateur téléphonie IP à Montauban (82)",
   description:
-    "Opérateur télécom à Montauban et dans le Tarn-et-Garonne (82). Standard IP, IPBX, internet professionnel multi-opérateur pour TPE et PME. Audit gratuit, intervention locale.",
+    "Standard IP, IPBX et internet pro à Montauban : techniciens locaux dans le 82, migration RTC sans coupure. Devis gratuit sous 48 h, audit sans engagement.",
   alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
 };
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Standard IP vs standard classique : quel choix pour votre entreprise ?",
@@ -97,6 +98,13 @@ La question n'est pas si vous allez migrer vers le standard IP — c'est quand. 
 export default function StandardIPVsClassiquePage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "https://www.csx-telecom.fr/" },
+          { name: "Blog", url: "https://www.csx-telecom.fr/blog" },
+          { name: "Standard IP vs standard classique : pourquoi migrer en 2026 ?", url: "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

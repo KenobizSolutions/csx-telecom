@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom entreprise à Gourdon (46)",
+  title: "Installateur téléphonie IP à Gourdon (46)",
   description:
-    "Opérateur télécom à Gourdon et dans le sud du Lot (46). Standard IP, internet fibre, 5G et Starlink pour zones rurales. Audit gratuit, intervention locale depuis Cahors.",
+    "Standard IP, fibre, 5G et Starlink pour les entreprises de Gourdon et du sud du Lot. Agence locale, intervention rapide. Devis gratuit sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
 };
 

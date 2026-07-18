@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Internet professionnel vs box particulier : les différences clés",
@@ -98,6 +99,13 @@ Ce n'est pas un argument de vente : c'est une différence structurelle entre un 
 export default function InternetProVsBoxPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "https://www.csx-telecom.fr/" },
+          { name: "Blog", url: "https://www.csx-telecom.fr/blog" },
+          { name: "Internet professionnel vs box grand public : les vraies différences", url: "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

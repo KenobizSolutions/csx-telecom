@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IP & IPBX pour entreprise",
+  title: "Standard téléphonique IPBX : devis gratuit sous 48h",
   description:
-    "Installation et maintenance de standard IP ou IPBX, de 2 à +100 postes. Fin du réseau cuivre RTC, migration sans coupure, cloud ou sur site. Opérateur ARCEP.",
+    "Installation de standard téléphonique IP / IPBX par un opérateur ARCEP local : migration RTC sans coupure, de 2 à +100 postes. Audit gratuit, devis sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },
 };
 

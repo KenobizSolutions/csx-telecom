@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -119,6 +120,12 @@ const sections = [
 export default function MentionsLegalesPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "https://www.csx-telecom.fr/" },
+          { name: "Mentions légales", url: "https://www.csx-telecom.fr/mentions-legales" },
+        ]}
+      />
       {/* HERO */}
       <section className="relative">
         <div

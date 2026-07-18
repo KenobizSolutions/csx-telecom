@@ -24,6 +24,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Apex → www en 308 permanent (la redirection Domains de Vercel émettait
+      // un 307 temporaire, signalé « erreur de redirection » par Search Console).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "csx-telecom.fr" }],
+        destination: "https://www.csx-telecom.fr/:path*",
+        permanent: true,
+      },
       {
         source: "/:path*",
         has: [{ type: "host", value: "telephonie-cahors.com" }],

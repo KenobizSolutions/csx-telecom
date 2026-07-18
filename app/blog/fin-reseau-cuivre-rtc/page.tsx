@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Fin du réseau cuivre RTC : que faire pour votre entreprise ?",
+  title: "Fin du réseau cuivre RTC : que faire ?",
   description:
     "Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire. Délais, impacts sur votre entreprise, solutions de migration IP : tout ce qu'il faut anticiper.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc" },
@@ -99,6 +100,13 @@ La migration vers la téléphonie IP est une opportunité, pas seulement une con
 export default function FinReseauCuivreRTCPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Accueil", url: "https://www.csx-telecom.fr/" },
+          { name: "Blog", url: "https://www.csx-telecom.fr/blog" },
+          { name: "La fin du réseau cuivre RTC : ce que les entreprises doivent savoir", url: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc" },
+        ]}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

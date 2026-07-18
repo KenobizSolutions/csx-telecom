@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom entreprise à Toulouse (31)",
+  title: "Installateur téléphonie IP à Toulouse (31)",
   description:
-    "Opérateur télécom à Toulouse et en Haute-Garonne (31). Standard IP, IPBX, internet multi-opérateur, agents IA. Audit gratuit, intervention sur site sur toute la métropole toulousaine.",
+    "Installateur standard téléphonique IP & internet pro à Toulouse. Opérateur ARCEP, intervention sur site dans toute la métropole. Devis gratuit sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/toulouse" },
 };
 

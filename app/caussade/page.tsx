@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom entreprise à Caussade (82)",
@@ -35,21 +36,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "Migration depuis le réseau cuivre RTC, installation de standard IP cloud ou sur site. La zone de Caussade est bien positionnée entre deux équipes CSX : intervention rapide garantie.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet professionnel multi-opérateur",
     description:
       "Fibre, SDSL ou 5G selon votre éligibilité. En opérateur indépendant, nous comparons toutes les offres disponibles à Caussade et dans le Quercy Blanc pour vous proposer le meilleur rapport performance/prix.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Pour les commerces, artisans et professions libérales de Caussade : un standard téléphonique IA qui répond 24h/24, prend les messages et les rendez-vous même quand vous êtes indisponible.",
@@ -177,7 +178,7 @@ export default function CaussadePage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}><Icon name={service.icon} className="h-6 w-6" /></div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -217,7 +218,7 @@ export default function CaussadePage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><span aria-hidden="true">⚠️ </span>La fin du réseau cuivre impacte le Quercy Blanc</h2>
+              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><Icon name="warning" className="mr-3 inline-block h-6 w-6 align-[-4px]" />La fin du réseau cuivre impacte le Quercy Blanc</h2>
               <p className="text-sm leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau RTC dans le Tarn-et-Garonne. Si votre
                 entreprise fonctionne encore avec des lignes téléphoniques classiques, la migration

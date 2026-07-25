@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Internet professionnel & fibre entreprise",
@@ -26,42 +27,42 @@ const jsonLd = {
 
 const technologies = [
   {
-    icon: "💡",
+    icon: "fiber",
     title: "Fibre dédiée & FTTO",
     description:
       "Bande passante garantie symétrique, de 100 Mb/s à 10 Gb/s. La fibre dédiée (FTTO) assure des débits constants sans mutualisation, idéale pour les usages critiques.",
     badge: "Recommandé",
   },
   {
-    icon: "📡",
+    icon: "antenna",
     title: "SDSL & ADSL pro",
     description:
       "Pour les zones non encore éligibles à la fibre. Le SDSL offre un débit symétrique stable et une garantie de temps de rétablissement (GTR 4h ou 8h).",
     badge: null,
   },
   {
-    icon: "📶",
+    icon: "signal",
     title: "5G & 4G de secours",
     description:
       "Lien de backup automatique sur 5G/4G qui prend le relais en quelques secondes en cas de défaillance du lien principal. Compatible avec le maintien du MPLS.",
     badge: null,
   },
   {
-    icon: "🛰️",
+    icon: "satellite",
     title: "Starlink Business",
     description:
       "Solution satellite de dernière génération pour les sites isolés ou en chantier. Débit élevé, latence acceptable, déploiement en quelques heures.",
     badge: "Sites isolés",
   },
   {
-    icon: "🔗",
+    icon: "link",
     title: "MPLS & VPN inter-sites",
     description:
       "Réseau privé entre vos différents sites avec qualité de service (QoS) garantie. Le MPLS reste actif même lors d'un basculement sur le lien 5G de secours.",
     badge: "Multi-sites",
   },
   {
-    icon: "🔒",
+    icon: "lock",
     title: "Pare-feu NGFW",
     description:
       "Firewall nouvelle génération (NGFW) avec inspection applicative, filtrage URL, détection d'intrusion (IDS/IPS) et gestion centralisée. Votre périmètre réseau sécurisé.",
@@ -200,8 +201,8 @@ export default function InternetProfessionnelPage() {
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
                   <div className="mb-4 flex items-start justify-between">
-                    <div aria-hidden="true" className="inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                      {tech.icon}
+                    <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                      <Icon name={tech.icon} className="h-6 w-6" />
                     </div>
                     {tech.badge && (
                       <span className="rounded-full px-2 py-1 text-xs font-bold text-white" style={{ background: "var(--csx-secondary)" }}>

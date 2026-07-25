@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ContactForm } from "./ContactForm";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Contact — Demandez votre audit gratuit",
@@ -20,28 +21,28 @@ const jsonLd = {
 
 const coordonnees = [
   {
-    icon: "📞",
+    icon: "phone",
     label: "Téléphone",
     value: "05 82 73 03 60",
     detail: "Lun–Jeu 8h30–12h · 13h30–17h30 · Ven jusqu'à 17h",
     href: "tel:+33582730360",
   },
   {
-    icon: "✉️",
+    icon: "mail",
     label: "Email",
     value: "contact@csx.fr",
     detail: "Réponse sous 24h en jours ouvrés",
     href: "mailto:contact@csx.fr",
   },
   {
-    icon: "📍",
+    icon: "mappin",
     label: "Siège social",
     value: "1 Place Emilien Imbert — 46000 Cahors",
     detail: "Interventions dans toute la région Occitanie et Pays Basque",
     href: null,
   },
   {
-    icon: "🤖",
+    icon: "bot",
     label: "Assistante virtuelle IA",
     value: "Disponible 24h/24 · 7j/7",
     detail: "Répond à vos appels à toute heure, prend vos messages",
@@ -159,8 +160,8 @@ export default function ContactPage() {
                   key={c.label}
                   className="flex items-start gap-5 rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <span aria-hidden="true" className="shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {c.icon}
+                  <span className="shrink-0 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name={c.icon} className="h-6 w-6" />
                   </span>
                   <div>
                     <div className="mb-1 text-xs font-[550] uppercase tracking-wider text-slate-500">{c.label}</div>
@@ -181,7 +182,8 @@ export default function ContactPage() {
 
             <div className="mt-12 text-center">
               <a href="tel:+33582730360" className="btn group bg-[var(--csx-primary)] text-white shadow-sm hover:bg-[var(--csx-dark)]">
-                <span className="mr-2" aria-hidden="true">📞</span> Appeler le 05 82 73 03 60
+                <Icon name="phone" className="mr-2 inline-block h-4 w-4 align-[-2px]" />
+                Appeler le 05 82 73 03 60
               </a>
               <p className="mt-3 text-sm text-slate-500">
                 Ou écrivez à{" "}
@@ -210,7 +212,9 @@ export default function ContactPage() {
                   ))}
                 </div>
                 <div className="mt-5 flex items-start gap-3 rounded-xl p-4 text-sm" style={{ background: "var(--csx-light)" }}>
-                  <span className="shrink-0 text-xl" aria-hidden="true">🤖</span>
+                  <span className="shrink-0" style={{ color: "var(--csx-primary)" }}>
+                    <Icon name="bot" className="h-5 w-5" />
+                  </span>
                   <p className="leading-relaxed text-slate-600">
                     En dehors des heures d'ouverture, notre{" "}
                     <strong>assistante virtuelle IA répond à vos appels 24h/24</strong> et prend vos
@@ -280,10 +284,12 @@ export default function ContactPage() {
               </div>
               <div className="flex flex-col items-center gap-3 sm:flex-row lg:shrink-0">
                 <a href="tel:+33582730360" className="btn bg-white text-[var(--csx-primary)] shadow-sm hover:bg-[var(--csx-light)]">
-                  <span aria-hidden="true">📞 </span>05 82 73 03 60
+                  <Icon name="phone" className="mr-2 inline-block h-4 w-4 align-[-2px]" />
+                  05 82 73 03 60
                 </a>
                 <a href="mailto:contact@csx.fr" className="btn border border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20">
-                  <span aria-hidden="true">✉️ </span>contact@csx.fr
+                  <Icon name="mail" className="mr-2 inline-block h-4 w-4 align-[-2px]" />
+                  contact@csx.fr
                 </a>
               </div>
             </div>

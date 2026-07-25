@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Installateur téléphonie IP à Gourdon (46)",
@@ -36,21 +37,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "Migration depuis le réseau cuivre RTC, standard cloud ou sur site. Dans le sud du Lot, la fin du cuivre impacte de nombreux artisans et PME. Nous gérons toute la transition sans coupure.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet fibre, 5G & Starlink",
     description:
       "La couverture fibre est en cours dans le Gourdonais mais reste incomplète. En opérateur multi-technologie, nous combinons fibre disponible, 5G et Starlink Business pour une connexion fiable quel que soit votre site.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Artisan, hôtel, commerce : votre téléphone répond 24h/24 même quand vous êtes en chantier, en salle ou hors d'accès. L'agent IA prend les messages, répond aux questions courantes et prend les rendez-vous.",
@@ -82,10 +83,10 @@ const reasons = [
 ];
 
 const techs = [
-  { label: "Fibre optique (là où disponible)", icon: "💡" },
-  { label: "SDSL pour zones en attente de fibre", icon: "📶" },
-  { label: "5G backup automatique", icon: "📡" },
-  { label: "Starlink Business pour sites isolés", icon: "🛰️" },
+  { label: "Fibre optique (là où disponible)", icon: "fiber" },
+  { label: "SDSL pour zones en attente de fibre", icon: "signal" },
+  { label: "5G backup automatique", icon: "antenna" },
+  { label: "Starlink Business pour sites isolés", icon: "satellite" },
 ];
 
 const faqItems = [
@@ -176,7 +177,7 @@ export default function GourdonPage() {
         <div className="container-page">
           <div className="pb-12">
             <div className="rounded-3xl p-7 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-4 text-xl font-bold tracking-tight text-white">🛰️ Connectivité professionnelle même en zone rurale</h2>
+              <h2 className="mb-4 text-xl font-bold tracking-tight text-white"><Icon name="satellite" className="mr-3 inline-block h-6 w-6 align-[-4px]" />Connectivité professionnelle même en zone rurale</h2>
               <p className="mb-5 text-sm leading-relaxed text-white/85">
                 La couverture fibre du Gourdonais est en cours mais encore partielle. CSX Telecom
                 s'adapte à chaque situation grâce à un panel de technologies complémentaires.
@@ -184,7 +185,7 @@ export default function GourdonPage() {
               <div className="grid grid-cols-2 gap-3">
                 {techs.map((t) => (
                   <div key={t.label} className="flex items-center gap-3 text-sm text-white/90">
-                    <span className="text-xl">{t.icon}</span>
+                    <span className="shrink-0"><Icon name={t.icon} className="h-5 w-5" /></span>
                     {t.label}
                   </div>
                 ))}
@@ -207,7 +208,7 @@ export default function GourdonPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}><Icon name={service.icon} className="h-6 w-6" /></div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>

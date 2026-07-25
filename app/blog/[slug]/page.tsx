@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles, getArticleBySlug } from "../data";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 /* ------------------------------------------------------------------ */
 /*  Static params — pre-render all known slugs at build time           */
@@ -125,7 +126,7 @@ export default async function ArticlePage(props: {
                 <span className="text-sm text-white/60">{formattedDate}</span>
                 <span className="text-sm text-white/60">·</span>
                 <span className="text-sm text-white/60">
-                  <span aria-hidden="true">⏱ </span>
+                  <Icon name="timer" className="mr-1 inline-block h-4 w-4 align-[-3px]" />
                   {article.readingTime} de lecture
                 </span>
               </div>
@@ -196,16 +197,16 @@ export default async function ArticlePage(props: {
                   <ul className="space-y-3 text-sm text-slate-600">
                     <li>
                       <a href="tel:+33582730360" className="flex items-center gap-2 font-[500] transition-colors hover:text-[var(--csx-primary)]">
-                        <span aria-hidden="true">📞</span> 05 82 73 03 60
+                        <Icon name="phone" className="mr-1 inline-block h-4 w-4 align-[-3px]" /> 05 82 73 03 60
                       </a>
                     </li>
                     <li>
                       <a href="mailto:contact@csx.fr" className="flex items-center gap-2 transition-colors hover:text-[var(--csx-primary)]">
-                        <span aria-hidden="true">✉️</span> contact@csx.fr
+                        <Icon name="mail" className="mr-1 inline-block h-4 w-4 align-[-3px]" /> contact@csx.fr
                       </a>
                     </li>
                     <li className="flex items-center gap-2 text-slate-400">
-                      <span aria-hidden="true">🕒</span> Lun–Jeu 8h30–12h · 13h30–17h30 · Ven 17h
+                      <Icon name="clock" className="mr-1 inline-block h-4 w-4 align-[-3px]" /> Lun–Jeu 8h30–12h · 13h30–17h30 · Ven 17h
                     </li>
                   </ul>
                 </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom à Cahors et dans le Lot (46)",
@@ -39,21 +40,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "Migration depuis le réseau cuivre RTC, installation de standard IP cloud ou sur site. Le département du Lot est particulièrement impacté par la fin du cuivre : nous gérons l'ensemble de la transition sans coupure.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet professionnel & MPLS",
     description:
       "Fibre là où elle est disponible, SDSL, 5G et Starlink pour les zones non encore desservies. Dans le Lot, la couverture fibre est inégale : notre expertise multi-opérateur permet de trouver la meilleure solution pour chaque adresse.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Standard téléphonique IA 24h/24. Pour les professions libérales, commerces, hôtels et artisans cadurciens : ne manquez plus jamais un appel, même en déplacement ou hors des heures d'ouverture.",
@@ -199,7 +200,7 @@ export default function CahorsPage() {
               className="flex items-start gap-5 rounded-2xl border-l-4 p-6"
               style={{ background: "var(--csx-light)", borderColor: "var(--csx-secondary)" }}
             >
-              <span className="shrink-0 text-3xl" aria-hidden="true">🏢</span>
+              <span className="shrink-0" style={{ color: "var(--csx-primary)" }}><Icon name="building" className="h-8 w-8" /></span>
               <div>
                 <p className="mb-1 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                   Siège social CSX Telecom — Cahors, Lot (46)
@@ -233,8 +234,8 @@ export default function CahorsPage() {
                   href={service.href}
                   className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl"
                 >
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {service.icon}
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name={service.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
                     {service.title}
@@ -290,7 +291,7 @@ export default function CahorsPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="mb-3 text-2xl font-bold tracking-tight text-white">
-                <span aria-hidden="true">📍 </span>Couverture de l'ensemble du département du Lot
+                <Icon name="mappin" className="mr-3 inline-block h-6 w-6 align-[-4px]" />Couverture de l'ensemble du département du Lot
               </h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Depuis Cahors, nos équipes interviennent dans tout le 46 — du nord (Figeac,

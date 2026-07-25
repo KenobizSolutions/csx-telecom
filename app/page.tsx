@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: {
@@ -25,19 +26,19 @@ const services = [
     title: "Standard téléphonique IP & IPBX",
     description: "Installation, configuration et maintenance de votre standard IP, cloud ou sur site. De 2 à plus de 100 postes. Portage de vos numéros sans aucune coupure.",
     href: "/standard-telephonique-ipbx",
-    icon: "📞",
+    icon: "phone",
   },
   {
     title: "Internet professionnel & MPLS",
     description: "Fibre, SDSL, 5G, Starlink avec GTR. Vraie redondance multi-opérateur. MPLS maintenu même sur la 5G de secours.",
     href: "/internet-professionnel",
-    icon: "🌐",
+    icon: "globe",
   },
   {
     title: "Agents virtuels IA",
     description: "Votre assistant téléphonique IA qui répond, comprend et traite oralement les appels à votre place — 24h/24, 7j/7.",
     href: "/agents-virtuels-ia",
-    icon: "🤖",
+    icon: "bot",
   },
 ];
 
@@ -87,7 +88,7 @@ export default function HomePage() {
           }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div
                 className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur"
@@ -165,8 +166,11 @@ export default function HomePage() {
                   href={service.href}
                   className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl"
                 >
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {service.icon}
+                  <div
+                    className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl"
+                    style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}
+                  >
+                    <Icon name={service.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
                     {service.title}
@@ -205,7 +209,12 @@ export default function HomePage() {
               {reasons.map((reason, i) => (
                 <div
                   key={i}
-                  className="rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10"
+                  // 5 atouts sur 2 colonnes : le dernier occupe toute la largeur
+                  // pour ne pas laisser de case vide en fin de grille.
+                  className={[
+                    "rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10",
+                    i === reasons.length - 1 && reasons.length % 2 === 1 ? "md:col-span-2" : "",
+                  ].join(" ")}
                 >
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-secondary)" }}>
                     {reason.title}
@@ -231,7 +240,8 @@ export default function HomePage() {
               <div className="md:flex md:items-center md:justify-between md:gap-8">
                 <div className="mb-6 md:mb-0 md:max-w-2xl">
                   <h2 className="h3 mb-3 text-white">
-                    <span aria-hidden="true">⚠️ </span>La fin du réseau cuivre RTC approche — êtes-vous prêt ?
+                    <Icon name="warning" className="mr-3 inline-block h-7 w-7 align-[-4px]" />
+                    La fin du réseau cuivre RTC approche — êtes-vous prêt ?
                   </h2>
                   <p className="leading-relaxed text-white/85">
                     Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire.

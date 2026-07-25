@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom entreprise à Caussade (82)",
@@ -35,21 +36,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "Migration depuis le réseau cuivre RTC, installation de standard IP cloud ou sur site. La zone de Caussade est bien positionnée entre deux équipes CSX : intervention rapide garantie.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet professionnel multi-opérateur",
     description:
       "Fibre, SDSL ou 5G selon votre éligibilité. En opérateur indépendant, nous comparons toutes les offres disponibles à Caussade et dans le Quercy Blanc pour vous proposer le meilleur rapport performance/prix.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Pour les commerces, artisans et professions libérales de Caussade : un standard téléphonique IA qui répond 24h/24, prend les messages et les rendez-vous même quand vous êtes indisponible.",
@@ -118,7 +119,7 @@ export default function CaussadePage() {
       <section className="relative">
         <div className="absolute inset-0 -z-10 mb-28 rounded-bl-[100px] md:mb-0" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }} />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Quercy Blanc · Tarn-et-Garonne (82) · Opérateur ARCEP
@@ -177,7 +178,7 @@ export default function CaussadePage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}><Icon name={service.icon} className="h-6 w-6" /></div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -217,7 +218,7 @@ export default function CaussadePage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><span aria-hidden="true">⚠️ </span>La fin du réseau cuivre impacte le Quercy Blanc</h2>
+              <h2 className="mb-3 text-xl font-bold tracking-tight text-white md:text-2xl"><Icon name="warning" className="mr-3 inline-block h-6 w-6 align-[-4px]" />La fin du réseau cuivre impacte le Quercy Blanc</h2>
               <p className="text-sm leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau RTC dans le Tarn-et-Garonne. Si votre
                 entreprise fonctionne encore avec des lignes téléphoniques classiques, la migration
@@ -229,13 +230,16 @@ export default function CaussadePage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: "var(--csx-light)" }}>
         <div className="container-page">
           <div className="section-pad">
-            <div className="mx-auto max-w-3xl">
-              <div className="space-y-12">
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+            <div className="mx-auto max-w-5xl">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="phone" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Standard téléphonique d'entreprise à Caussade (Tarn-et-Garonne, 82)
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -256,8 +260,11 @@ export default function CaussadePage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="globe" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Opérateur internet professionnel à Caussade
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -278,8 +285,11 @@ export default function CaussadePage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="cloud" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     IPBX & téléphonie IP à Caussade
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -302,8 +312,11 @@ export default function CaussadePage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="bot" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Accueil téléphonique IA à Caussade
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">

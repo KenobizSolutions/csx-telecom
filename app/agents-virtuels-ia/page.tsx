@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Standard téléphonique IA & agent vocal",
@@ -25,28 +26,28 @@ const jsonLd = {
 
 const useCases = [
   {
-    icon: "🏢",
+    icon: "building",
     title: "Accueil standard",
     description:
       "L'agent répond dès la première sonnerie, accueille l'appelant par son nom s'il est connu, l'oriente vers le bon service ou la bonne personne, et prend un message si personne n'est disponible. Fini les appels manqués et les longues mises en attente.",
     examples: ["Redirection vers un collaborateur", "Prise de message structuré", "Annonce des horaires en dehors des plages"],
   },
   {
-    icon: "📅",
+    icon: "calendar",
     title: "Prise de rendez-vous",
     description:
       "L'agent propose des créneaux selon vos règles, recueille les coordonnées de l'appelant et transmet la demande de rendez-vous à votre équipe. L'interfaçage éventuel avec votre agenda ou votre logiciel métier est étudié lors de l'audit, selon ce que votre système permet.",
     examples: ["Proposition de créneaux selon vos règles", "Recueil des coordonnées de l'appelant", "Transmission de la demande à votre équipe"],
   },
   {
-    icon: "❓",
+    icon: "help",
     title: "FAQ & informations courantes",
     description:
       "Tarifs, horaires, adresse, délais, disponibilité d'un produit : l'agent répond aux questions fréquentes sans mobiliser vos équipes. Vous définissez la base de connaissance ; l'IA la restitue oralement de façon naturelle.",
     examples: ["Réponse aux questions fréquentes 24h/24", "Mise à jour facile de la base de connaissance", "Escalade vers un humain si nécessaire"],
   },
   {
-    icon: "🎯",
+    icon: "target",
     title: "Qualification de leads",
     description:
       "Pour les entreprises qui reçoivent des demandes commerciales, l'agent pose les questions de qualification (secteur, taille, besoin), structure les réponses et les transmet à votre équipe avant de transférer l'appelant vers un commercial disponible.",
@@ -132,7 +133,7 @@ export default function AgentsVirtuelIAPage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 IA vocale · Voix naturelle · 24h/24 · 7j/7
@@ -201,8 +202,8 @@ export default function AgentsVirtuelIAPage() {
                   key={useCase.title}
                   className="rounded-3xl border border-white bg-white p-8 shadow-sm transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-md"
                 >
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {useCase.icon}
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name={useCase.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                     {useCase.title}
@@ -264,7 +265,8 @@ export default function AgentsVirtuelIAPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="h3 mb-4 text-white">
-                <span aria-hidden="true">🤖 </span>Disponible quand vos équipes ne le sont pas
+                <Icon name="bot" className="mr-3 inline-block h-7 w-7 align-[-4px]" />
+                Disponible quand vos équipes ne le sont pas
               </h2>
               <p className="mb-4 leading-relaxed text-white/85">
                 Les appels ne s'arrêtent pas à 17h. Un prospect qui tombe sur la messagerie vocale

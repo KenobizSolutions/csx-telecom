@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Installateur téléphonie IP à Toulouse (31)",
@@ -46,21 +47,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "De 2 à +100 postes, cloud ou sur site. Portage de vos numéros sans coupure. Nos techniciens se déplacent sur Toulouse intra-muros et dans toute la première couronne.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet professionnel & MPLS",
     description:
       "Fibre dédiée, SDSL, 5G de backup, MPLS inter-sites. La métropole toulousaine est très bien fibrée : en tant qu'opérateur ARCEP nous accédons à Orange, SFR, Bouygues, Axione et aux opérateurs locaux.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Standard téléphonique IA 24h/24. Nos agents vocaux répondent, orientent et prennent les rendez-vous à votre place — idéal pour les cabinets, commerces et PME toulousaines.",
@@ -144,7 +145,7 @@ export default function ToulousePage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Haute-Garonne (31) · Opérateur ARCEP · Intervention sur site
@@ -203,7 +204,7 @@ export default function ToulousePage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}><Icon name={service.icon} className="h-6 w-6" /></div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -243,7 +244,7 @@ export default function ToulousePage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white md:p-10" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><span aria-hidden="true">📍 </span>Intervention sur toute la métropole toulousaine</h2>
+              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><Icon name="mappin" className="mr-3 inline-block h-6 w-6 align-[-4px]" />Intervention sur toute la métropole toulousaine</h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Nos techniciens couvrent Toulouse et la première couronne. Déplacement rapide, sans
                 frais supplémentaires sur la zone Toulouse Métropole.

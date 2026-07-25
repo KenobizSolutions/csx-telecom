@@ -96,13 +96,13 @@ export function Header() {
           scrolled ? "opacity-100" : "opacity-0",
         ].join(" ")}
         style={{
-          backgroundColor: "rgba(255, 255, 255, 0.55)",
-          backdropFilter: "blur(10px) saturate(140%)",
-          WebkitBackdropFilter: "blur(10px) saturate(140%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, black 0%, black 15%, transparent 100%)",
-          maskImage:
-            "linear-gradient(to bottom, black 0%, black 15%, transparent 100%)",
+          // Bandeau franchement opaque : le dégradé de masque précédent laissait
+          // transparaître les titres qui défilaient dessous (effet « fantôme »
+          // illisible). Ici le contenu passe proprement derrière le bandeau.
+          backgroundColor: "rgba(255, 255, 255, 0.92)",
+          backdropFilter: "blur(12px) saturate(140%)",
+          WebkitBackdropFilter: "blur(12px) saturate(140%)",
+          borderBottom: "1px solid rgba(15, 23, 42, 0.07)",
         }}
       />
 
@@ -119,13 +119,13 @@ export function Header() {
             <Image
               src="/logo-csx.png"
               alt="CSX Telecom"
-              width={240}
-              height={150}
+              width={480}
+              height={234}
               priority
               fetchPriority="high"
               quality={85}
-              sizes="(max-width: 768px) 100px, 130px"
-              className="h-14 w-auto md:h-20"
+              sizes="(max-width: 768px) 150px, 200px"
+              className="h-9 w-auto md:h-12"
               style={{ objectFit: "contain" }}
             />
           </Link>

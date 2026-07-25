@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { articles } from "./data";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Blog télécom entreprise — Guides et conseils",
@@ -74,7 +75,7 @@ export default function BlogPage() {
                         })}
                       </div>
                       <div>
-                        <span aria-hidden="true">⏱ </span>
+                        <Icon name="timer" className="mr-1 inline-block h-4 w-4 align-[-3px]" />
                         {article.readingTime} de lecture
                       </div>
                     </div>

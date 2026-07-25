@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "À propos — 17 ans d'expertise télécom pour les PME",
@@ -28,37 +29,37 @@ const stats = [
 
 const values = [
   {
-    icon: "📍",
+    icon: "mappin",
     title: "Proximité terrain",
     description:
       "Nos techniciens et consultants sont basés en région, pas dans un centre d'appels national. Ils se déplacent chez vous, connaissent votre secteur géographique et interviennent rapidement. Une vraie relation de proximité, pas un numéro de ticket.",
   },
   {
-    icon: "🔗",
+    icon: "link",
     title: "Indépendance multi-opérateur",
     description:
       "Être déclaré ARCEP signifie que nous ne sommes lié à aucun opérateur. Orange, SFR, Bouygues, opérateurs fibre locaux, Starlink : nous accédons directement à tous et choisissons objectivement la meilleure solution pour chaque client et chaque site.",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "IA intégrée dans les communications",
     description:
       "Nous avons anticipé l'intégration de l'IA dans les communications d'entreprise. Nos agents vocaux IA permettent aux PME d'accéder à une assistante téléphonique de niveau professionnel — disponible 24h/24, sans infrastructure lourde.",
   },
   {
-    icon: "🎯",
+    icon: "target",
     title: "Solutions sur-mesure",
     description:
       "Pas de forfaits rigides. Nous analysons la situation réelle de chaque entreprise — taille, secteur, contraintes techniques, budget — et construisons une réponse adaptée. Certains clients ont besoin de 2 postes, d'autres de 200. Nous servons les deux.",
   },
   {
-    icon: "🔒",
+    icon: "lock",
     title: "Engagement de résultat",
     description:
       "Notre réputation repose sur la continuité de service de nos clients. Supervision 24h/24, GTR contractuelles, un interlocuteur unique pendant toute la durée du contrat : nous ne décrochons pas après la signature.",
   },
   {
-    icon: "🌱",
+    icon: "sprout",
     title: "Vision long terme",
     description:
       "Depuis 17 ans, nous accompagnons des entreprises qui évoluent. Certains clients sont avec nous depuis le début. Cette fidélité repose sur une relation honnête : nous conseillons ce qui est bon pour eux, pas ce qui maximise notre marge.",
@@ -106,7 +107,7 @@ export default function AProposPage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Opérateur ARCEP · Depuis 2009 · +200 clients
@@ -209,8 +210,8 @@ export default function AProposPage() {
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {values.map((val) => (
                 <div key={val.title} className="rounded-2xl bg-white/5 p-6 backdrop-blur ring-1 ring-white/10">
-                  <div aria-hidden="true" className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10 text-2xl">
-                    {val.icon}
+                  <div className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-white/10" style={{ color: "var(--csx-secondary)" }}>
+                    <Icon name={val.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-secondary)" }}>
                     {val.title}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Téléphonie cloud & VoIP pour entreprise",
@@ -26,25 +27,25 @@ const jsonLd = {
 
 const features = [
   {
-    icon: "☁️",
+    icon: "cloud",
     title: "Aucun matériel à gérer",
     description:
       "Votre standard est hébergé dans le cloud. Pas de serveur à installer ni à maintenir dans vos locaux : les mises à jour et la supervision sont assurées par CSX Telecom.",
   },
   {
-    icon: "📱",
+    icon: "smartphone",
     title: "Mobilité & télétravail natifs",
     description:
       "Un softphone sur ordinateur ou mobile, votre numéro fixe qui vous suit partout. Vos équipes appellent et reçoivent leurs appels professionnels d'où qu'elles soient.",
   },
   {
-    icon: "📈",
+    icon: "growth",
     title: "Évolutivité immédiate",
     description:
       "Un nouvel arrivant ? Un poste s'ajoute en quelques minutes. La téléphonie cloud grandit au rythme de votre entreprise, sans réinstallation ni surcoût caché.",
   },
   {
-    icon: "🛡️",
+    icon: "shield",
     title: "Qualité opérateur ARCEP",
     description:
       "En tant qu'opérateur déclaré, nous maîtrisons la chaîne complète : trunks SIP, routage, redondance. Pas d'intermédiaire qui dégrade la qualité de vos communications.",
@@ -99,7 +100,7 @@ export default function VoipTelephonieCloudPage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 VoIP · Téléphonie cloud · Opérateur ARCEP
@@ -147,8 +148,8 @@ export default function VoipTelephonieCloudPage() {
                   key={f.title}
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div aria-hidden="true" className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {f.icon}
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name={f.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                     {f.title}

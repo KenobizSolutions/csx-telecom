@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Installateur téléphonie IP à Montauban (82)",
@@ -36,21 +37,21 @@ const stats = [
 
 const services = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "Standard téléphonique IP & IPBX",
     description:
       "De 2 à +100 postes, adapté aux TPE et PME de Montauban. Portage de numéros sans coupure, cloud ou sur site. Migration depuis le réseau cuivre RTC gérée de bout en bout.",
     href: "/standard-telephonique-ipbx",
   },
   {
-    icon: "🌐",
+    icon: "globe",
     title: "Internet professionnel & MPLS",
     description:
       "Fibre, SDSL, 5G de secours. Montauban et le 82 bénéficient d'un déploiement fibre actif. En opérateur indépendant, nous vous proposons le meilleur opérateur selon votre adresse et vos usages.",
     href: "/internet-professionnel",
   },
   {
-    icon: "🤖",
+    icon: "bot",
     title: "Agents virtuels IA",
     description:
       "Votre secrétariat téléphonique IA, 24h/24. Idéal pour les artisans, commerçants et professions libérales de Montauban qui ne peuvent pas toujours décrocher.",
@@ -130,7 +131,7 @@ export default function MontaubanPage() {
       <section className="relative">
         <div className="absolute inset-0 -z-10 mb-28 rounded-bl-[100px] md:mb-0" aria-hidden="true" style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }} />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Tarn-et-Garonne (82) · Opérateur ARCEP · TPE & PME
@@ -189,7 +190,7 @@ export default function MontaubanPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {services.map((service) => (
                 <Link key={service.href} href={service.href} className="group flex flex-col rounded-3xl border border-slate-200 bg-white p-8 transition-all hover:-translate-y-1 hover:border-[var(--csx-primary)] hover:shadow-xl">
-                  <div aria-hidden="true" className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>{service.icon}</div>
+                  <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}><Icon name={service.icon} className="h-6 w-6" /></div>
                   <h3 className="mb-3 text-xl font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">{service.title}</h3>
                   <p className="mb-6 grow leading-relaxed text-slate-500">{service.description}</p>
                   <span className="inline-flex items-center text-sm font-[550]" style={{ color: "var(--csx-primary)" }}>
@@ -229,7 +230,7 @@ export default function MontaubanPage() {
         <div className="container-page">
           <div className="py-12">
             <div className="rounded-3xl p-8 text-white md:p-10" style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}>
-              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><span aria-hidden="true">📍 </span>Intervention dans tout le Tarn-et-Garonne</h2>
+              <h2 className="mb-3 text-2xl font-bold tracking-tight text-white"><Icon name="mappin" className="mr-3 inline-block h-6 w-6 align-[-4px]" />Intervention dans tout le Tarn-et-Garonne</h2>
               <p className="mb-5 leading-relaxed text-white/85">
                 Nos techniciens interviennent à Montauban et dans l'ensemble du département 82, depuis
                 Moissac jusqu'à Caussade.
@@ -247,13 +248,16 @@ export default function MontaubanPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: "var(--csx-light)" }}>
         <div className="container-page">
           <div className="section-pad">
-            <div className="mx-auto max-w-3xl">
-              <div className="space-y-12">
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+            <div className="mx-auto max-w-5xl">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="phone" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Standard téléphonique d'entreprise à Montauban (Tarn-et-Garonne, 82)
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -273,8 +277,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="globe" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Opérateur internet professionnel à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -296,8 +303,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="cloud" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     IPBX & téléphonie IP à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -321,8 +331,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="bot" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Accueil téléphonique IA à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">

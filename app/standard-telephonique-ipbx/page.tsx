@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Standard téléphonique IPBX : devis gratuit sous 48h",
@@ -76,25 +77,25 @@ const cloudVsSite = [
 
 const features = [
   {
-    icon: "📞",
+    icon: "phone",
     title: "De 2 à +100 postes",
     description:
       "Que vous soyez une TPE de 2 personnes ou une PME de cent collaborateurs, nous dimensionnons votre standard en conséquence. La solution évolue avec vous.",
   },
   {
-    icon: "🔄",
+    icon: "refresh",
     title: "Portage sans coupure",
     description:
       "Vos numéros de téléphone fixes et mobiles sont portés vers le nouveau standard sans interruption de service. Vos clients n'entendent aucune différence.",
   },
   {
-    icon: "🛡️",
+    icon: "shield",
     title: "Qualité opérateur",
     description:
       "En tant qu'opérateur déclaré ARCEP, nous maîtrisons toute la chaîne : trunks SIP, routage, redondance. Pas d'intermédiaire qui impacte la qualité vocale.",
   },
   {
-    icon: "📍",
+    icon: "mappin",
     title: "Installation sur site",
     description:
       "Nos techniciens se déplacent à Toulouse, Montauban, Cahors, Bayonne et dans toute la région. Pas de prestataire externe, pas de délai interminable.",
@@ -149,7 +150,7 @@ export default function StandardIPBXPage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Standard IP · IPBX · Opérateur ARCEP
@@ -189,7 +190,8 @@ export default function StandardIPBXPage() {
               style={{ background: "linear-gradient(135deg, var(--csx-primary), var(--csx-dark))" }}
             >
               <h2 className="h3 mb-4 text-white">
-                <span aria-hidden="true">⚠️ </span>Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
+                <Icon name="warning" className="mr-3 inline-block h-7 w-7 align-[-4px]" />
+                Fin du réseau cuivre RTC — ce que ça change pour votre entreprise
               </h2>
               <p className="mb-4 leading-relaxed text-white/85">
                 Orange arrête progressivement le réseau téléphonique classique (RTC) depuis 2023. Si votre
@@ -223,8 +225,8 @@ export default function StandardIPBXPage() {
                   key={f.title}
                   className="rounded-2xl border border-white bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div aria-hidden="true" className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-2xl" style={{ background: "var(--csx-light)" }}>
-                    {f.icon}
+                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name={f.icon} className="h-6 w-6" />
                   </div>
                   <h3 className="mb-2 text-lg font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
                     {f.title}

@@ -152,7 +152,7 @@ export default function InternetProfessionnelPage() {
           style={{ background: "linear-gradient(135deg, var(--csx-darker) 0%, var(--csx-dark) 50%, var(--csx-primary) 100%)" }}
         />
         <div className="container-page">
-          <div className="pt-20 pb-16 md:pt-28 md:pb-28">
+          <div className="pt-10 pb-14 md:pt-28 md:pb-28">
             <div className="mx-auto max-w-3xl text-center text-white anim-fade-up">
               <div className="mb-6 inline-flex items-center rounded-full bg-white/15 px-4 py-1.5 text-xs font-[550] uppercase tracking-wider text-white/90 backdrop-blur">
                 Fibre · SDSL · 5G · Starlink · MPLS · NGFW

@@ -49,12 +49,12 @@ export function Footer() {
               <Image
                 src="/logo-csx.png"
                 alt="CSX Telecom"
-                width={140}
-                height={88}
+                width={320}
+                height={156}
                 quality={80}
-                sizes="140px"
+                sizes="160px"
                 style={{ objectFit: "contain" }}
-                className="h-10 w-auto brightness-0 invert"
+                className="h-9 w-auto brightness-0 invert"
               />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/75">

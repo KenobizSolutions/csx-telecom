@@ -62,7 +62,9 @@ export async function sendContactMessage(
   const logLead = (raison: string) =>
     console.error(`CONTACT_LEAD ${raison} ${JSON.stringify(lead)}`);
 
-  const apiKey = process.env.RESEND_API_KEY;
+  // Clé Resend : RESEND_API_KEY_TELECOM est le nom utilisé sur ce projet
+  // (le compte Resend héberge plusieurs sites) ; RESEND_API_KEY reste accepté.
+  const apiKey = process.env.RESEND_API_KEY_TELECOM || process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO || "contact@csx.fr";
   // Doit appartenir à un domaine vérifié dans Resend. Une fois csx-telecom.fr
   // vérifié, basculer CONTACT_FROM sur "CSX Telecom <site@csx-telecom.fr>".
@@ -70,7 +72,9 @@ export async function sendContactMessage(
 
   if (!apiKey) {
     logLead("ENVOI_IMPOSSIBLE_CLE_MANQUANTE");
-    console.error("[contact] RESEND_API_KEY absente : impossible d'envoyer la demande.");
+    console.error(
+      "[contact] Clé Resend absente (RESEND_API_KEY_TELECOM) : impossible d'envoyer la demande."
+    );
     return {
       ok: false,
       error:

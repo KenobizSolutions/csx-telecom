@@ -248,13 +248,16 @@ export default function MontaubanPage() {
         </div>
       </section>
 
-      <section className="bg-white">
+      <section style={{ background: "var(--csx-light)" }}>
         <div className="container-page">
           <div className="section-pad">
-            <div className="mx-auto max-w-3xl">
-              <div className="space-y-12">
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+            <div className="mx-auto max-w-5xl">
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="phone" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Standard téléphonique d'entreprise à Montauban (Tarn-et-Garonne, 82)
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -274,8 +277,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="globe" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Opérateur internet professionnel à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -297,8 +303,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="cloud" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     IPBX & téléphonie IP à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">
@@ -322,8 +331,11 @@ export default function MontaubanPage() {
                   </p>
                 </div>
 
-                <div>
-                  <h2 className="text-2xl font-bold tracking-tight md:text-3xl" style={{ color: "var(--csx-primary)" }}>
+                <div className="rounded-3xl border border-white bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: "var(--csx-light)", color: "var(--csx-primary)" }}>
+                    <Icon name="bot" className="h-5 w-5" />
+                  </div>
+                  <h2 className="text-xl font-bold tracking-tight md:text-2xl" style={{ color: "var(--csx-primary)" }}>
                     Accueil téléphonique IA à Montauban
                   </h2>
                   <p className="mt-4 leading-relaxed text-slate-600">

@@ -180,6 +180,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* Le header est sticky : sans cette marge, les liens d'ancrage (#services,
+     #avantages…) amènent le titre de section juste sous le bandeau. */
+  :target,
+  section[id] {
+    scroll-margin-top: 7rem;
+  }
   body {
     @apply bg-background text-foreground;
     color: var(--csx-text);
@@ -195,8 +201,10 @@
 /* ------------------------------------------------------------------ */
 @layer components {
   /* Headings */
+  /* .h1 démarre en text-4xl : en text-5xl, les titres des heros occupaient tout
+     l'écran mobile et repoussaient le bouton d'action sous la ligne de flottaison. */
   .h1 {
-    @apply text-5xl font-bold tracking-tight;
+    @apply text-4xl font-bold tracking-tight;
   }
   .h2 {
     @apply text-4xl font-bold tracking-tight;

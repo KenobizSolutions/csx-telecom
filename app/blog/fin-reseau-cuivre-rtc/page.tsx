@@ -211,7 +211,7 @@ export default function FinReseauCuivreRTCPage() {
               </div>
 
               <div className="rounded-2xl p-5 border border-gray-100">
-                <h3 className="font-bold mb-3" style={{ color: "#111827" }}>Articles liés</h3>
+                <h3 className="font-bold mb-3">Articles liés</h3>
                 <ul className="space-y-3">
                   <li>
                     <Link

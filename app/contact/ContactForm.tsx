@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { track } from "@vercel/analytics";
+import { Icon } from "@/components/Icon";
 import { sendContactMessage, type ContactState } from "./actions";
 
 const initial: ContactState = { ok: false };
@@ -22,7 +23,9 @@ export function ContactForm() {
         className="rounded-3xl border p-8 text-center"
         style={{ background: "var(--csx-light)", borderColor: "var(--csx-secondary)" }}
       >
-        <div className="mb-3 text-3xl" aria-hidden="true">✅</div>
+        <div className="mb-3 flex justify-center" style={{ color: "var(--csx-primary)" }}>
+          <Icon name="check" className="h-10 w-10" />
+        </div>
         <h3 className="mb-2 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
           Merci, votre demande est envoyée !
         </h3>

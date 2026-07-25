@@ -55,7 +55,7 @@ export function SteeveWidgetLazy() {
           onClick={() => setActivated(true)}
           aria-label="Parler à Steeve, l'assistant vocal CSX Telecom"
           className={[
-            "relative flex h-16 w-16 items-center justify-center rounded-full",
+            "relative flex h-12 w-12 items-center justify-center rounded-full sm:h-16 sm:w-16",
             "text-white shadow-lg transition-all duration-200",
             "hover:scale-105 hover:shadow-xl active:scale-95",
             "focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40",
@@ -70,7 +70,7 @@ export function SteeveWidgetLazy() {
             strokeWidth={2.2}
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-7 w-7"
+            className="h-5 w-5 sm:h-7 sm:w-7"
             aria-hidden="true"
           >
             <rect x="9" y="2" width="6" height="12" rx="3" />
@@ -80,8 +80,10 @@ export function SteeveWidgetLazy() {
           </svg>
         </button>
 
+        {/* Libellé masqué sur mobile : cette pastille large recouvrait les CTA
+            et les liens légaux sur petits écrans. */}
         <span
-          className="select-none rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-gray-700 shadow-sm ring-1 ring-black/5 backdrop-blur"
+          className="hidden select-none rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-gray-700 shadow-sm ring-1 ring-black/5 backdrop-blur lg:inline-block"
           aria-hidden="true"
         >
           Testez notre assistant virtuel

@@ -139,7 +139,9 @@ export function Footer() {
         </div>
 
         {/* Bandeau bas */}
-        <div className="border-t border-white/10 py-6">
+        {/* pr sur grand écran : dégage la zone du widget vocal flottant
+            (bas-droite), qui masquait sinon les liens légaux. */}
+        <div className="border-t border-white/10 py-6 lg:pr-56">
           <div className="flex flex-col gap-3 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-3">
               <span>© 2026 CSX Telecom · SIRET : 800 317 570 00011</span>

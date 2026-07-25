@@ -225,7 +225,7 @@ function SteeveButton({ autoStart = false }: { autoStart?: boolean }) {
               aria-label={ariaLabel}
               aria-pressed={isActive}
               className={[
-                "relative flex h-16 w-16 items-center justify-center rounded-full",
+                "relative flex h-12 w-12 items-center justify-center rounded-full sm:h-16 sm:w-16",
                 "text-white shadow-lg transition-all duration-200",
                 "hover:scale-105 hover:shadow-xl active:scale-95",
                 "focus:outline-none focus-visible:ring-4 focus-visible:ring-white/40",
@@ -239,12 +239,12 @@ function SteeveButton({ autoStart = false }: { autoStart?: boolean }) {
             >
               {isActive ? (
                 isSpeakingNow ? (
-                  <WaveIcon className="h-7 w-7" />
+                  <WaveIcon className="h-5 w-5 sm:h-7 sm:w-7" />
                 ) : (
-                  <CloseIcon className="h-6 w-6" />
+                  <CloseIcon className="h-5 w-5 sm:h-6 sm:w-6" />
                 )
               ) : (
-                <MicIcon className="h-7 w-7" />
+                <MicIcon className="h-5 w-5 sm:h-7 sm:w-7" />
               )}
             </button>
           </div>
@@ -252,7 +252,7 @@ function SteeveButton({ autoStart = false }: { autoStart?: boolean }) {
           {/* Libellé permanent sous le bouton (caché pendant l'appel) */}
           {!isActive && (
             <span
-              className="select-none rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-gray-700 shadow-sm ring-1 ring-black/5 backdrop-blur"
+              className="hidden select-none rounded-full bg-white/90 px-3 py-1 text-[11px] font-medium text-gray-700 shadow-sm ring-1 ring-black/5 backdrop-blur lg:inline-block"
               aria-hidden="true"
             >
               Testez notre assistant virtuel

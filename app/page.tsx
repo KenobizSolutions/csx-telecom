@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -265,11 +266,21 @@ export default function HomePage() {
       <section style={{ background: "var(--csx-light)" }}>
         <div className="container-page">
           <div className="section-pad">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="mx-auto mb-10 max-w-2xl text-center">
               <h2 className="h2 mb-4">Nous intervenons près de chez vous</h2>
               <p className="text-lg text-slate-600">
                 Haute-Garonne (31) · Tarn-et-Garonne (82) · Lot (46) · Pyrénées-Atlantiques (64)
               </p>
+            </div>
+            <div className="mb-10 overflow-hidden rounded-3xl">
+              <Image
+                src="/photos/territoire-occitanie.webp"
+                alt="Village et campagne du Sud-Ouest vus du ciel"
+                width={1920}
+                height={1248}
+                sizes="(max-width: 768px) 100vw, 1152px"
+                className="h-48 w-full object-cover md:h-72"
+              />
             </div>
             <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
               {zones.map((zone) => (

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
 
@@ -176,6 +177,24 @@ export default function StandardIPBXPage() {
                   Notre méthode en 4 étapes
                 </a>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VISUEL */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="pt-10 md:pt-14">
+            <div className="overflow-hidden rounded-3xl">
+              <Image
+                src="/photos/poste-telephonique-ip.webp"
+                alt="Poste téléphonique IP posé sur un bureau d'entreprise"
+                width={1920}
+                height={1248}
+                sizes="(max-width: 768px) 100vw, 1152px"
+                className="h-52 w-full object-cover md:h-80"
+              />
             </div>
           </div>
         </div>

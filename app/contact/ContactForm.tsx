@@ -42,6 +42,8 @@ export function ContactForm() {
   }
 
   const fe = state.fieldErrors ?? {};
+  // Valeurs renvoyées par le serveur : une erreur ne doit pas effacer la saisie.
+  const v = state.values;
 
   return (
     <form action={formAction} className="space-y-4" noValidate>
@@ -61,6 +63,7 @@ export function ContactForm() {
             name="name"
             type="text"
             required
+            defaultValue={v?.name}
             autoComplete="name"
             className={inputClass}
             aria-invalid={fe.name ? true : undefined}
@@ -70,20 +73,20 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="company" className={labelClass}>Entreprise</label>
-          <input id="company" name="company" type="text" autoComplete="organization" className={inputClass} />
+          <input id="company" name="company" type="text" defaultValue={v?.company} autoComplete="organization" className={inputClass} />
         </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label htmlFor="email" className={labelClass}>
-            E-mail <span style={{ color: "var(--csx-primary)" }}>*</span>
+            E-mail
           </label>
           <input
             id="email"
             name="email"
             type="email"
-            required
+            defaultValue={v?.email}
             autoComplete="email"
             className={inputClass}
             aria-invalid={fe.email ? true : undefined}
@@ -93,13 +96,32 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="phone" className={labelClass}>Téléphone</label>
-          <input id="phone" name="phone" type="tel" autoComplete="tel" className={inputClass} />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            defaultValue={v?.phone}
+            autoComplete="tel"
+            className={inputClass}
+            aria-invalid={fe.phone ? true : undefined}
+          />
         </div>
       </div>
+      <p className="-mt-2 text-xs text-slate-500">
+        E-mail <em>ou</em> téléphone : l&apos;un des deux suffit pour que nous vous répondions.
+      </p>
 
       <div>
         <label htmlFor="subject" className={labelClass}>Votre besoin</label>
-        <select id="subject" name="subject" className={inputClass} defaultValue="">
+        {/* key : force le remontage pour que la valeur choisie soit bien restaurée
+            après une erreur (React n'applique defaultValue qu'au montage). */}
+        <select
+          id="subject"
+          name="subject"
+          key={`subject-${v?.subject ?? ""}`}
+          className={inputClass}
+          defaultValue={v?.subject ?? ""}
+        >
           <option value="">— Sélectionnez —</option>
           <option>Standard téléphonique IP / IPBX</option>
           <option>VoIP / téléphonie cloud</option>
@@ -112,18 +134,15 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="message" className={labelClass}>
-          Votre message <span style={{ color: "var(--csx-primary)" }}>*</span>
+          Votre message <span className="font-normal text-slate-400">(facultatif)</span>
         </label>
         <textarea
           id="message"
           name="message"
-          required
           rows={5}
+          defaultValue={v?.message}
           className={inputClass}
-          aria-invalid={fe.message ? true : undefined}
-          aria-describedby={fe.message ? "err-message" : undefined}
         />
-        {fe.message && <p id="err-message" role="alert" className="mt-1 text-xs text-red-600">{fe.message}</p>}
       </div>
 
       <div>
@@ -133,6 +152,7 @@ export function ContactForm() {
             name="consent"
             type="checkbox"
             required
+            defaultChecked={v?.consent}
             className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300"
             aria-invalid={fe.consent ? true : undefined}
             aria-describedby={fe.consent ? "err-consent" : undefined}

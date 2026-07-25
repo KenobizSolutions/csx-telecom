@@ -1,7 +1,5 @@
 "use server";
 
-import nodemailer from "nodemailer";
-
 export type ContactState = {
   ok: boolean;
   error?: string;
@@ -17,6 +15,14 @@ function clean(v: FormDataEntryValue | null, max: number): string {
 /** Nettoie le corps du message (multi-ligne autorisé). */
 function cleanMessage(v: FormDataEntryValue | null, max: number): string {
   return (typeof v === "string" ? v : "").replace(/\r\n/g, "\n").trim().slice(0, max);
+}
+/** Échappe le HTML avant insertion dans le corps de l'e-mail. */
+function esc(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 export async function sendContactMessage(
@@ -46,17 +52,25 @@ export async function sendContactMessage(
     return { ok: false, error: "Merci de corriger les champs indiqués.", fieldErrors };
   }
 
-  const host = process.env.SMTP_HOST;
-  const port = Number(process.env.SMTP_PORT || 465);
-  const user = process.env.SMTP_USER;
-  const pass = process.env.SMTP_PASS;
-  const to = process.env.CONTACT_TO || "contact@csx.fr";
-  const from = process.env.CONTACT_FROM || user;
+  const lead = { name, company, email, phone, subject, message, date: new Date().toISOString() };
 
-  if (!host || !user || !pass) {
-    console.error(
-      "[contact] SMTP non configuré : définir SMTP_HOST, SMTP_USER, SMTP_PASS."
-    );
+  /**
+   * Filet de sécurité : quoi qu'il arrive, la demande complète est écrite dans
+   * les journaux du serveur. Si l'envoi échoue, le prospect reste récupérable
+   * depuis les logs Vercel (recherche : CONTACT_LEAD).
+   */
+  const logLead = (raison: string) =>
+    console.error(`CONTACT_LEAD ${raison} ${JSON.stringify(lead)}`);
+
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_TO || "contact@csx.fr";
+  // Doit appartenir à un domaine vérifié dans Resend. Une fois csx-telecom.fr
+  // vérifié, basculer CONTACT_FROM sur "CSX Telecom <site@csx-telecom.fr>".
+  const from = process.env.CONTACT_FROM || "CSX Telecom <contact@kenobiz-sites.fr>";
+
+  if (!apiKey) {
+    logLead("ENVOI_IMPOSSIBLE_CLE_MANQUANTE");
+    console.error("[contact] RESEND_API_KEY absente : impossible d'envoyer la demande.");
     return {
       ok: false,
       error:
@@ -64,39 +78,73 @@ export async function sendContactMessage(
     };
   }
 
-  const transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
-    auth: { user, pass },
-  });
+  const lignes = [
+    ["Nom", name],
+    ["Entreprise", company],
+    ["E-mail", email],
+    ["Téléphone", phone],
+    ["Besoin", subject],
+  ].filter(([, v]) => v) as [string, string][];
 
-  const body = [
-    `Nom : ${name}`,
-    company && `Entreprise : ${company}`,
-    `E-mail : ${email}`,
-    phone && `Téléphone : ${phone}`,
-    subject && `Sujet : ${subject}`,
+  const text = [
+    ...lignes.map(([k, v]) => `${k} : ${v}`),
     "",
     "Message :",
     message,
     "",
     "— Envoyé depuis le formulaire de contact de www.csx-telecom.fr",
-  ]
-    .filter(Boolean)
-    .join("\n");
+  ].join("\n");
+
+  const html = `
+    <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:620px;color:#1a1a2e">
+      <h2 style="color:#1515dc;margin:0 0 16px">Nouvelle demande depuis le site</h2>
+      <table style="border-collapse:collapse;width:100%;font-size:14px">
+        ${lignes
+          .map(
+            ([k, v]) =>
+              `<tr><td style="padding:6px 12px 6px 0;color:#64748b;white-space:nowrap">${esc(k)}</td><td style="padding:6px 0"><strong>${esc(v)}</strong></td></tr>`
+          )
+          .join("")}
+      </table>
+      <p style="margin:20px 0 6px;color:#64748b;font-size:14px">Message :</p>
+      <div style="background:#f0f4ff;border-radius:12px;padding:16px;white-space:pre-wrap;font-size:15px">${esc(message)}</div>
+      <p style="margin-top:24px;color:#94a3b8;font-size:12px">
+        Formulaire de contact — www.csx-telecom.fr · Répondez directement à cet e-mail pour joindre le prospect.
+      </p>
+    </div>`;
 
   try {
-    await transporter.sendMail({
-      from: `"Site CSX Telecom" <${from}>`,
-      to,
-      replyTo: { name, address: email },
-      subject: `[Site] Demande de ${name}${company ? ` — ${company}` : ""}`,
-      text: body,
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from,
+        to: [to],
+        reply_to: email,
+        subject: `[Site] Demande de ${name}${company ? ` — ${company}` : ""}`,
+        text,
+        html,
+      }),
     });
+
+    if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      logLead("ECHEC_ENVOI");
+      console.error(`[contact] Resend a répondu ${res.status} : ${detail.slice(0, 300)}`);
+      return {
+        ok: false,
+        error:
+          "L'envoi a échoué. Merci de nous appeler au 05 82 73 03 60 ou d'écrire à contact@csx.fr.",
+      };
+    }
+
     return { ok: true };
   } catch (err) {
-    console.error("[contact] Échec de l'envoi de l'e-mail :", err);
+    logLead("EXCEPTION_RESEAU");
+    console.error("[contact] Échec de l'appel à Resend :", err);
     return {
       ok: false,
       error:

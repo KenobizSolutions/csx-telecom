@@ -97,6 +97,7 @@ export const articles: Article[] = [
   },
   {
     slug: "agents-ia-vocaux-comment-ca-marche",
+    metaTitle: "Agents IA vocaux : comment ça marche ?",
     title: "Agents IA vocaux : comment ça marche vraiment ?",
     description:
       "Synthèse vocale, modèles de langage, intégration téléphonique : démystification complète de la technologie derrière les agents vocaux IA pour entreprises.",

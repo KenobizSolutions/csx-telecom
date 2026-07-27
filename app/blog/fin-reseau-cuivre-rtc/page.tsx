@@ -5,7 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 export const metadata: Metadata = {
   title: "Fin du réseau cuivre RTC : que faire ?",
   description:
-    "Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire. Délais, impacts sur votre entreprise, solutions de migration IP : tout ce qu'il faut anticiper.",
+    "Orange ferme le réseau cuivre RTC lot par lot. Calendrier, impacts pour votre entreprise et solutions de migration vers l'IP : ce qu'il faut anticiper.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc" },
 };
 
@@ -24,6 +24,10 @@ const jsonLd = {
     url: "https://www.csx-telecom.fr",
   },
   url: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc",
+  },
 } as const;
 
 const sections = [

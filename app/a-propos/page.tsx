@@ -4,7 +4,7 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "À propos — 17 ans d'expertise télécom pour les PME",
+  title: "À propos — 17 ans d'expertise télécom PME",
   description:
     "CSX Telecom, opérateur ARCEP indépendant depuis 17 ans. +200 clients PME. Équipes à Cahors, Montauban, Gourdon et Bayonne. Proximité, multi-opérateur, IA.",
   alternates: { canonical: "https://www.csx-telecom.fr/a-propos" },

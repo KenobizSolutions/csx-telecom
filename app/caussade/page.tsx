@@ -1,31 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom entreprise à Caussade (82)",
   description:
-    "Opérateur télécom à Caussade et dans le Quercy Blanc (Tarn-et-Garonne 82). Standard IP, internet professionnel, agents IA. Intervention locale depuis Montauban et Cahors.",
+    "Opérateur télécom à Caussade et dans le Quercy Blanc (82). Standard IP, internet professionnel, agents IA. Intervention depuis Montauban et Cahors.",
   alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
 };
 
-// Pas d'agence à Caussade : on déclare un Service couvrant la zone,
-// fourni par l'entité canonique (siège Cahors) — pas un établissement local.
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Opérateur télécom pour entreprises à Caussade",
-  serviceType: "Téléphonie IP, internet professionnel et agents IA",
-  provider: { "@id": "https://www.csx-telecom.fr/#organization" },
-  description:
-    "CSX Telecom, opérateur déclaré ARCEP, intervient à Caussade et dans le Quercy Blanc : standard IP, internet professionnel et agents IA pour les entreprises du Tarn-et-Garonne.",
-  url: "https://www.csx-telecom.fr/caussade",
-  areaServed: [
-    { "@type": "City", name: "Caussade" },
-    { "@type": "AdministrativeArea", name: "Tarn-et-Garonne" },
-  ],
-} as const;
 
 const stats = [
   { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
@@ -113,7 +98,11 @@ export default function CaussadePage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Caussade", url: "https://www.csx-telecom.fr/caussade" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="caussade"
+        zone={{ ville: "Caussade", departement: "Tarn-et-Garonne", autresVilles: ["Montauban"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP, intervient à Caussade et dans le Quercy Blanc : standard téléphonique IP, internet professionnel et agents IA."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="relative">

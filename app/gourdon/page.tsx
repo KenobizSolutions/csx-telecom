@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -10,23 +11,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Gourdon",
-  description:
-    "Opérateur télécom indépendant déclaré ARCEP. Standard IP, internet fibre, 5G et Starlink pour les entreprises de Gourdon et du sud du Lot. Spécialiste des zones rurales.",
-  url: "https://www.csx-telecom.fr/gourdon",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Gourdon",
-    postalCode: "46300",
-    addressCountry: "FR",
-  },
-  areaServed: { "@type": "City", name: "Gourdon" },
-} as const;
 
 const stats = [
   { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
@@ -121,7 +105,11 @@ export default function GourdonPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Gourdon", url: "https://www.csx-telecom.fr/gourdon" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="gourdon"
+        zone={{ ville: "Gourdon", departement: "Lot", autresVilles: ["Souillac", "Salviac", "Payrac"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP, intervient à Gourdon et dans le sud du Lot : standard téléphonique IP, internet fibre, 5G, Starlink et agents IA."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="relative">

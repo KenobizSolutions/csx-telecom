@@ -38,7 +38,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
     priority: number
   ): MetadataRoute.Sitemap[number] => ({
-    url: `${BASE}${path === "/" ? "/" : path}`,
+    // Racine sans slash final : c'est la forme que Next.js émet dans la
+    // balise canonique (il normalise "/" en URL vide). Les deux formes
+    // désignent la même URL, mais on les aligne pour éviter toute ambiguïté
+    // entre le sitemap et la canonique.
+    url: `${BASE}${path === "/" ? "" : path}`,
     lastModified: new Date(LASTMOD[path]),
     changeFrequency,
     priority,

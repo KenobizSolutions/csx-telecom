@@ -2,6 +2,14 @@ export type Article = {
   slug: string;
   title: string;
   description: string;
+  /**
+   * Titre et description destinés UNIQUEMENT aux métadonnées (balise <title>
+   * et meta description), quand le titre éditorial dépasse les limites
+   * d'affichage des moteurs (60 et 160 caractères, suffixe compris).
+   * Le titre affiché (H1) et le JSON-LD continuent d'utiliser `title`.
+   */
+  metaTitle?: string;
+  metaDescription?: string;
   date: string; // ISO 8601
   category: string;
   readingTime: string;
@@ -18,6 +26,8 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "fin-reseau-cuivre-rtc",
+    metaDescription:
+      "Orange ferme le réseau cuivre RTC lot par lot. Calendrier, impacts pour votre entreprise et solutions de migration vers l'IP : ce qu'il faut anticiper.",
     title: "La fin du réseau cuivre RTC : ce que les entreprises doivent savoir",
     description:
       "Orange arrête progressivement le réseau téléphonique traditionnel (RTC) sur l'ensemble du territoire. Délais, impacts, solutions : tout ce qu'il faut anticiper.",
@@ -51,6 +61,9 @@ export const articles: Article[] = [
   },
   {
     slug: "cybersecurite-telecom-pme",
+    metaTitle: "Cybersécurité télécom des PME : les risques",
+    metaDescription:
+      "La téléphonie IP expose les entreprises à de nouveaux risques : fraude à l'international, écoutes, attaques SIP. Menaces et protections disponibles.",
     title: "Cybersécurité télécom : les PME sont-elles assez protégées ?",
     description:
       "La téléphonie IP expose les entreprises à de nouveaux risques : fraude à l'international, écoutes, attaques SIP. Panorama des menaces et des protections disponibles.",
@@ -117,6 +130,8 @@ export const articles: Article[] = [
   },
   {
     slug: "standard-ip-vs-standard-classique",
+    metaDescription:
+      "Standard téléphonique IP ou analogique classique : fonctionnalités, coûts, contraintes techniques et avantages concrets pour votre entreprise.",
     title: "Standard IP vs standard classique : pourquoi migrer en 2026 ?",
     description:
       "Comparatif complet entre standard téléphonique IP et standard analogique classique. Fonctionnalités, coûts, contraintes techniques et avantages concrets pour les PME.",
@@ -134,6 +149,8 @@ export const articles: Article[] = [
   },
   {
     slug: "internet-professionnel-vs-box-particulier",
+    metaDescription:
+      "Pourquoi une box grand public ne suffit pas en entreprise : GTR, QoS, redondance, support. Comparatif avec un accès internet professionnel.",
     title: "Internet professionnel vs box grand public : les vraies différences",
     description:
       "Pourquoi une box grand public ne suffit pas pour une entreprise ? GTR, débit garanti, QoS, redondance, support dédié : les vraies différences expliquées clairement.",
@@ -151,6 +168,7 @@ export const articles: Article[] = [
   },
   {
     slug: "ipbx-vs-centrex-quelle-solution",
+    metaTitle: "IPBX ou Centrex : quelle solution choisir ?",
     title: "IPBX vs Centrex : quelle solution pour quelle entreprise ?",
     description:
       "IPBX sur site ou Centrex hébergé dans le cloud ? Comparatif des deux architectures de téléphonie IP pour choisir la solution adaptée à votre PME.",
@@ -192,6 +210,9 @@ export const articles: Article[] = [
   },
   {
     slug: "trunk-sip-explication",
+    metaTitle: "Trunk SIP : c'est quoi et pourquoi migrer ?",
+    metaDescription:
+      "Le trunk SIP remplace les lignes téléphoniques classiques par une connexion IP. Fonctionnement, avantages et conditions d'une migration réussie.",
     title: "Trunk SIP : qu'est-ce que c'est et pourquoi migrer ?",
     description:
       "Le trunk SIP remplace les lignes téléphoniques traditionnelles par une connexion IP. Fonctionnement, avantages et conditions d'une migration réussie pour les entreprises.",
@@ -233,6 +254,7 @@ export const articles: Article[] = [
   },
   {
     slug: "standard-telephonique-ia-vs-humain",
+    metaTitle: "Standard IA ou accueil humain : le comparatif",
     title: "Standard téléphonique IA vs accueil humain : le comparatif",
     description:
       "Standard téléphonique IA ou accueil humain ? Comparatif honnête des forces et limites de chaque approche pour gérer les appels entrants de votre entreprise.",
@@ -278,6 +300,7 @@ export const articles: Article[] = [
   },
   {
     slug: "migration-rtc-checklist",
+    metaTitle: "Fin du RTC : la checklist de migration IP",
     title: "Fin du RTC : la checklist de migration vers l'IP",
     description:
       "La fin du réseau cuivre RTC approche. Découvrez la checklist complète pour migrer votre téléphonie vers l'IP sans coupure et sans oublier aucune ligne.",

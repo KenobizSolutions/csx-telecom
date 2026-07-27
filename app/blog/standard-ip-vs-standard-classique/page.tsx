@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Standard IP vs standard classique : quel choix pour votre entreprise ?",
+  title: "Standard IP ou classique : que choisir ?",
   description:
-    "Comparatif complet entre standard téléphonique IP et standard analogique classique. Fonctionnalités, coûts, contraintes techniques et avantages concrets pour les entreprises.",
+    "Standard téléphonique IP ou analogique classique : fonctionnalités, coûts, contraintes techniques et avantages concrets pour votre entreprise.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique" },
 };
 
@@ -24,6 +24,10 @@ const jsonLd = {
     url: "https://www.csx-telecom.fr",
   },
   url: "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique",
+  },
 } as const;
 
 const comparison = [

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -10,33 +11,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.csx-telecom.fr/toulouse" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Service",
-  name: "Opérateur télécom pour entreprises à Toulouse",
-  serviceType: "Téléphonie IP, internet professionnel et agents IA",
-  provider: {
-    "@type": "Organization",
-    name: "CSX Telecom",
-    url: "https://www.csx-telecom.fr",
-    telephone: "+33582730360",
-    email: "contact@csx.fr",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "1 Place Emilien Imbert",
-      addressLocality: "Cahors",
-      postalCode: "46000",
-      addressCountry: "FR",
-    },
-  },
-  description:
-    "CSX Telecom, opérateur déclaré ARCEP, intervient à Toulouse et en Haute-Garonne : standard IP, IPBX, internet professionnel multi-opérateur et agents IA pour les entreprises de la métropole toulousaine.",
-  url: "https://www.csx-telecom.fr/toulouse",
-  areaServed: [
-    { "@type": "City", name: "Toulouse" },
-    { "@type": "AdministrativeArea", name: "Haute-Garonne" },
-  ],
-} as const;
 
 const stats = [
   { value: "+200", label: "clients actifs en région Occitanie" },
@@ -135,7 +109,11 @@ export default function ToulousePage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Toulouse", url: "https://www.csx-telecom.fr/toulouse" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="toulouse"
+        zone={{ ville: "Toulouse", departement: "Haute-Garonne", autresVilles: ["Colomiers", "Blagnac", "Labège"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP, intervient à Toulouse et en Haute-Garonne : standard téléphonique IP, IPBX, internet professionnel multi-opérateur et agents IA."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="relative">

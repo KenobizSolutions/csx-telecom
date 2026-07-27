@@ -4,8 +4,12 @@ import Image from "next/image";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
+  // Titre en absolu : le gabarit « %s | CSX Telecom » du layout ne s'applique
+  // pas à la page racine (même segment), la marque est donc écrite ici.
+  // Le mot-clé passe devant : sur les requêtes non-marque — le levier de
+  // croissance — c'est « opérateur télécom » qui doit être lu en premier.
   title: {
-    absolute: "CSX Telecom — Opérateur télécom indépendant pour les entreprises",
+    absolute: "Opérateur télécom indépendant pour entreprises | CSX Telecom",
   },
   description:
     "CSX Telecom, opérateur ARCEP indépendant. Standard IP, IPBX, internet professionnel, agents IA. Un seul interlocuteur. Plus de 200 clients. Audit gratuit.",

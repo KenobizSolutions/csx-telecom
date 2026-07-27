@@ -5,7 +5,10 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IPBX : devis gratuit sous 48h",
+  // Formulation resserrée à 60 caractères suffixe compris : elle conserve à la
+  // fois la requête exacte « standard téléphonique IPBX », l'argument « gratuit »
+  // et la marque, là où un simple raccourcissement aurait sacrifié l'un des trois.
+  title: "Standard téléphonique IPBX — devis gratuit 48h",
   description:
     "Installation de standard téléphonique IP / IPBX par un opérateur ARCEP local : migration RTC sans coupure, de 2 à +100 postes. Audit gratuit, devis sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },

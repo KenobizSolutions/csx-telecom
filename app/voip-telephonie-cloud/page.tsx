@@ -7,7 +7,7 @@ import { Icon } from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Téléphonie cloud & VoIP pour entreprise",
   description:
-    "Téléphonie cloud et VoIP pour entreprise : voix sur IP, mobilité, télétravail, évolutivité. Solution VoIP entreprise sans matériel à gérer. Opérateur ARCEP indépendant.",
+    "Téléphonie cloud et VoIP pour entreprise : voix sur IP, mobilité, télétravail, évolutivité. Sans matériel à gérer, par un opérateur ARCEP indépendant.",
   alternates: { canonical: "https://www.csx-telecom.fr/voip-telephonie-cloud" },
 };
 

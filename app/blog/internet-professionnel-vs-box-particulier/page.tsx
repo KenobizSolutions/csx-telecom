@@ -3,9 +3,9 @@ import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
 export const metadata: Metadata = {
-  title: "Internet professionnel vs box particulier : les différences clés",
+  title: "Internet pro vs box grand public",
   description:
-    "Pourquoi une box grand public ne suffit pas pour une entreprise ? Comparatif complet entre internet professionnel et offre grand public : GTR, QoS, redondance, support.",
+    "Pourquoi une box grand public ne suffit pas en entreprise : GTR, QoS, redondance, support. Comparatif avec un accès internet professionnel.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier" },
 };
 
@@ -24,6 +24,10 @@ const jsonLd = {
     url: "https://www.csx-telecom.fr",
   },
   url: "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier",
+  },
 } as const;
 
 const comparison = [

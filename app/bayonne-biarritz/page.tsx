@@ -1,36 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom Bayonne · Biarritz (64)",
   description:
-    "Opérateur télécom au Pays Basque (64). Standard IP, IPBX, internet multi-opérateur, agents IA. Antenne locale à Bayonne. Audit gratuit pour les entreprises de Bayonne, Biarritz, Anglet.",
+    "Opérateur télécom au Pays Basque (64). Standard IP, IPBX, internet multi-opérateur, agents IA. Antenne à Bayonne, audit gratuit pour Biarritz et Anglet.",
   alternates: { canonical: "https://www.csx-telecom.fr/bayonne-biarritz" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Bayonne & Biarritz",
-  description:
-    "Opérateur télécom indépendant déclaré ARCEP au Pays Basque. Standard IP, internet professionnel multi-opérateur et agents IA pour les entreprises de Bayonne, Biarritz et Anglet.",
-  url: "https://www.csx-telecom.fr/bayonne-biarritz",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Bayonne",
-    postalCode: "64100",
-    addressCountry: "FR",
-  },
-  areaServed: [
-    { "@type": "City", name: "Bayonne" },
-    { "@type": "City", name: "Biarritz" },
-    { "@type": "City", name: "Anglet" },
-  ],
-} as const;
 
 const stats = [
   { value: "+17 ans", label: "d'expérience télécom d'entreprise" },
@@ -129,7 +109,11 @@ export default function BayonneBiarritzPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Bayonne · Biarritz", url: "https://www.csx-telecom.fr/bayonne-biarritz" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="bayonne-biarritz"
+        zone={{ ville: "Bayonne", departement: "Pyrénées-Atlantiques", autresVilles: ["Biarritz", "Anglet", "Saint-Jean-de-Luz"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP, intervient à Bayonne, Biarritz et sur le Pays Basque : standard téléphonique IP, internet professionnel et agents IA."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="relative">

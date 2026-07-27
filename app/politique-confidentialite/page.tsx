@@ -5,7 +5,7 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 export const metadata: Metadata = {
   title: "Politique de confidentialité",
   description:
-    "Politique de confidentialité de CSX Telecom : données collectées (formulaire, assistant vocal IA, mesure d'audience), finalités, durées de conservation et vos droits RGPD.",
+    "Politique de confidentialité de CSX Telecom : données collectées, finalités, durées de conservation et vos droits RGPD.",
   alternates: { canonical: "https://www.csx-telecom.fr/politique-confidentialite" },
 };
 

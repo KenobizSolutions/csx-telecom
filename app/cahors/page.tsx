@@ -1,35 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
   title: "Opérateur télécom à Cahors et dans le Lot (46)",
   description:
-    "CSX Telecom, siège social à Cahors. Opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA. Expertise locale depuis 17 ans.",
+    "CSX Telecom, siège social à Cahors, opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA depuis 17 ans.",
   alternates: { canonical: "https://www.csx-telecom.fr/cahors" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Cahors (siège social)",
-  description:
-    "Siège social de CSX Telecom à Cahors. Opérateur télécom indépendant déclaré ARCEP. Standard IP, IPBX, internet professionnel et agents IA pour les entreprises du Lot.",
-  url: "https://www.csx-telecom.fr/cahors",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Cahors",
-    postalCode: "46000",
-    addressCountry: "FR",
-  },
-  areaServed: [
-    { "@type": "City", name: "Cahors" },
-    { "@type": "AdministrativeArea", name: "Lot" },
-  ],
-} as const;
 
 const stats = [
   { value: "+17 ans", label: "d'expertise télécom depuis Cahors" },
@@ -128,7 +109,11 @@ export default function CahorsPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Cahors", url: "https://www.csx-telecom.fr/cahors" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="cahors"
+        zone={{ ville: "Cahors", departement: "Lot", autresVilles: ["Figeac", "Souillac", "Gourdon"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP dont le siège est à Cahors : standard téléphonique IP, IPBX, internet professionnel et agents IA pour les entreprises du Lot."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

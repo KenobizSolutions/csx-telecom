@@ -31,13 +31,17 @@ export async function generateMetadata(props: {
   const { slug } = await props.params;
   const article = getArticleBySlug(slug);
   if (!article) return {};
+  // metaTitle / metaDescription : versions raccourcies pour les moteurs.
+  const metaTitle = article.metaTitle ?? article.title;
+  const metaDescription = article.metaDescription ?? article.description;
+
   return {
-    title: article.title,
-    description: article.description,
+    title: metaTitle,
+    description: metaDescription,
     alternates: { canonical: `https://www.csx-telecom.fr/blog/${article.slug}` },
     openGraph: {
-      title: article.title,
-      description: article.description,
+      title: metaTitle,
+      description: metaDescription,
       url: `https://www.csx-telecom.fr/blog/${article.slug}`,
       type: "article",
       publishedTime: article.date,

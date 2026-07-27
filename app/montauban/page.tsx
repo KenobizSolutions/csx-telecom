@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
+import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
@@ -10,23 +11,6 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "CSX Telecom — Montauban",
-  description:
-    "Opérateur télécom indépendant déclaré ARCEP à Montauban. Standard IP, IPBX, internet professionnel et agents IA pour les TPE et PME du Tarn-et-Garonne.",
-  url: "https://www.csx-telecom.fr/montauban",
-  telephone: "+33582730360",
-  email: "contact@csx.fr",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Montauban",
-    postalCode: "82000",
-    addressCountry: "FR",
-  },
-  areaServed: { "@type": "City", name: "Montauban" },
-} as const;
 
 const stats = [
   { value: "+200", label: "clients actifs en région Occitanie" },
@@ -125,7 +109,11 @@ export default function MontaubanPage() {
   return (
     <>
       <BreadcrumbJsonLd items={[{ name: "Accueil", url: "https://www.csx-telecom.fr/" }, { name: "Montauban", url: "https://www.csx-telecom.fr/montauban" }]} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <VilleJsonLd
+        slug="montauban"
+        zone={{ ville: "Montauban", departement: "Tarn-et-Garonne", autresVilles: ["Moissac", "Castelsarrasin", "Caussade"] }}
+        description="CSX Telecom, opérateur déclaré ARCEP, intervient à Montauban et dans le Tarn-et-Garonne : standard téléphonique IP, IPBX, internet professionnel et agents IA."
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <section className="relative">

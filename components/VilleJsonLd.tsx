@@ -1,32 +1,83 @@
 /**
  * Données structurées communes aux pages villes.
  *
- * Chaque page ville porte le MÊME @graph : un LocalBusiness (l'entreprise,
- * avec le NAP de référence) et un Service (la prestation couvrant la ville).
- * Seul `areaServed` distingue les pages.
+ * Chaque page ville porte le MÊME @graph : un LocalBusiness (l'établissement
+ * qui dessert la ville) et un Service (la prestation couvrant la zone).
  *
- * NAP de référence — doit rester identique au pied de page, à la fiche Google
- * Business Profile et aux annuaires. Toute divergence affaiblit le SEO local.
+ * NAP de référence — doit rester identique au pied de page, aux fiches
+ * d'établissement Google et aux annuaires. Toute divergence affaiblit le SEO
+ * local.
  */
 
-const SITE = "https://www.csx-telecom.fr";
+import { EMAIL, HORAIRES, SITE, TELEPHONE } from "@/lib/entreprise";
+
+type Etablissement = {
+  /** Raison sociale telle qu'elle figure sur la fiche Google correspondante. */
+  name: string;
+  /** URL représentant l'établissement. */
+  url: string;
+  address: {
+    "@type": "PostalAddress";
+    streetAddress: string;
+    postalCode: string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+};
+
+/** Siège social. Sert de repli pour les pages qui couvrent une zone sans y
+ *  disposer d'une adresse propre. */
+const SIEGE: Etablissement = {
+  name: "CSX Telecom",
+  url: SITE,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1 place Émilien Imbert",
+    postalCode: "46000",
+    addressLocality: "Cahors",
+    addressRegion: "Occitanie",
+    addressCountry: "FR",
+  },
+};
 
 /**
- * TODO — adresses des agences : lorsque les adresses postales exactes des
- * agences (Montauban, Gourdon, Bayonne) seront connues, remplacer `address`
- * par l'adresse de l'agence concernée sur la page correspondante, et
- * envisager un nœud LocalBusiness distinct par établissement (chacun avec son
- * propre @id). En attendant, les six pages déclarent l'adresse du siège et se
- * différencient uniquement par `areaServed` : déclarer une adresse locale
- * inventée serait une fausse information et un risque de pénalité.
+ * Établissements disposant d'une adresse postale propre, confirmée par leur
+ * fiche d'établissement Google.
+ *
+ * Les pages absentes de cette table (Cahors, Toulouse, Caussade,
+ * Bayonne–Biarritz) déclarent le siège : elles couvrent une zone sans y avoir
+ * d'adresse à elles et se distinguent uniquement par `areaServed`. Y déclarer
+ * une adresse locale inventée serait une fausse information doublée d'un
+ * risque de pénalité — n'ajouter une entrée ici qu'une fois l'adresse
+ * confirmée par la fiche Google de l'établissement.
  */
-const SIEGE = {
-  "@type": "PostalAddress",
-  streetAddress: "1 place Émilien Imbert",
-  postalCode: "46000",
-  addressLocality: "Cahors",
-  addressCountry: "FR",
-} as const;
+const ETABLISSEMENTS: Record<string, Etablissement> = {
+  montauban: {
+    name: "CSX Telecom Montauban",
+    url: `${SITE}/montauban`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1270 Avenue de Toulouse",
+      postalCode: "82000",
+      addressLocality: "Montauban",
+      addressRegion: "Occitanie",
+      addressCountry: "FR",
+    },
+  },
+  gourdon: {
+    name: "CSX Telecom Gourdon",
+    url: `${SITE}/gourdon`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "35 bis Boulevard Mainiol",
+      postalCode: "46300",
+      addressLocality: "Gourdon",
+      addressRegion: "Occitanie",
+      addressCountry: "FR",
+    },
+  },
+};
 
 export type Zone = {
   /** Ville mise en avant par la page. */
@@ -49,6 +100,7 @@ export function VilleJsonLd({
   description: string;
 }) {
   const url = `${SITE}/${slug}`;
+  const etablissement = ETABLISSEMENTS[slug] ?? SIEGE;
 
   const areaServed = [
     { "@type": "City", name: zone.ville },
@@ -62,11 +114,12 @@ export function VilleJsonLd({
       {
         "@type": "LocalBusiness",
         "@id": `${url}#business`,
-        name: "CSX Telecom",
-        url: SITE,
-        telephone: "+33582730360",
-        email: "contact@csx.fr",
-        address: SIEGE,
+        name: etablissement.name,
+        url: etablissement.url,
+        telephone: TELEPHONE,
+        email: EMAIL,
+        address: etablissement.address,
+        openingHoursSpecification: HORAIRES,
         areaServed,
         // TODO — aggregateRating : à ajouter lorsque la fiche Google comptera
         // assez d'avis. Avec 2 avis seulement, l'afficher serait

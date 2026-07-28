@@ -8,6 +8,7 @@ import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SteeveWidgetLazy } from "@/components/SteeveWidgetLazy";
+import { HORAIRES, PROFILS } from "@/lib/entreprise";
 
 // Aspekta — police principale (reprise du template fintech-next)
 const aspekta = localFont({
@@ -68,35 +69,17 @@ const organizationJsonLd = {
     streetAddress: "1 Place Emilien Imbert",
     addressLocality: "Cahors",
     postalCode: "46000",
+    addressRegion: "Occitanie",
     addressCountry: "FR",
   },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:30",
-      closes: "12:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
-      opens: "13:30",
-      closes: "17:30",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Friday"],
-      opens: "13:30",
-      closes: "17:00",
-    },
-  ],
+  openingHoursSpecification: HORAIRES,
   areaServed: [
     "Lot (46)",
     "Tarn-et-Garonne (82)",
     "Haute-Garonne (31)",
     "Pyrénées-Atlantiques (64)",
   ],
-  sameAs: ["https://share.google/USNDlzYinzAvses3B"],
+  sameAs: PROFILS,
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+33582730360",

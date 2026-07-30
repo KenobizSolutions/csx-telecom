@@ -33,7 +33,12 @@ const SIEGE: Etablissement = {
   url: SITE,
   address: {
     "@type": "PostalAddress",
-    streetAddress: "1 place Émilien Imbert",
+    // Graphie de référence, identique à la fiche d'établissement Google, au
+    // pied de page et aux mentions légales : sans accent sur « Emilien ».
+    // Google abrège « Place » en « Pl. » à l'affichage, c'est sa convention de
+    // rendu et non une autre adresse — la forme développée est conservée pour
+    // rester identique au contenu visible du site.
+    streetAddress: "1 Place Emilien Imbert",
     postalCode: "46000",
     addressLocality: "Cahors",
     addressRegion: "Occitanie",

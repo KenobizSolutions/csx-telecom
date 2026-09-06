@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   // Formulation resserrée à 60 caractères suffixe compris : elle conserve à la
   // fois la requête exacte « standard téléphonique IPBX », l'argument « gratuit »
   // et la marque, là où un simple raccourcissement aurait sacrifié l'un des trois.
-  title: "Standard téléphonique IPBX — devis gratuit 48h",
+  title: "Standard téléphonique IPBX cloud pour PME",
   description:
-    "Installation de standard téléphonique IP / IPBX par un opérateur ARCEP local : migration RTC sans coupure, de 2 à +100 postes. Audit gratuit, devis sous 48 h.",
+    "Standard téléphonique IPBX cloud ou sur site pour PME : migration sans coupure, vos numéros conservés, support à Cahors et Montauban. Devis gratuit sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },
 };
 
@@ -419,6 +419,81 @@ export default function StandardIPBXPage() {
                   </Link>
                   .
                 </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OÙ NOUS INSTALLONS — maillage vers les pages villes.
+          Ancres descriptives : chaque lien nomme la prestation et la ville,
+          plutôt qu'un « en savoir plus » qui n'apprend rien à Google. */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="section-pad">
+            <div className="mx-auto max-w-4xl">
+              <div className="mb-8 text-center">
+                <h2 className="h2 mb-3">Où nous installons votre standard IPBX</h2>
+                <p className="text-lg text-slate-600">
+                  Installation et maintenance sur site à Cahors, Montauban et Gourdon, où nous
+                  avons nos équipes, et dans toute l&apos;Occitanie et le Pays Basque.
+                </p>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <Link
+                  href="/cahors"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Cahors
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">siège social, Lot (46)</span>
+                </Link>
+                <Link
+                  href="/montauban"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Montauban
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">agence, Tarn-et-Garonne (82)</span>
+                </Link>
+                <Link
+                  href="/gourdon"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Gourdon
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">agence, nord du Lot (46)</span>
+                </Link>
+                <Link
+                  href="/toulouse"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Toulouse
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">intervention depuis Montauban (31)</span>
+                </Link>
+                <Link
+                  href="/caussade"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Caussade
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">intervention depuis Montauban (82)</span>
+                </Link>
+                <Link
+                  href="/bayonne-biarritz"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-[var(--csx-primary)] hover:shadow-lg"
+                >
+                  <span className="block font-bold tracking-tight transition-colors group-hover:text-[var(--csx-primary)]">
+                    Standard téléphonique IPBX à Bayonne · Biarritz
+                  </span>
+                  <span className="mt-1 block text-sm text-slate-500">Pays Basque (64)</span>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { track } from "@vercel/analytics";
 import { Icon } from "@/components/Icon";
 import { sendContactMessage, type ContactState } from "./actions";
@@ -14,9 +14,14 @@ const labelClass = "mb-1.5 block text-sm font-[550] text-slate-700";
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactMessage, initial);
 
+  // Événement de conversion (Vercel Analytics), déclenché une seule fois.
+  // L'appel se faisait auparavant dans le corps du rendu : il repartait à
+  // chaque re-rendu tant que state.ok restait vrai, et gonflait le compteur.
+  useEffect(() => {
+    if (state.ok) track("contact_form_submit");
+  }, [state.ok]);
+
   if (state.ok) {
-    // Événement de conversion (Vercel Analytics)
-    track("contact_form_submit");
     return (
       <div
         role="status"

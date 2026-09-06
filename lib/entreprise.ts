@@ -59,3 +59,77 @@ export const PROFILS = [
   "https://www.facebook.com/CSXTelecom",
   "https://share.google/USNDlzYinzAvses3B",
 ] as const;
+
+/**
+ * Établissements réels, confirmés chacun par sa fiche d'établissement Google.
+ *
+ * Source unique : le nœud Organization du layout les expose en `location`, et
+ * les pages villes y prennent l'adresse de leur LocalBusiness. Une page ville
+ * absente de cette table déclare le siège — elle couvre une zone sans y avoir
+ * d'adresse propre, et en inventer une serait une fausse information.
+ */
+export type Etablissement = {
+  /** Raison sociale telle qu'elle figure sur la fiche Google correspondante. */
+  name: string;
+  /** URL représentant l'établissement. */
+  url: string;
+  address: {
+    "@type": "PostalAddress";
+    streetAddress: string;
+    postalCode: string;
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+};
+
+export const SIEGE: Etablissement = {
+  name: "CSX Telecom",
+  url: SITE,
+  address: {
+    "@type": "PostalAddress",
+    // Graphie de référence, identique à la fiche Google, au pied de page et aux
+    // mentions légales : sans accent sur « Emilien ». Google abrège « Place »
+    // en « Pl. » à l'affichage, c'est sa convention de rendu, pas une autre
+    // adresse — la forme développée reste alignée sur le contenu visible.
+    streetAddress: "1 Place Emilien Imbert",
+    postalCode: "46000",
+    addressLocality: "Cahors",
+    addressRegion: "Occitanie",
+    addressCountry: "FR",
+  },
+};
+
+export const ETABLISSEMENTS: Record<string, Etablissement> = {
+  montauban: {
+    name: "CSX Telecom Montauban",
+    url: `${SITE}/montauban`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "1270 Avenue de Toulouse",
+      postalCode: "82000",
+      addressLocality: "Montauban",
+      addressRegion: "Occitanie",
+      addressCountry: "FR",
+    },
+  },
+  gourdon: {
+    name: "CSX Telecom Gourdon",
+    url: `${SITE}/gourdon`,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "35 bis Boulevard Mainiol",
+      postalCode: "46300",
+      addressLocality: "Gourdon",
+      addressRegion: "Occitanie",
+      addressCountry: "FR",
+    },
+  },
+};
+
+/** Les trois établissements, pour le `location` du nœud Organization. */
+export const ETABLISSEMENTS_TOUS: Etablissement[] = [
+  SIEGE,
+  ETABLISSEMENTS.montauban,
+  ETABLISSEMENTS.gourdon,
+];

@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Installateur téléphonie IP à Montauban (82)",
+  title: "Téléphonie d'entreprise à Montauban (82)",
   description:
-    "Standard IP, IPBX et internet pro à Montauban : techniciens locaux dans le 82, migration RTC sans coupure. Devis gratuit sous 48 h, audit sans engagement.",
+    "Téléphonie d'entreprise à Montauban : standard IPBX, fibre pro, agents IA. Agence 1270 Avenue de Toulouse, techniciens sur place. Devis 48 h au 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
 };
 

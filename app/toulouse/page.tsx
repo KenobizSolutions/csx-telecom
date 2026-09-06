@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Installateur téléphonie IP à Toulouse (31)",
+  title: "Téléphonie d'entreprise à Toulouse (31)",
   description:
-    "Installateur standard téléphonique IP & internet pro à Toulouse. Opérateur ARCEP, intervention sur site dans toute la métropole. Devis gratuit sous 48 h.",
+    "Téléphonie d'entreprise à Toulouse : standard IPBX, fibre pro, agents IA. Opérateur ARCEP, intervention sur site depuis notre agence de Montauban. Devis 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/toulouse" },
 };
 

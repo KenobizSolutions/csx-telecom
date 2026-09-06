@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom Bayonne · Biarritz (64)",
+  title: "Téléphonie d'entreprise à Bayonne et Biarritz",
   description:
-    "Opérateur télécom au Pays Basque (64). Standard IP, IPBX, internet multi-opérateur, agents IA. Antenne à Bayonne, audit gratuit pour Biarritz et Anglet.",
+    "Téléphonie d'entreprise à Bayonne, Biarritz et Anglet : standard IPBX, fibre pro multi-opérateur, agents IA. Opérateur ARCEP. Audit gratuit, devis sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/bayonne-biarritz" },
 };
 

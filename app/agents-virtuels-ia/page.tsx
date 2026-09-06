@@ -5,9 +5,9 @@ import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Standard téléphonique IA & agent vocal",
+  title: "Agent vocal IA pour PME — accueil téléphonique",
   description:
-    "Ne manquez plus un appel : standard téléphonique IA qui répond 24h/24 avec une voix naturelle, intégré à votre standard IP. Démo gratuite, réponse sous 24 h.",
+    "Agent vocal IA qui décroche vos appels 24h/24 : accueil téléphonique automatisé, prise de message, transfert. Intégré à votre standard IP. Démo gratuite.",
   alternates: { canonical: "https://www.csx-telecom.fr/agents-virtuels-ia" },
 };
 

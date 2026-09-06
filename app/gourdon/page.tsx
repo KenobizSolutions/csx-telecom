@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Installateur téléphonie IP à Gourdon (46)",
+  title: "Téléphonie d'entreprise à Gourdon (46)",
   description:
-    "Standard IP, fibre, 5G et Starlink pour les entreprises de Gourdon et du sud du Lot. Agence locale, intervention rapide. Devis gratuit sous 48 h.",
+    "Téléphonie d'entreprise à Gourdon et dans le sud du Lot : standard IPBX, fibre, 5G, Starlink. Agence 35 bis Boulevard Mainiol. Devis 48 h au 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
 };
 

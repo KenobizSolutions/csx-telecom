@@ -8,7 +8,7 @@ import { AnalyticsEvents } from "@/components/AnalyticsEvents";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { SteeveWidgetLazy } from "@/components/SteeveWidgetLazy";
-import { HORAIRES, PROFILS } from "@/lib/entreprise";
+import { ETABLISSEMENTS_TOUS, HORAIRES, PROFILS, SIEGE } from "@/lib/entreprise";
 
 // Aspekta — police principale (reprise du template fintech-next)
 const aspekta = localFont({
@@ -64,14 +64,19 @@ const organizationJsonLd = {
   telephone: "+33582730360",
   email: "contact@csx.fr",
   taxID: "800 317 570 00011",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "1 Place Emilien Imbert",
-    addressLocality: "Cahors",
-    postalCode: "46000",
-    addressRegion: "Occitanie",
-    addressCountry: "FR",
-  },
+  address: SIEGE.address,
+  // Les trois établissements réels (siège + agences de Montauban et Gourdon),
+  // chacun confirmé par sa fiche d'établissement Google. Déclarer les points
+  // de vente d'une entreprise multi-sites est ce que Google attend pour
+  // rattacher les fiches à l'entité du site.
+  location: ETABLISSEMENTS_TOUS.map((e) => ({
+    "@type": "Place",
+    name: e.name,
+    url: e.url,
+    address: e.address,
+    telephone: "+33582730360",
+    openingHoursSpecification: HORAIRES,
+  })),
   openingHoursSpecification: HORAIRES,
   areaServed: [
     "Lot (46)",

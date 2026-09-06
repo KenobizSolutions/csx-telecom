@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom entreprise à Caussade (82)",
+  title: "Téléphonie d'entreprise à Caussade (82)",
   description:
-    "Opérateur télécom à Caussade et dans le Quercy Blanc (82). Standard IP, internet professionnel, agents IA. Intervention depuis Montauban et Cahors.",
+    "Téléphonie d'entreprise à Caussade et dans le Quercy : standard IPBX, fibre pro, agents IA. Intervention depuis notre agence de Montauban. Devis sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
 };
 

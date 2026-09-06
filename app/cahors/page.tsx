@@ -5,9 +5,9 @@ import { VilleJsonLd } from "@/components/VilleJsonLd";
 import { Icon } from "@/components/Icon";
 
 export const metadata: Metadata = {
-  title: "Opérateur télécom à Cahors et dans le Lot (46)",
+  title: "Téléphonie professionnelle à Cahors (46)",
   description:
-    "CSX Telecom, siège social à Cahors, opérateur ARCEP indépendant dans le Lot (46). Standard IP, IPBX, internet professionnel, agents IA depuis 17 ans.",
+    "Téléphonie professionnelle et audit télécom à Cahors : standard IPBX, fibre pro, agents IA. Siège 1 Place Emilien Imbert. Devis sous 48 h au 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/cahors" },
 };
 
@@ -87,6 +87,15 @@ const faqItems = [
     question: "CSX Telecom peut-il intervenir dans les zones rurales du Lot ?",
     answer:
       "C'est précisément notre cœur de métier dans le 46. Notre siège est à Cahors et nos techniciens se déplacent dans tout le département : Figeac, Saint-Céré, Souillac, Gourdon, Bretenoux, la vallée du Lot. Nous connaissons les contraintes des zones rurales et semi-rurales du Lot mieux que tout autre opérateur. Pas de frais kilométriques excessifs sur la zone Lot.",
+  },
+  {
+    // Requête à forte impression sur l'ancienne URL http (« réparation
+    // téléphone cahors », « magasin de téléphonie ») : l'activité boutique
+    // n'existe plus. Répondre franchement vaut mieux que laisser la page
+    // décevoir — et l'entrée alimente le FAQPage déjà présent sur la page.
+    question: "CSX Telecom répare-t-il les téléphones à Cahors ?",
+    answer:
+      "Non. CSX Telecom ne fait plus de réparation ni de vente de téléphones en boutique : nous sommes aujourd'hui exclusivement opérateur télécom pour les entreprises. Si vous cherchez à faire réparer un mobile personnel, un réparateur indépendant de Cahors sera plus indiqué que nous. En revanche, si vous équipez une entreprise — postes fixes, standard téléphonique, forfaits mobiles professionnels, fibre — c'est précisément notre métier, et l'audit est gratuit.",
   },
   {
     question: "Quelles solutions pour une entreprise dans une zone blanche ou mal couverte du Lot ?",
@@ -411,6 +420,40 @@ export default function CahorsPage() {
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* RÉORIENTATION « RÉPARATION » — voir l'entrée FAQ correspondante */}
+      <section className="bg-white">
+        <div className="container-page">
+          <div className="pb-4">
+            <div className="mx-auto max-w-3xl rounded-2xl border border-slate-200 p-6 md:p-8">
+              <h2 className="mb-3 text-xl font-bold tracking-tight" style={{ color: "var(--csx-primary)" }}>
+                Vous cherchez une réparation de téléphone à Cahors ?
+              </h2>
+              <p className="leading-relaxed text-slate-600">
+                Nous ne réparons plus les téléphones et n&apos;avons plus d&apos;activité de
+                boutique : CSX Telecom est aujourd&apos;hui exclusivement opérateur télécom pour
+                les entreprises. Pour un mobile personnel, un réparateur indépendant de Cahors
+                vous dépannera plus vite que nous.
+              </p>
+              <p className="mt-3 leading-relaxed text-slate-600">
+                En revanche, si vous équipez une entreprise — postes fixes,{" "}
+                <Link href="/standard-telephonique-ipbx" className="font-[550] underline decoration-1 underline-offset-2" style={{ color: "var(--csx-primary)" }}>
+                  standard téléphonique IPBX
+                </Link>
+                ,{" "}
+                <Link href="/internet-professionnel" className="font-[550] underline decoration-1 underline-offset-2" style={{ color: "var(--csx-primary)" }}>
+                  fibre professionnelle
+                </Link>{" "}
+                ou{" "}
+                <Link href="/agents-virtuels-ia" className="font-[550] underline decoration-1 underline-offset-2" style={{ color: "var(--csx-primary)" }}>
+                  agent vocal IA
+                </Link>{" "}
+                — c&apos;est notre métier depuis 17 ans, et l&apos;audit est gratuit.
+              </p>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Agent vocal IA qui décroche vos appels 24h/24 : accueil téléphonique automatisé, prise de message, transfert. Intégré à votre standard IP. Démo gratuite.",
   alternates: { canonical: "https://www.csx-telecom.fr/agents-virtuels-ia" },
+  openGraph: pageOpenGraph("/agents-virtuels-ia"),
 };
 
 const jsonLd = {

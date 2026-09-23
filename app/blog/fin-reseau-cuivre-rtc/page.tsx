@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Orange ferme le réseau cuivre RTC lot par lot. Calendrier, impacts pour votre entreprise et solutions de migration vers l'IP : ce qu'il faut anticiper.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc" },
+  openGraph: pageOpenGraph("/blog/fin-reseau-cuivre-rtc"),
 };
 
 const jsonLd = {

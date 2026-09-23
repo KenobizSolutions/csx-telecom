@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { VilleJsonLd } from "@/components/VilleJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Téléphonie d'entreprise à Gourdon et dans le sud du Lot : standard IPBX, fibre, 5G, Starlink. Agence 35 bis Boulevard Mainiol. Devis 48 h au 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/gourdon" },
+  openGraph: pageOpenGraph("/gourdon"),
 };
 
 

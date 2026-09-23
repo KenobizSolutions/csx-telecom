@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
   description:
     "Standard téléphonique IPBX cloud ou sur site pour PME : migration sans coupure, vos numéros conservés, support à Cahors et Montauban. Devis gratuit sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/standard-telephonique-ipbx" },
+  openGraph: pageOpenGraph("/standard-telephonique-ipbx"),
 };
 
 const jsonLd = {

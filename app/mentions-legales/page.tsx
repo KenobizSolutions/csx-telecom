@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
@@ -6,6 +7,7 @@ export const metadata: Metadata = {
   title: "Mentions légales",
   description: "Mentions légales de CSX Telecom — éditeur, hébergeur, déclaration ARCEP, propriété intellectuelle et données personnelles.",
   alternates: { canonical: "https://www.csx-telecom.fr/mentions-legales" },
+  openGraph: pageOpenGraph("/mentions-legales"),
 };
 
 const sections = [

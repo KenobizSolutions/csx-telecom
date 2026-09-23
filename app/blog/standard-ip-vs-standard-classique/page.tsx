@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Standard téléphonique IP ou analogique classique : fonctionnalités, coûts, contraintes techniques et avantages concrets pour votre entreprise.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique" },
+  openGraph: pageOpenGraph("/blog/standard-ip-vs-standard-classique"),
 };
 
 const jsonLd = {

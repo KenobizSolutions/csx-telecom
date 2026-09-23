@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Accès internet professionnel avec vraie redondance multi-opérateur. Fibre dédiée, SDSL, 5G, Starlink, MPLS, pare-feu NGFW. Opérateur ARCEP indépendant.",
   alternates: { canonical: "https://www.csx-telecom.fr/internet-professionnel" },
+  openGraph: pageOpenGraph("/internet-professionnel"),
 };
 
 const jsonLd = {

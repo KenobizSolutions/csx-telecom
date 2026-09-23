@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@/components/Icon";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
   description:
     "CSX Telecom, opérateur ARCEP indépendant. Standard IP, IPBX, internet professionnel, agents IA. Un seul interlocuteur. Plus de 200 clients. Audit gratuit.",
   alternates: { canonical: "https://www.csx-telecom.fr/" },
+  openGraph: pageOpenGraph("/"),
 };
 
 // Les données structurées de l'entreprise (Organization + LocalBusiness,

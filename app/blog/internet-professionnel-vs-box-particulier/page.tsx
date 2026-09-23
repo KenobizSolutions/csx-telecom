@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Pourquoi une box grand public ne suffit pas en entreprise : GTR, QoS, redondance, support. Comparatif avec un accès internet professionnel.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier" },
+  openGraph: pageOpenGraph("/blog/internet-professionnel-vs-box-particulier"),
 };
 
 const jsonLd = {

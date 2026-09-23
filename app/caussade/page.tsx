@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { VilleJsonLd } from "@/components/VilleJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Téléphonie d'entreprise à Caussade et dans le Quercy : standard IPBX, fibre pro, agents IA. Intervention depuis notre agence de Montauban. Devis sous 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/caussade" },
+  openGraph: pageOpenGraph("/caussade"),
 };
 
 

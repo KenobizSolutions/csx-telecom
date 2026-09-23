@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { articles } from "./data";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Articles de fond sur la téléphonie IP, la cybersécurité télécom et les agents IA vocaux pour les PME. Conseils d'un opérateur ARCEP indépendant.",
   alternates: { canonical: "https://www.csx-telecom.fr/blog" },
+  openGraph: pageOpenGraph("/blog"),
 };
 
 const categoryColors: Record<string, string> = {

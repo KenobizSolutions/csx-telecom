@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import { ContactForm } from "./ContactForm";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
   description:
     "Contactez CSX Telecom : 05 82 73 03 60 · contact@csx.fr. Siège à Cahors (46). Lun–Jeu 8h30–12h / 13h30–17h30, Ven jusqu'à 17h. Assistante IA 24h/24.",
   alternates: { canonical: "https://www.csx-telecom.fr/contact" },
+  openGraph: pageOpenGraph("/contact"),
 };
 
 const jsonLd = {

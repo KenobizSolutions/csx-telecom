@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 
@@ -7,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Politique de confidentialité de CSX Telecom : données collectées, finalités, durées de conservation et vos droits RGPD.",
   alternates: { canonical: "https://www.csx-telecom.fr/politique-confidentialite" },
+  openGraph: pageOpenGraph("/politique-confidentialite"),
 };
 
 const sections = [

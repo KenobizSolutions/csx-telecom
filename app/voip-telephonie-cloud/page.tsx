@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import Image from "next/image";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Téléphonie cloud et VoIP pour entreprise : voix sur IP, mobilité, télétravail, évolutivité. Sans matériel à gérer, par un opérateur ARCEP indépendant.",
   alternates: { canonical: "https://www.csx-telecom.fr/voip-telephonie-cloud" },
+  openGraph: pageOpenGraph("/voip-telephonie-cloud"),
 };
 
 const jsonLd = {

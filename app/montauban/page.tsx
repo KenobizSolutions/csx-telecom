@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageOpenGraph } from "@/lib/og";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { VilleJsonLd } from "@/components/VilleJsonLd";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   description:
     "Téléphonie d'entreprise à Montauban : standard IPBX, fibre pro, agents IA. Agence 1270 Avenue de Toulouse, techniciens sur place. Devis 48 h au 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/montauban" },
+  openGraph: pageOpenGraph("/montauban"),
 };
 
 

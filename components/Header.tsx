@@ -20,6 +20,7 @@
 import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { Icon } from "@/components/Icon";
 
 const navItems = [
   { label: "Standard IP",  href: "/standard-telephonique-ipbx" },
@@ -146,8 +147,20 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Audit gratuit (droite) — toujours opaque, séparé de la bulle nav */}
+          {/* CTA (droite) — toujours opaques, séparés de la bulle nav */}
           <div className="flex items-center gap-2 justify-self-end">
+            {/* Appel direct : beaucoup de prospects B2B préfèrent téléphoner.
+                Icône seule jusqu'au grand écran, numéro en clair au-delà. Sur
+                mobile c'était la seule action de contact visible sans ouvrir
+                le menu. Le clic est compté par AnalyticsEvents (call_click). */}
+            <a
+              href="tel:+33582730360"
+              aria-label="Appeler CSX Telecom au 05 82 73 03 60"
+              className="inline-flex h-11 w-11 items-center justify-center gap-2 rounded-full border border-slate-200 bg-white text-[14px] font-[550] text-[var(--csx-primary)] shadow-[0_4px_20px_rgba(13,13,168,0.1)] transition hover:bg-[var(--csx-light)] xl:w-auto xl:px-4"
+            >
+              <Icon name="phone" className="h-[18px] w-[18px]" />
+              <span className="hidden xl:inline">05 82 73 03 60</span>
+            </a>
             <Link
               href="/contact"
               className="hidden sm:inline-flex group items-center rounded-full bg-[var(--csx-primary)] px-5 py-2.5 text-[14px] font-[550] text-white shadow-[0_4px_20px_rgba(21,21,220,0.25)] transition-all hover:bg-[var(--csx-dark)]"
@@ -209,6 +222,13 @@ export function Header() {
                 </li>
               ))}
               <li className="mt-1 px-1">
+                <a
+                  href="tel:+33582730360"
+                  className="mb-2 inline-flex w-full items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-3 text-[14px] font-[550] text-[var(--csx-primary)] hover:bg-[var(--csx-light)]"
+                >
+                  <Icon name="phone" className="h-4 w-4" />
+                  Appeler le 05 82 73 03 60
+                </a>
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}

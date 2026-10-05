@@ -1,5 +1,7 @@
 "use server";
 
+import { evaluerDemande } from "@/lib/antispam";
+
 export type ContactValues = {
   name: string;
   company: string;
@@ -41,10 +43,6 @@ export async function sendContactMessage(
   _prev: ContactState,
   formData: FormData
 ): Promise<ContactState> {
-  // Honeypot anti-spam : champ caché, normalement vide. S'il est rempli,
-  // c'est un bot → on renvoie un faux succès pour ne rien lui apprendre.
-  if (clean(formData.get("website"), 100)) return { ok: true };
-
   const name = clean(formData.get("name"), 120);
   const company = clean(formData.get("company"), 160);
   const email = clean(formData.get("email"), 200);
@@ -74,6 +72,31 @@ export async function sendContactMessage(
   }
 
   const lead = { name, company, email, phone, subject, message, date: new Date().toISOString() };
+
+  // Tri anti-démarchage (voir lib/antispam.ts). Placé après la validation :
+  // un vrai visiteur qui s'est trompé de champ doit voir ses erreurs.
+  const debutBrut = Number(clean(formData.get("ts"), 20));
+  const verdict = evaluerDemande({
+    name,
+    company,
+    email,
+    phone,
+    subject,
+    message,
+    pieges: [clean(formData.get("website"), 100), clean(formData.get("siret_societe"), 100)],
+    debut: Number.isFinite(debutBrut) && debutBrut > 0 ? debutBrut : null,
+    maintenant: Date.now(),
+  });
+
+  if (verdict.niveau === "spam") {
+    // Faux succès : l'automate n'apprend rien. La demande reste consultable
+    // dans les logs Vercel (recherche : CONTACT_SPAM) en cas de doute.
+    console.warn(
+      `CONTACT_SPAM score=${verdict.score} [${verdict.raisons.join(" · ")}] ${JSON.stringify(lead)}`
+    );
+    return { ok: true };
+  }
+  const suspect = verdict.niveau === "suspect";
 
   /**
    * Filet de sécurité : quoi qu'il arrive, la demande complète est écrite dans
@@ -114,7 +137,12 @@ export async function sendContactMessage(
 
   const corpsMessage = message || "(aucun message saisi)";
 
+  const avertissement = suspect
+    ? `⚠ Spam probable (score ${verdict.score}) : ${verdict.raisons.join(" · ")}`
+    : "";
+
   const text = [
+    ...(avertissement ? [avertissement, ""] : []),
     ...lignes.map(([k, v]) => `${k} : ${v}`),
     "",
     "Message :",
@@ -125,6 +153,7 @@ export async function sendContactMessage(
 
   const html = `
     <div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;max-width:620px;color:#1a1a2e">
+      ${avertissement ? `<p style="background:#fff7ed;border:1px solid #fdba74;border-radius:8px;padding:10px 12px;color:#9a3412;font-size:13px;margin:0 0 16px">${esc(avertissement)}</p>` : ""}
       <h2 style="color:#1515dc;margin:0 0 16px">Nouvelle demande depuis le site</h2>
       <table style="border-collapse:collapse;width:100%;font-size:14px">
         ${lignes
@@ -154,7 +183,9 @@ export async function sendContactMessage(
         // Uniquement si le visiteur a laissé un e-mail : il peut ne donner
         // qu'un téléphone.
         ...(email ? { reply_to: email } : {}),
-        subject: `[Site] Demande de ${name}${company ? ` — ${company}` : ""}`,
+        // « [Spam probable] » permet un filtre de messagerie qui range ces
+        // demandes à part sans jamais les supprimer.
+        subject: `${suspect ? "[Spam probable] " : ""}[Site] Demande de ${name}${company ? ` — ${company}` : ""}`,
         text,
         html,
       }),

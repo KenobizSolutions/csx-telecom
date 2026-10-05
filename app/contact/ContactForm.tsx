@@ -1,8 +1,9 @@
 "use client";
 
-import { useActionState, useEffect } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { track } from "@vercel/analytics";
 import { Icon } from "@/components/Icon";
+import { BESOINS } from "@/lib/besoins";
 import { sendContactMessage, type ContactState } from "./actions";
 
 const initial: ContactState = { ok: false };
@@ -13,6 +14,19 @@ const labelClass = "mb-1.5 block text-sm font-[550] text-slate-700";
 
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(sendContactMessage, initial);
+
+  // Horodatage d'affichage, lu par le tri anti-démarchage (lib/antispam.ts) :
+  // un automate envoie en quelques millisecondes, ou sans exécuter ce code.
+  // La valeur d'origine est conservée d'un rendu à l'autre : un visiteur qui
+  // corrige une erreur et renvoie aussitôt ne doit pas paraître trop rapide.
+  // React réinitialise les champs non contrôlés après l'action, d'où la
+  // réécriture à chaque changement d'état.
+  const debutRef = useRef(0);
+  const tsRef = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (!debutRef.current) debutRef.current = Date.now();
+    if (tsRef.current) tsRef.current.value = String(debutRef.current);
+  }, [state]);
 
   // Événement de conversion (Vercel Analytics), déclenché une seule fois.
   // L'appel se faisait auparavant dans le corps du rendu : il repartait à
@@ -52,11 +66,19 @@ export function ContactForm() {
 
   return (
     <form action={formAction} className="space-y-4" noValidate>
-      {/* Honeypot anti-spam — masqué aux humains et aux lecteurs d'écran */}
+      {/* Champs pièges anti-démarchage — invisibles pour un humain et pour les
+          lecteurs d'écran. « website » en display:none est connu des robots
+          les plus évolués, qui l'ignorent ; le second est simplement placé
+          hors écran, ce que la plupart ne détectent pas. */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="website">Ne pas remplir</label>
         <input id="website" type="text" name="website" tabIndex={-1} autoComplete="off" />
       </div>
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+        <label htmlFor="siret_societe">SIRET de la société</label>
+        <input id="siret_societe" type="text" name="siret_societe" tabIndex={-1} autoComplete="off" />
+      </div>
+      <input ref={tsRef} type="hidden" name="ts" defaultValue="" />
 
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
@@ -128,12 +150,9 @@ export function ContactForm() {
           defaultValue={v?.subject ?? ""}
         >
           <option value="">— Sélectionnez —</option>
-          <option>Standard téléphonique IP / IPBX</option>
-          <option>VoIP / téléphonie cloud</option>
-          <option>Internet professionnel / fibre</option>
-          <option>Agents vocaux IA</option>
-          <option>Migration réseau cuivre (RTC)</option>
-          <option>Autre demande</option>
+          {BESOINS.map((b) => (
+            <option key={b}>{b}</option>
+          ))}
         </select>
       </div>
 

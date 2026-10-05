@@ -8,7 +8,7 @@ import { Icon } from "@/components/Icon";
 export const metadata: Metadata = {
   title: "Téléphonie d'entreprise à Bayonne et Biarritz",
   description:
-    "Téléphonie d'entreprise à Bayonne, Biarritz et Anglet : standard IPBX, fibre pro multi-opérateur, agents IA. Opérateur ARCEP. Audit gratuit, devis sous 48 h.",
+    "Téléphonie professionnelle à Bayonne, Biarritz et Anglet : standard IPBX, fibre pro multi-opérateur, agents IA. Opérateur ARCEP. Audit gratuit, devis 48 h.",
   alternates: { canonical: "https://www.csx-telecom.fr/bayonne-biarritz" },
   openGraph: pageOpenGraph("/bayonne-biarritz"),
 };

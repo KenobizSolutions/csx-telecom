@@ -7,13 +7,20 @@ import { Icon } from "@/components/Icon";
 export const metadata: Metadata = {
   // Titre en absolu : le gabarit « %s | CSX Telecom » du layout ne s'applique
   // pas à la page racine (même segment), la marque est donc écrite ici.
-  // Le mot-clé passe devant : sur les requêtes non-marque — le levier de
-  // croissance — c'est « opérateur télécom » qui doit être lu en premier.
+  //
+  // Recentré sur Cahors d'après la Search Console (juin–sept. 2026) : c'est
+  // l'accueil — et non /cahors — que Google affiche sur les recherches locales,
+  // et en tête de page (« téléphonie professionnels cahors » pos. 1,2,
+  // « telephonie entreprise cahors » 1,6, « telephonie professionnelle
+  // cahors » 3,7), pour 0 clic : l'ancien titre ne contenait ni « téléphonie »
+  // ni « Cahors », l'internaute n'y reconnaissait pas sa recherche.
+  // « opérateur télécom », la cible précédente, ne génère quasiment aucune
+  // impression.
   title: {
-    absolute: "Opérateur télécom indépendant pour entreprises | CSX Telecom",
+    absolute: "Téléphonie et internet d'entreprise à Cahors | CSX Telecom",
   },
   description:
-    "CSX Telecom, opérateur ARCEP indépendant. Standard IP, IPBX, internet professionnel, agents IA. Un seul interlocuteur. Plus de 200 clients. Audit gratuit.",
+    "Opérateur télécom à Cahors depuis 17 ans : standard IPBX, fibre pro, agents IA pour les entreprises du Lot et d'Occitanie. Audit gratuit · 05 82 73 03 60.",
   alternates: { canonical: "https://www.csx-telecom.fr/" },
   openGraph: pageOpenGraph("/"),
 };

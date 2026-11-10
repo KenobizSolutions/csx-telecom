@@ -13,7 +13,12 @@ CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), 
 - Site : https://www.csx-telecom.fr
 - Téléphone : 05 82 73 03 60
 - Email : contact@csx.fr
-- Horaires : lun–jeu 8h30–12h / 13h30–17h30, ven 8h30–12h / 13h30–17h
+- Horaires : lun–jeu 8h30–12h / 13h30–17h30, ven 8h30–12h / 13h30–17h00
+
+## Établissements
+- Siège : 1 Place Emilien Imbert, 46000 Cahors
+- Agence de Montauban : 1270 Avenue de Toulouse, 82000 Montauban
+- Agence de Gourdon : 35 bis Boulevard Mainiol, 46300 Gourdon
 
 ## Pages principales
 - Accueil : https://www.csx-telecom.fr/
@@ -36,14 +41,11 @@ CSX Telecom est un opérateur télécom multi-opérateur basé à Cahors (Lot), 
 
 ## Articles de blog
 - La fin du réseau cuivre RTC : https://www.csx-telecom.fr/blog/fin-reseau-cuivre-rtc
-- Cybersécurité télécom pour les PME : https://www.csx-telecom.fr/blog/cybersecurite-telecom-pme
-- Agents IA vocaux — comment ça marche : https://www.csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
+- Fin du RTC, la checklist de migration vers l'IP : https://www.csx-telecom.fr/blog/migration-rtc-checklist
 - Standard IP vs standard classique : https://www.csx-telecom.fr/blog/standard-ip-vs-standard-classique
+- IPBX vs Centrex, quelle solution : https://www.csx-telecom.fr/blog/ipbx-vs-centrex-quelle-solution
+- Trunk SIP, qu'est-ce que c'est : https://www.csx-telecom.fr/blog/trunk-sip-explication
 - Internet professionnel vs box grand public : https://www.csx-telecom.fr/blog/internet-professionnel-vs-box-particulier
-- IPBX vs Centrex : quelle solution ? : https://www.csx-telecom.fr/blog/ipbx-vs-centrex-quelle-solution
-- Trunk SIP : qu'est-ce que c'est et pourquoi migrer ? : https://www.csx-telecom.fr/blog/trunk-sip-explication
+- Cybersécurité télécom pour les PME : https://www.csx-telecom.fr/blog/cybersecurite-telecom-pme
+- Agents IA vocaux, comment ça marche : https://www.csx-telecom.fr/blog/agents-ia-vocaux-comment-ca-marche
 - Standard téléphonique IA vs accueil humain : https://www.csx-telecom.fr/blog/standard-telephonique-ia-vs-humain
-- Fin du RTC : la checklist de migration vers l'IP : https://www.csx-telecom.fr/blog/migration-rtc-checklist
-
-## À propos de l'opérateur
-CSX Telecom est déclaré opérateur auprès de l'ARCEP (Autorité de Régulation des Communications Électroniques et des Postes). Ce statut permet un accès direct aux infrastructures de tous les opérateurs nationaux (Orange, SFR, Bouygues, opérateurs fibre locaux) et à Starlink Business, sans dépendance commerciale envers l'un d'eux.

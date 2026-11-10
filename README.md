@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# csx-telecom.fr
 
-## Getting Started
+Site vitrine B2B de CSX Telecom (opérateur télécom, Cahors) — Next.js (App Router), déployé sur Vercel à chaque merge sur `main`.
 
-First, run the development server:
+## Commandes
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev     # développement, http://localhost:3000
+npm run build   # build de production
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Repères
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `lib/entreprise.ts` — source unique : NAP, horaires, établissements, profils officiels. Doit rester identique aux fiches d'établissement Google.
+- `components/VilleJsonLd.tsx` — données structurées des pages villes.
+- `app/contact/actions.ts` — envoi du formulaire via Resend ; `lib/antispam.ts` — tri anti-démarchage.
+- `components/SteeveWidget*.tsx` — bulle de l'agent vocal ElevenLabs (l'agent se configure côté ElevenLabs).
+- `app/sitemap.ts` — dates `lastmod` à mettre à jour quand une page change.
+- `public/llms.txt` — présentation du site pour les assistants IA ; à tenir à jour avec les pages et les horaires.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variables d'environnement (Vercel)
 
-## Learn More
+`RESEND_API_KEY_TELECOM` (requise), `CONTACT_TO`, `CONTACT_FROM` (facultatives).
 
-To learn more about Next.js, take a look at the following resources:
+## Règles éditoriales
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pas de référence client, pas de marque citée, pas de prix, pas d'adresse d'agence non confirmée. Détail dans `SEO-CHANGELOG.md`.

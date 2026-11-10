@@ -85,6 +85,13 @@ const FORMULES: RegExp[] = [
   /désinscri|ne plus recevoir/i,
 ];
 
+/** Messageries jetables vues dans le spam reçu, plus les plus courantes. */
+const DOMAINES_JETABLES = new Set([
+  "prodmail.online", "yopmail.com", "mailinator.com", "guerrillamail.com",
+  "tempmail.plus", "mailto.plus", "fexpost.com", "fextemp.com", "maildrop.cc",
+  "10minutemail.com", "trashmail.com", "sharklasers.com", "getnada.com",
+]);
+
 const URL_RE = /\bhttps?:\/\/\S+|\bwww\.[a-z0-9-]+\.[a-z]{2,}\S*/gi;
 
 function proportionAnglais(texte: string): { en: number; fr: number } {
@@ -136,6 +143,21 @@ export function evaluerDemande(d: Demande): Verdict {
   const liens = d.message.match(URL_RE) ?? [];
   if (liens.length >= 2) ajoute(3, `${liens.length} liens dans le message`);
   else if (liens.length === 1) ajoute(2, "lien dans le message");
+
+  // Lien vers une page tierce fabriquée à notre nom (« …/tel/csx-telecom ») :
+  // signature des faux prospects d'oct.–nov. 2026, dont le message imite une
+  // vraie demande de devis. Un client n'a aucune raison d'envoyer un tel lien.
+  const lienANotreNom = liens.some((l) => {
+    const m = l.toLowerCase().match(/^(?:https?:\/\/)?([^\/\s]+)(\/\S*)?/);
+    if (!m) return false;
+    const [, hote, chemin = ""] = m;
+    return !/(^|\.)csx-telecom\.fr$|(^|\.)csx\.fr$/.test(hote) && /csx[-_]?telecom/.test(chemin);
+  });
+  if (lienANotreNom) ajoute(4, "lien vers une page tierce à notre nom");
+
+  // Messagerie jetable : jamais éliminatoire seule.
+  const domaine = d.email.toLowerCase().split("@")[1] ?? "";
+  if (DOMAINES_JETABLES.has(domaine)) ajoute(3, "adresse e-mail jetable");
 
   let formules = 0;
   for (const re of FORMULES) if (re.test(d.message)) formules++;

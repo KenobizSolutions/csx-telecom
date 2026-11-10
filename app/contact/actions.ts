@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { evaluerDemande } from "@/lib/antispam";
 
 export type ContactValues = {
@@ -19,6 +20,32 @@ export type ContactState = {
   /** Saisie renvoyée au formulaire pour ne rien perdre en cas d'erreur. */
   values?: ContactValues;
 };
+
+/**
+ * Limite d'envois par adresse IP : garde-fou contre un automate qui passerait
+ * le tri et viderait le quota Resend. Mémoire locale à l'instance serveur,
+ * donc approximative sur Vercel (plusieurs instances) — suffisante pour
+ * casser une rafale, sans dépendance ni base de données.
+ */
+const LIMITE_ENVOIS = 5;
+const FENETRE_MS = 10 * 60 * 1000;
+const envoisParIp = new Map<string, number[]>();
+
+function tropDEnvois(ip: string, maintenant: number): boolean {
+  const recents = (envoisParIp.get(ip) ?? []).filter((t) => maintenant - t < FENETRE_MS);
+  if (recents.length >= LIMITE_ENVOIS) {
+    envoisParIp.set(ip, recents);
+    return true;
+  }
+  recents.push(maintenant);
+  envoisParIp.set(ip, recents);
+  if (envoisParIp.size > 5000) envoisParIp.clear();
+  return false;
+}
+
+function logLeadBrut(raison: string, lead: unknown) {
+  console.error(`CONTACT_LEAD ${raison} ${JSON.stringify(lead)}`);
+}
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -97,6 +124,17 @@ export async function sendContactMessage(
     return { ok: true };
   }
   const suspect = verdict.niveau === "suspect";
+
+  const ip = ((await headers()).get("x-forwarded-for") ?? "").split(",")[0].trim() || "inconnue";
+  if (tropDEnvois(ip, Date.now())) {
+    logLeadBrut("LIMITE_ENVOIS", lead);
+    return {
+      ok: false,
+      values,
+      error:
+        "Trop de demandes envoyées en peu de temps. Merci de réessayer dans quelques minutes ou de nous appeler au 05 82 73 03 60.",
+    };
+  }
 
   /**
    * Filet de sécurité : quoi qu'il arrive, la demande complète est écrite dans

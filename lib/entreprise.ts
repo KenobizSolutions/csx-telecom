@@ -16,10 +16,12 @@ export const EMAIL = "contact@csx.fr";
 
 /**
  * Horaires d'ouverture, identiques sur les trois établissements.
+ * Confirmés par l'entreprise le 10/11/2026 : fermeture à 17h00 le vendredi
+ * (17h30 du lundi au jeudi). Doivent rester identiques au texte visible
+ * (pied de page, page contact) et aux fiches d'établissement Google.
  *
  * Deux plages distinctes par jour : la coupure du midi doit rester visible.
- * Les fusionner en 08:30–17:30 annoncerait une ouverture continue qui n'existe
- * pas, et Google afficherait de faux horaires.
+ * Les fusionner annoncerait une ouverture continue qui n'existe pas.
  *
  * Samedi et dimanche : aucune entrée. En schema.org l'absence de jour vaut
  * fermeture ; une plage 00:00–00:00 serait interprétée comme une ouverture.
@@ -33,9 +35,15 @@ export const HORAIRES = [
   },
   {
     "@type": "OpeningHoursSpecification",
-    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
     opens: "13:30",
     closes: "17:30",
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Friday"],
+    opens: "13:30",
+    closes: "17:00",
   },
 ] as const;
 

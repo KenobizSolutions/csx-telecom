@@ -122,8 +122,6 @@ export default function RootLayout({
           <Footer />
         </div>
 
-        {/* Kenobot script placeholder */}
-
         {/* Widget vocal Steeve — chargé après idle pour ne pas pénaliser le LCP */}
         <SteeveWidgetLazy />
 

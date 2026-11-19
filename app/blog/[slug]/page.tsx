@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { articles, getArticleBySlug } from "../data";
 import { BreadcrumbJsonLd } from "@/components/BreadcrumbJsonLd";
 import { Icon } from "@/components/Icon";
+import { OG_IMAGE } from "@/lib/og";
 
 /* ------------------------------------------------------------------ */
 /*  Static params — pre-render all known slugs at build time           */
@@ -46,6 +47,7 @@ export async function generateMetadata(props: {
       type: "article",
       publishedTime: article.date,
       authors: ["CSX Telecom"],
+      images: [OG_IMAGE],
     },
   };
 }
